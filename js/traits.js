@@ -136,7 +136,7 @@
       effect: function (t, c) { const T = TIER.conserve[lv(t)]; return '只能走地下；隧道 ×' + num(T.tunnel) + '，车站 ×' + num(T.station) + '，拆迁 ×' + num(T.demolish); },
       needs: function (t, D) { return needRegions(t.regions, D).concat(needLandmarks(t.guards, D)); },
       build: function (t, c) {
-        for (const id of t.regions) { const r = c.D.regions.find(function (x) { return x.id === id; }); if (r) r.heritage = true; }
+        for (const id of (t.regions || [])) { const r = c.D.regions.find(function (x) { return x.id === id; }); if (r) r.heritage = true; }
         c.D.heritage = c.D.heritage || { guards: [] };
         setCost(c, TIER.conserve[lv(t)]);
         addGuards(t, c);
@@ -281,7 +281,11 @@
           if (q.title) eventAt(D, { y: q.y[0], m: q.y[1], title: q.title, desc: q.desc || '', tag: q.tag });
           ids.push(q.id);
         }
-        D.cityLink = { map: t.map, name: t.name, gates: ids, ach: t.ach || null, region: t.region || null };   // region：图内对岸城市的片区，接通后点击可以进入对岸
+        // v3.2：一幅图可以连多个对岸（D.cityLinks 数组，按接驳口分辨对岸）；D.cityLink 仍指向第一条，兼容只认单条的旧代码
+        const link = { map: t.map, name: t.name, gates: ids, ach: t.ach || null, region: t.region || null };   // region：图内对岸城市的片区，接通后点击可以进入对岸
+        D.cityLinks = (D.cityLinks || []).filter(function (x) { return x.map !== link.map; });
+        D.cityLinks.push(link);
+        D.cityLink = D.cityLinks[0];
         t._from = ymYear(t.gates[0].y[0], t.gates[0].y[1]);
       } },
     // 旅游客流（v3.0）：标了 tour 的景点，游客量按 D.tourism 的年份曲线起落（写明区间的历史事件与旅游业发展），由地铁接到景点就有游客的票款
@@ -345,8 +349,9 @@
       if (t.use === 'foresight') { inRange(t.ym[0], '判定日期'); inRange(t.before, '最晚通车年份'); if (t.before > t.ym[0]) out.push('foresight：最晚通车年份晚于判定日期'); }
       if (t.use === 'megaEvent' && !t.existing) { inRange(t.bid.y, '主办权日期'); if (t.foresight) inRange(t.foresight.before, '最晚通车年份'); }
       if (t.use === 'cityLink') {
-        const other = CM.MAPS && CM.MAPS[t.map], back = other && other.data && other.data.cityLink;
-        if (!other) out.push('cityLink：对岸地图不存在：' + t.map); else if (!back || back.map !== m.id) out.push('cityLink：对岸地图没有连回来：' + t.map);
+        const other = CM.MAPS && CM.MAPS[t.map];
+        const back = other && other.data ? (other.data.cityLinks && other.data.cityLinks.length ? other.data.cityLinks : (other.data.cityLink ? [other.data.cityLink] : [])) : [];
+        if (!other) out.push('cityLink：对岸地图不存在：' + t.map); else if (!back.some(function (x) { return x.map === m.id; })) out.push('cityLink：对岸地图没有连回来：' + t.map);
         for (const q of t.gates || []) { inRange(q.y[0], '接驳口开放日期'); if (!q.at || !q.pax || !q.to) out.push('cityLink：接驳口缺位置、客流或去向：' + q.id); }
         if (t.region) for (const e of needRegions([t.region], D)) out.push('cityLink：' + e);
       }

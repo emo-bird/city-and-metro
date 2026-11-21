@@ -6,7 +6,19 @@
 // 这里不判断具体城市，换一对相邻城市只要在地图数据里声明 cityLink。
 (function (CM) {
   const CFG = CM.CFG, KEY = 'cm1.linkOverlay';
-  const info = function () { return CM.DATA.cityLink || null; };
+  // 多对岸（v3.2）：D.cityLinks 是数组，每个接驳口归属其中一条；只写了 D.cityLink 的旧地图仍按单条处理
+  const links = function () {
+    const D = CM.DATA;
+    if (D.cityLinks && D.cityLinks.length) return D.cityLinks;
+    return D.cityLink ? [D.cityLink] : [];
+  };
+  // 不传接驳口 id 时给第一条（顶栏、叠加层等只需要「有没有对岸」的地方）
+  const info = function (gateId) {
+    const L = links();
+    if (!gateId) return L[0] || null;
+    for (const x of L) if (x.gates.indexOf(gateId) >= 0) return x;
+    return L[0] || null;
+  };
   const facs = function (g) { if (!info() || !CM.Fac) return []; return CM.Fac.list(g.city).filter(function (f) { return f.ext && f.ext.gate; }); };
   // 各接驳口的状态：是否开放、是否接通、附加费、乘地铁的过境旅客（人次/日）
   const gates = function (g) {
@@ -25,8 +37,8 @@
     return sum;
   };
   // 对岸最新的存档：只看同一模式，备份不算
-  const latest = function (mode) {
-    const L = info(); if (!L || !CM.Save) return null;
+  const latest = function (mode, Lk) {
+    const L = Lk || info(); if (!L || !CM.Save) return null;
     // 分组顺序可能由升级前备份决定；跨进度比较正常存档的时间。
     let best = null;
     for (const G of CM.Save.list(L.map)) { if (G.mode !== mode) continue; for (const s of G.slots) if (s.kind !== 'backup' && (!best || s.savedAt > best.savedAt)) best = s; }
@@ -34,8 +46,8 @@
   };
   const modeName = function (mode) { return mode === 'free' ? '自由建造' : '经营挑战'; };
   // 切换到对岸：先保存当前城市（保存失败时留在原地，见 backToMenu），再读对岸存档；对岸没有同模式的存档就到它的开局页面
-  const switchTo = function (ui) {
-    const g = ui.g(), L = info(); if (!g || !L) return;
+  const switchTo = function (ui, Lk) {
+    const g = ui.g(), L = Lk || info(); if (!g || !L) return;
     const s = latest(g.mode), mode = g.mode;
     ui.backToMenu(function () {
       if (s) ui.loadSlot(s.slotId);
@@ -44,15 +56,28 @@
   };
 
   // 图内对岸城市的范围（地图数据的 region）：接通后点击进入对岸
-  const at = function (g, x, y) {
-    const L = info(); if (!L || !L.region || g.preview || g.tutorial) return false;
-    const r = g.city.regionAt(x, y); return !!r && r.id === L.region && connected(g);
+  // 图内对岸城市的范围：按片区找出属于哪一条 link（多对岸时各自点各自的片区）
+  let entry = null;
+  const linkAt = function (g, x, y) {
+    if (g.preview || g.tutorial) return null;
+    const r = g.city.regionAt(x, y); if (!r) return null;
+    for (const L of links()) if (L.region && L.region === r.id) return L;
+    return null;
   };
-  const hoverTip = function (g, x, y) { if (!at(g, x, y)) return null; const L = info(); return { title: '进入' + L.name, lines: ['口岸已接通：点击切换到' + L.name + '（' + modeName(g.mode) + '）'] }; };
+  const at = function (g, x, y) {
+    const L = linkAt(g, x, y);
+    entry = L && connected(g) ? L : null;
+    return !!entry;
+  };
+  const hoverTip = function (g, x, y) {
+    if (!at(g, x, y)) return null;
+    const L = entry || info();
+    return { title: '进入' + L.name, lines: ['口岸已接通：点击切换到' + L.name + '（' + modeName(g.mode) + '）'] };
+  };
   const offer = function (ui) {
-    const g = ui.g(), L = info(); if (!g || !L) return;
-    const s = latest(g.mode), mn = modeName(g.mode);
-    ui.confirm('进入' + L.name + '？', s ? '先保存当前进度，再读取' + L.name + '最新的' + mn + '存档「' + s.name + '」（' + s.date[0] + ' 年 ' + s.date[1] + ' 月）。两座城市各算各的，时间不同步。' : L.name + '还没有' + mn + '的存档。先保存当前进度，再到' + L.name + '的开局页面。', s ? '进入' + L.name : '前往开局', function () { switchTo(ui); }, false, 'map');
+    const g = ui.g(), L = entry || info(); if (!g || !L) return;
+    const s = latest(g.mode, L), mn = modeName(g.mode);
+    ui.confirm('进入' + L.name + '？', s ? '先保存当前进度，再读取' + L.name + '最新的' + mn + '存档「' + s.name + '」（' + s.date[0] + ' 年 ' + s.date[1] + ' 月）。两座城市各算各的，时间不同步。' : L.name + '还没有' + mn + '的存档。先保存当前进度，再到' + L.name + '的开局页面。', s ? '进入' + L.name : '前往开局', function () { switchTo(ui, L); }, false, 'map');
   };
 
   // ---------------- 对岸线网 ----------------
@@ -131,7 +156,7 @@
     ctx.restore();
   };
   CM.CityLink = {
-    info: info, gates: gates, connected: connected, dayIncome: dayIncome, latest: latest, modeName: modeName, switchTo: switchTo, at: at, hoverTip: hoverTip, offer: offer,
+    info: info, links: links, gates: gates, connected: connected, dayIncome: dayIncome, latest: latest, modeName: modeName, switchTo: switchTo, at: at, hoverTip: hoverTip, offer: offer,
     draw: draw, clear: function () { st.g = null; st.nv = -1; st.ym = -1; clearPreview(); }, visible: visible, setVisible: setVisible, overlay: function () { return st.data; }, loading: function () { return !!st.loading; },
     // 附加费滑块的范围：跟票价滑块同一套，按当年物价放大
     feeRange: function (g) { const R = CM.fareRangeNow(g); return { min: 0, max: Math.max(R.step, R.max), step: R.step }; },
