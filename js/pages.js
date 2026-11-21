@@ -2185,7 +2185,7 @@
     const body = h('div', { class: 'page-enter' });
     el.appendChild(body);
     const kindTag = function (t) { return t.optional ? h('span', { class: 'tk-tags' }, kindTag0(t), h('span', { class: 'tag opt', style: { marginLeft: '4px' } }, '可选')) : kindTag0(t); };
-    const kindTag0 = function (t) { return t.kind === 'hist' ? h('span', { class: 'tag hist' }, '历史参考') : (t.kind === 'opt' || t.kind === 'offer' ? h('span', { class: 'tag opt' }, t.scenario ? '城市难题' : '可选挑战') : (t.cause ? h('span', { class: 'tag hist' }, '事件引发') : t.cityId ? h('span', { class: 'tag est' }, '本城动态') : h('span', { class: 'tag info' }, '动态任务'))); };
+    const kindTag0 = function (t) { return t.kind === 'hist' ? h('span', { class: 'tag hist' }, '历史参考') : (t.kind === 'plan' ? h('span', { class: 'tag info' }, '规划目标') : (t.kind === 'sim' ? h('span', { class: 'tag info' }, '推演挑战') : (t.kind === 'opt' || t.kind === 'offer' ? h('span', { class: 'tag opt' }, t.scenario ? '城市难题' : '可选挑战') : (t.cause ? h('span', { class: 'tag hist' }, '事件引发') : t.cityId ? h('span', { class: 'tag est' }, '本城动态') : h('span', { class: 'tag info' }, '动态任务'))))); };
     // 可选挑战的主题与思路（v2.3）
     // 事件引发的任务（v3.1）：标出起因的历史事件
     const themeRow = function (t) { return t.theme ? h('div', { class: 'tk-theme' }, CM.icon(t.scenario ? 'flag' : 'sparkle', 13), h('b', null, t.theme)) : (t.cause ? h('div', { class: 'tk-theme' }, CM.icon('megaphone', 13), h('span', null, '起因：'), h('b', null, t.cause)) : null); };

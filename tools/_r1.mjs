@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+const gz = fs.readFileSync('js/data_gz.js', 'utf8');
+let i = gz.indexOf("use: 'conserve'");
+if (i < 0) i = gz.indexOf('use: "conserve"');
+console.log('=== GZ conserve @', i);
+console.log(gz.slice(Math.max(0, i - 300), i + 1600));
+const dg = fs.readFileSync('js/data_dg.js', 'utf8');
+console.log('=== dgl101/102 present:', dg.includes("'dgl101'"), dg.includes("'dgl102'"));
+const m = dg.match(/id: 'dgl10\d'[\s\S]{0,200}/g) || [];
+console.log(m.join('\n---\n'));

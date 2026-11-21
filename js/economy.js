@@ -1446,7 +1446,7 @@
       if (ym < U.ymIndex(h.appear[0], h.appear[1])) continue;
       this.issued[h.id] = 1;
       if (ym > U.ymIndex(h.deadline[0], h.deadline[1])) continue;
-      const t = Object.assign({ kind: 'hist', status: 'active', issuedAt: [y, m], streak: 0 }, JSON.parse(JSON.stringify(Tasks.withPlan(g, h))));
+      const t = Object.assign({ kind: h.kind || 'hist', status: 'active', issuedAt: [y, m], streak: 0 }, JSON.parse(JSON.stringify(Tasks.withPlan(g, h))));
       t.reward = t.reward * g.econ.costIndex(y);
       Tasks.prepare(t, g);
       this.active.push(t);
