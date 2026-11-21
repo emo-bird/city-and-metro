@@ -427,4 +427,14 @@
     },
     cam: { cx: 120, cy: 105, zoom: 15 },
   });
+  // 城市连接（v3.2）：与东莞的接驳口（东莞图在 data_dg.js 里连回本图）
+  {
+    const e = CM.MAP_LIST[CM.MAP_LIST.length - 1];
+    e.data.traits = e.data.traits || [];
+    e.data.traits.push({ use: 'cityLink', icon: 'bridge', label: '深莞连接', map: 'dg', name: '东莞', ach: '深莞一线', why: '深莞两地规划了多条轨道衔接线（深圳 22 号线、东莞 1 号线支线），均未开工，按规划年份模拟。', gates: [
+      { id: 'sz_gate_dg', n: '观澜接驳口', to: '东莞 · 塘厦', at: [119.2, 31.1], dir: 'N', y: [2035, 1], pax: [[2035, 1.0], [2045, 2.2]], tag: '模拟',
+        title: '模拟：深莞地铁衔接', desc: '规划中的深莞地铁衔接（深圳 22 号线与东莞 1 号线支线）在观澜一带过境，目标 2035 年。这里按规划模拟，观澜接驳口开放。',
+        note: '按规划模拟：深莞轨道衔接尚在规划阶段。', why: '深莞两地规划了多条轨道衔接线，均未开工，按规划年份模拟。' },
+    ] });
+  }
 })(window.CM);
