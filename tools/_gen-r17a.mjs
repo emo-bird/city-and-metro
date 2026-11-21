@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 const INFL = { 2000:0.004,2001:0.007,2002:-0.008,2003:0.012,2004:0.039,2005:0.018,2006:0.015,2007:0.048,2008:0.059,2009:-0.007,2010:0.033,2011:0.054,2012:0.026,2013:0.026,2014:0.02,2015:0.014,2016:0.02,2017:0.016,2018:0.021,2019:0.029,2020:0.025,2021:0.02,2022:0.02,2023:0.02,2024:0.02 };
 const POP = [[2000,6.44e6],[2005,7.2e6],[2010,8.22e6],[2015,8.9e6],[2020,10.47e6],[2030,11.2e6],[2045,11.8e6],[2070,12.2e6],[2300,12.4e6]];
-const JR = [[2000,0.62],[2010,0.63],[2020,0.64],[2030,0.645]];
+const JR = [[1990,0.5],[2000,0.63],[2010,0.66],[2020,0.683],[2030,0.69],[2060,0.70]];
 const REAL = [[2000,831.4],[2010,4431.19],[2015,6275],[2020,9650.19],[2021,10855.35],[2024,12282.15]];
 function interp(arr, x) { if (x <= arr[0][0]) return arr[0][1]; for (let i = 1; i < arr.length; i++) if (x <= arr[i][0]) { const a = arr[i-1], b = arr[i]; return a[1] + (b[1]-a[1]) * (x-a[0])/(b[0]-a[0]); } return arr[arr.length-1][1]; }
 const gdp = (y) => interp(REAL, y) * 10000;
@@ -46,6 +46,16 @@ const mStart = s.indexOf('// 城市经济（v2.7 引擎机制 cfg.macro）');
 const mEnd = s.indexOf('      growth: Object.assign({}, CM.CFG.growth, {');
 if (mStart < 0 || mEnd < 0) throw new Error('macro 边界未找到');
 s = s.slice(0, mStart) + MACRO + s.slice(mEnd);
+
+// 就业比（从业人口 / 常住人口）：2000 年 0.63 → 2020 年 0.683（全社会从业人员 714.59 万 / 常住 1047 万）
+const JR_LINE = '        jobsRatio: ' + JSON.stringify(JR) + ',';
+const jrRe = /        jobsRatio: \[[^\n]*\],/;
+if (jrRe.test(s)) s = s.replace(jrRe, JR_LINE);
+else {
+  const anchor = s.indexOf('        popCurve: [[2000');
+  if (anchor < 0) throw new Error('popCurve 未找到');
+  s = s.slice(0, anchor) + JR_LINE + '\n' + s.slice(anchor);
+}
 
 const dl = [];
 for (const m of s.matchAll(/\{ id: '([a-z_0-9]+)', name: '([^']+)', geo: \{ admin: '([^']+)' \}/g)) {
