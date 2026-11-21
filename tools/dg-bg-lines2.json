@@ -1,0 +1,294 @@
+[
+ {
+  "id": "dg_广深线",
+  "kind": "rail",
+  "name": "广深线",
+  "speed": 70,
+  "head": 45,
+  "y0": 1911,
+  "hsr": false,
+  "stops": [
+   [
+    "平湖南",
+    256.99,
+    225.11
+   ],
+   [
+    "木古",
+    256.38,
+    220.12
+   ],
+   [
+    "平湖",
+    252.45,
+    210.12
+   ],
+   [
+    "塘头厦",
+    243.16,
+    164.27
+   ],
+   [
+    "樟木头",
+    229.28,
+    117.44
+   ],
+   [
+    "土塘",
+    212,
+    92.09
+   ],
+   [
+    "常平",
+    203.97,
+    80.78
+   ],
+   [
+    "茶山",
+    153.05,
+    40.96
+   ],
+   [
+    "东莞",
+    144.36,
+    34.9
+   ],
+   [
+    "红海",
+    137.81,
+    17.48
+   ],
+   [
+    "广州新塘",
+    41.01,
+    14.87
+   ]
+  ],
+  "path": "sh^_g^IjAIpFAj@CvA@~BLz@v@xCLf@J|C]lBy@|AUX{BxAqCd@{ANkCx@aAt@gAnAuCdDeBnB{@`AyAbB~@fINp@|@fCb@~ADZTfEFpAJrBJzBCzBLvCVnCdAlKPlBa@tDFVv@|Br@rAZl@`B|CtAfCpA`CrAdC~@bBhBjDfB|DlFrIj@v@~AtBnAdCd@|BLhCY`Dk@rB{@tCW|@EXWjBEzCH`BXtDPdE?f@?lEDvBLlAn@dFf@dFbAfJlAjLlBdRP`BP`Bp@dHh@pFD^NbAjBtKDf@FpBI`CCrB?~@@l@D~@`@hClC`KvBtIp@lCvAxFb@|Af@bBxBvHFTdC|Fv@|BXrCC|Bu@jHUdDBzB\\pCd@dBd@fB|@pD^nAD~@?`C?|CBxAPlCPxBl@vCr@jB^p@r@dApAvAl@d@~BxAnFrDvAv@pEjC~CrBb@b@bBvB|@xB\\zAPhAz@fEv@zCRvAh@pDl@~Bd@jAzBbDxBjCvAbBz@dAbAbA~BzBb@f@hAvAxBtC~@dBXj@rBlEx@dBdA|BlB~Dt@`BfA~BtAvC|@fBnAlCdAvB~AtCtB|BXXbCzBfExEzCrC|@dA~AhBbAdBvArCbEdIfBfDbCjEd@v@T\\hChCdB~AlKjKfBlBVd@pBbCfA`Av@b@lBv@~B`@nBJxCJlBVhC~@rBvAbFbEjBzAlDlCnCzBzAjApAhAhClBZVjEjD`HvFzFtE|CbCjAr@rCdAhCd@hCPhAH~BPlCh@vCnAtAt@dTpLpC|AbDhBhAl@|C`BpC|AXNvB~AhBxApBxApBvAx@r@t@j@lBxAfClB`CdCpAjCxAnEdAbDr@dCVdBFrCKfBYfFI~AG`D@r@N`Cd@~CRtAXzBh@rENpAPzA^bCbBbFb@v@nAjB~CxCNLlDrBdBbAjDnB`Af@dDjA|A\\lCl@zBj@|Ct@lBd@~IxBxCt@lEhA^HrHtB|A^nEl@lEj@pDh@f@FxG|@~Ft@dCVnDVdEr@~B\\lIjAlDb@`BLxBDfCAxCQ|AOhCg@hAYhBi@`Be@hCq@xAc@|C}@rA]~JuCd@OpBm@nJoCdA[~DiAzBq@vEwAnGiB~DkA`MuDd@M|Bo@bDw@jHwB`Bo@jF}BnD}AtFyBvCw@pF}AbI}B~Bu@nBk@tNuCbLcCrDg@`@GdCq@tBaAdCsAhCaBfDkB|Ao@nCi@vBSxE]xDd@xKFlALrDLlAB~BEjEe@tLyAhBU~Eq@hAMrAQlEi@nBWzBYrIeAfDa@hEi@|BY~NiBpC]pBMnMf@tAFnCL"
+ },
+ {
+  "id": "dg_京九线",
+  "kind": "rail",
+  "name": "京九线",
+  "speed": 70,
+  "head": 60,
+  "y0": 1996,
+  "hsr": false,
+  "stops": [
+   [
+    "谢岗",
+    270.22,
+    91.78
+   ],
+   [
+    "东莞东",
+    217.6,
+    88.34
+   ]
+  ],
+  "path": "_gh@kpFP[p@iAfBcDPmB^wCRi@VqCd@iEfBwN`@eD^yA`B}BbCs@hRi@rCC`@IdSqCdBc@jDmBzFmDxFkDvAw@`C}@pJuDt@SfBQlBF~BHzHk@rWqBlBOnASbBk@~CmAnBy@rCwBnC}CjFcGhCwCtAcATKrBg@bDK`BGjHQlBE|CLrD\\pIx@xDd@xBbAtCnCnBhAjAVrBNjBJnCDhGOhEIzSa@tAOfIkC|@Ur@IfDHnEZbBLpCv@p@\\|@`@bC`AfBVzCOnKcB`AU\\MlCkB`BkA|Fm@`@CpCv@|EfBvDn@dCR`CN~BP`DNxBNj@H~C^rH~@fGt@zAP~AN"
+ },
+ {
+  "id": "dg_穗深城际线",
+  "kind": "rail",
+  "name": "穗深城际线",
+  "speed": 120,
+  "head": 30,
+  "y0": 2019,
+  "hsr": false,
+  "stops": [
+   [
+    "新塘南",
+    40.13,
+    15.59
+   ],
+   [
+    "中堂",
+    47.38,
+    40.34
+   ],
+   [
+    "望牛墩",
+    50.08,
+    57.79
+   ],
+   [
+    "东莞西",
+    49.09,
+    70.01
+   ],
+   [
+    "洪梅",
+    45.9,
+    82.63
+   ],
+   [
+    "东莞港",
+    43.25,
+    114.74
+   ],
+   [
+    "厚街",
+    59.73,
+    119.32
+   ],
+   [
+    "虎门北",
+    67.83,
+    136.31
+   ],
+   [
+    "虎门东",
+    76.7,
+    149.79
+   ],
+   [
+    "长安西",
+    91.3,
+    168.86
+   ],
+   [
+    "长安",
+    105.48,
+    171.69
+   ],
+   [
+    "沙井西",
+    117.42,
+    191.8
+   ],
+   [
+    "福海西",
+    115.9,
+    211.06
+   ],
+   [
+    "深圳机场北",
+    119.19,
+    228.33
+   ]
+  ],
+  "path": "{kC~f@BEp@sB^kAHk@AkBYuCUoBWmCYsA{@{Ai@s@_BeCs@qBQuDCmAC{BEiDIu@IYeByCMUq@iAkA_DMg@Qw@m@_EOcAQaCHeCZ}C?eBEyBIuCAoBM{EEeCOcLQuIi@wBWo@sC_GaJyQQYmAqBoAaCc@mBKu@]mCg@{D[_C_@sCo@_FGo@l@wDrA_Df@aC@sCYkBK]g@aBa@qAw@cCc@wAgA_E[gAc@cBiA_EiAqDs@sAgBsC{@gCGgCb@gCN]dCoFhCwFf@eAxA_D`@y@f@kAhAaC~@{B^cBd@{CTsBF{@Bc@N}Cd@wJDq@LmCR}DNsDRyCZiCP_Bf@uCf@}Bn@qCj@}BrAcFhAgE~B}I\\oAhAiE^wAhAgENm@`@sBFgCKgAIc@kAwCe@u@gA}AqCoDWa@a@iAo@kDOuBGsBIwBG{CMuDGuBi@aBqAoAgCc@gE@y@BmEp@wIvAgBXsDn@{BLgDGo@GyFo@}Ei@_Cc@wBkAq@aBKyAIgEG}@KaCOeCQuCMoAWsBw@mFe@eBsAmC_BoC}CsF]c@gAoAiAiAe@_@_DwBeEkDYk@g@gBuAoEiA{AyB_CyCgDWa@q@gBUcBOkDSgBw@wBw@uCi@oKUiEa@oHAi@EqBk@iFsBuBcBi@aDgAiEgDeFsDwF{DuAs@uBk@gAQqDc@}BYuBW_Go@}Gy@kH}@mEi@}Ek@kLsA{C_@mN{AkFi@w@IaBOeJa@iG]eBg@}@i@uAeBOYg@aCDmCd@mBHQTa@hDgF~@kBJYZ}BR{HZgILkDXuHJkCZoJV_IJqCV{HRcFZcJT}FNyFJoCLuCN{EDwBF}BZmEFmB?qBQmC[sBk@eB{@uB}ImTc@eAyAsDe@gBIg@Gk@]kEYuB[gAsKuWWo@sDcJ"
+ },
+ {
+  "id": "dg_广惠城际线",
+  "kind": "rail",
+  "name": "广惠城际线",
+  "speed": 100,
+  "head": 30,
+  "y0": 2016,
+  "hsr": false,
+  "stops": [
+   [
+    "麻涌",
+    28.07,
+    64.94
+   ],
+   [
+    "东莞西",
+    49.27,
+    69.96
+   ],
+   [
+    "道滘",
+    62.66,
+    77.95
+   ],
+   [
+    "西平西",
+    97.95,
+    76.36
+   ],
+   [
+    "东城南",
+    109.97,
+    79.51
+   ],
+   [
+    "寮步",
+    141.1,
+    78.73
+   ],
+   [
+    "松山湖北",
+    159.73,
+    92.39
+   ],
+   [
+    "大朗镇",
+    180.79,
+    94.16
+   ],
+   [
+    "常平南",
+    202.87,
+    86.12
+   ],
+   [
+    "常平东",
+    218.16,
+    90.66
+   ],
+   [
+    "樟木头东",
+    244.51,
+    92.55
+   ],
+   [
+    "银瓶",
+    265.45,
+    88.82
+   ],
+   [
+    "沥林北",
+    295.33,
+    83.2
+   ]
+  ],
+  "path": "~f@cgHaAZmInAaEh@sEj@wARqBV_Gr@cCf@uC|@{Bp@sBx@qSvKy@d@o@ZeBp@gCx@aQ~Fg@NmE`@y@?_EOwASkAQ_BYcHiAa@IoASsBS_BIeCI_ACqDIyCMqBKqBMgBK{BOoUwA{DSeCYsD}@o@UgCiAqDeBaDaBmCuAoA_@aAUoCu@iHkBmBi@cBg@a@OiHmDoBaAm@[{BiBQQsCgDiAyAa@i@{AiBY_@cA_AkAq@kBm@}DmAgCw@oA]qB[_COyDKsBCgBEeCAaCLaBRsBb@u@TuDbBg@ZoCvBaCpBy@l@s@f@eB`Ao@XiBj@}Dx@uAb@yAn@oF`DUJoCt@qDXuABqCYmAWaCgAsH{EwHsEcHkEaCcAqC[{ACoDBsAF{Cb@oBh@q@\\gD|@qBp@a@LaUhImFhByCx@mh@|IsAJkDWuAa@mAk@mBqAmBuAaA{@i@k@uAwA_AeAe@k@k@q@qAuAs@u@wB{B}A_BKMoHoHaBiBiCmE}AsDiAuCqBoD}AyAeBw@y@UcAWcEq@eBIgCK}BI_BKsCc@yBu@}CgBs@c@o@a@cBeAeEoCeBy@qCQwAFgDPaBDkDD{TDeH@u@AcE?}CDuBXmBj@uA`@iI`Cs@BwCE{GBaVj@eHf@c@NuMrLyKxJkBz@gBJcDY}JwBeB]yA]{DoA}@[cAg@yB}AyBgBWM[QeBq@}IyCoAa@mDkAeCm@aAOw@M}CWaBEgLYeCG{DKsGQuBG}@I}@IsAS_Ca@sB_@wEa@mCFwBT]HuBn@aCjAwBrAo@b@oAz@y@d@eB|@_Bl@yGbCiBf@qFt@oMVaGLsGLqDBoB?gF[qCQ{BMqBK}BKsACu[BqE@sEBwBNwBXgAXmA^cBr@s@^oAx@sCtBqBxAkBfA}@`@yAf@o@PqB\\gDZ}BPaCPwAJiNbAo@FwDVwBNk@H}E|@oBp@k@Vi@XmBlAsAlAe@f@qAbBiAfBkEzGSTaB~A{@l@}@f@_C|@iAZgAP{BP_B@mCQe@EmBa@sBu@aAg@iAu@a@YiEuCYM}Ao@wBg@iD_@}B?eBJkBVeGdAaDp@gAb@"
+ },
+ {
+  "id": "dg_广深港高速线",
+  "kind": "rail",
+  "name": "广深港高速线",
+  "speed": 200,
+  "head": 30,
+  "y0": 2011,
+  "hsr": true,
+  "stops": [
+   [
+    "虎门",
+    68.55,
+    135.64
+   ],
+   [
+    "光明城",
+    183.19,
+    192.14
+   ]
+  ],
+  "path": "_vCc~OuDY}BScDQcBEaAAeD?{FBkCB{B@kC@qCA_CEkCK_FSkDMuAGkDEiA?}CBcCFyAHiBJoBLwHf@wCTcDTcF\\sCNeJr@}BPaAFoBJqBNiDTcF^yGd@wAJ}BN}BH}BBwC?_BA{CGwDOiAImBUmEm@eCa@_ASgCi@eBa@_x@oSs@Q{A_@aAWuEkAgCo@a@KcFoAkD}@sCo@{ZiHiBa@sBWoCSmBKyE[oG_@_@C{CSqBOcAKqAOiBWuC_@qAQ}Es@iASyBa@wD}@iAYoFmA}Cu@{A]yDeAiAYwBg@yX}GwA]sCo@yBk@wBi@mD{@qA]oBi@iDcAsAg@uAi@kBy@aBw@uBiAw@c@gBgAaAq@}@o@kCwBy@u@kAgAmAqAeAkA]_@g@m@gBaCyAyB_@o@kAsBg@_A_@y@u@}A]{@e@mAy@}Bc@uAQm@m@_Cg@wBY{AG]a@wC_@{CSeCIiAKgCGaCAiC@}BF_FB{BBkABgBFeDF_EJuG@iBNqKJoIBsDEoDGoBG{A[_EGk@[aCa@mCa@{Be@wB]sAUy@kAqDSk@aCyFq@wAwDcH{EgIeImM"
+ },
+ {
+  "id": "dg_京港高速线",
+  "kind": "rail",
+  "name": "京港高速线",
+  "speed": 200,
+  "head": 60,
+  "y0": 2021,
+  "hsr": true,
+  "stops": [
+   [
+    "东莞南",
+    229.6,
+    142.39
+   ],
+   [
+    "光明城",
+    183.39,
+    192.15
+   ]
+  ],
+  "path": "iu_@iwMfMkLnFgGfC}CjH{HzI_KnDcDbCsBhCmB|B}AtAy@vBmAjBaAfEmBj@UbDqAnAe@zCoAhLwEdDqAfCcAtB{@hLsExCmA~CoApGcCv@[nDsAjRaHrLiEzEaBzBs@zBm@|Bi@dIeBdJeCfF_BvEcBd@Sj@YbFoCXQ~DiCrB}AbB{ArDqDz@y@dBkBt@y@xAuBnDuFZe@|AwCl@sAx@kBFQjA{Ct@}Bj@oB`A{D\\eBToAb@eC^wCN_BRaCNyBH_CFqCFsDHwFDwBBkC@oCLeILmGDgDHyFJmF@{CAqAC{BGqCGsAUeDEe@_@mD}@iFe@{Bu@wCyA}EmGkQs@uBwAgEeAoCIMyEcNa@mA"
+ }
+]

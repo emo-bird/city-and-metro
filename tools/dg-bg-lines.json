@@ -1,0 +1,217 @@
+[
+ {
+  "id": "dg-广深线",
+  "name": "广深线",
+  "kind": "rail",
+  "speed": 70,
+  "head": 45,
+  "y0": 1911,
+  "stops": [
+   [
+    "东莞",
+    143.69,
+    34.16
+   ],
+   [
+    "常平",
+    202.95,
+    80.05
+   ],
+   [
+    "樟木头",
+    230.45,
+    118.38
+   ],
+   [
+    "塘头厦",
+    243.36,
+    165.02
+   ],
+   [
+    "平湖",
+    253.09,
+    211.14
+   ]
+  ],
+  "path": "w}PsgCkQwM}l@k\\uEoAyK{@wE}AcaA_v@_SkCgDsBmZwZuZkh@}SeTqZqo@qXi\\eIu^mB{DmBwBqZkReB_CgCkIg@kTeCqNGiReAwH_WeeAAsNoRmdBu@u\\lD{OUiHaYch@",
+  "km": 55.8
+ },
+ {
+  "id": "dg-穗深城际线",
+  "name": "穗深城际线",
+  "kind": "rail",
+  "speed": 120,
+  "head": 30,
+  "y0": 2019,
+  "stops": [
+   [
+    "新塘南",
+    40.11,
+    15.16
+   ],
+   [
+    "中堂",
+    47.59,
+    41.34
+   ],
+   [
+    "望牛墩",
+    50.5,
+    58.89
+   ],
+   [
+    "东莞西",
+    49.66,
+    69.02
+   ],
+   [
+    "洪梅",
+    46.02,
+    81.52
+   ],
+   [
+    "东莞港",
+    43.13,
+    113.03
+   ],
+   [
+    "厚街",
+    61.09,
+    119.63
+   ],
+   [
+    "虎门北",
+    68.41,
+    136.89
+   ],
+   [
+    "虎门东",
+    76.39,
+    149.08
+   ],
+   [
+    "长安西",
+    92.22,
+    169.05
+   ],
+   [
+    "福海西",
+    116,
+    209.94
+   ],
+   [
+    "深圳机场北",
+    120.17,
+    230.28
+   ]
+  ],
+  "path": "m_Ds{@uAum@mUce@oFab@bDaKEeF{Lyb@qEmIo@mDd@gErRob@~@gFrF}w@xTa}@s@eHkHkKkAkD}Au[}A}CeDw@yGHkZxEaFC{QwB}DaCqBg[gCkN}IqO}O}MqCyIcLyN{@_KsBmG}B}e@oC}DgF}AuVgQ{CcAe_B_RqTkA}Du@cDiDi@uEVsBjHuM\\wCfJkrCi@qEcQcc@",
+  "km": 69.7
+ },
+ {
+  "id": "dg-广惠城际线",
+  "name": "广惠城际线",
+  "kind": "rail",
+  "speed": 100,
+  "head": 30,
+  "y0": 2016,
+  "stops": [
+   [
+    "东莞西",
+    48.38,
+    69.42
+   ],
+   [
+    "道滘",
+    62.39,
+    77.63
+   ],
+   [
+    "东城南",
+    110.08,
+    79.52
+   ],
+   [
+    "寮步",
+    141.92,
+    79.59
+   ],
+   [
+    "松山湖北",
+    159.39,
+    92.08
+   ],
+   [
+    "大朗镇",
+    180.36,
+    94.33
+   ],
+   [
+    "常平南",
+    203.3,
+    85.7
+   ],
+   [
+    "常平东",
+    219.25,
+    91.14
+   ],
+   [
+    "樟木头东",
+    244,
+    92.91
+   ],
+   [
+    "沥林北",
+    293.98,
+    83.38
+   ]
+  ],
+  "path": "o`EutGo\\eKeNuGsScTsRmFuOe@}MbAkFxB}PvL}JhC}KxFcGr@{JqAma@cV}K[uKjBak@rRak@hJkDWaMqHk_@w`@qHwOoEiG{IiCaVqB}VkNq~@j@qSjFan@rAyZhXcDtAmFS}PsDsG{BkNeIgX}Hsj@eB{ViCyHtAyObJePpFwl@tAmWuAok@JkKtBcUxMoUbC",
+  "km": 68
+ },
+ {
+  "id": "dg-广深港高速线",
+  "name": "广深港高速线",
+  "kind": "rail",
+  "speed": 200,
+  "head": 30,
+  "y0": 2011,
+  "stops": [
+   [
+    "虎门",
+    70.59,
+    135.39
+   ],
+   [
+    "光明城",
+    183.16,
+    192.8
+   ]
+  ],
+  "path": "kyGq|Oa{@nFuSc@{HcAugCen@q`@sC{^_FmpA_[uO}EcNgHiJqHaLcNmLcWmBkI_CgS^mr@",
+  "km": 35.6
+ },
+ {
+  "id": "dg-京港高速线",
+  "name": "京港高速线",
+  "kind": "rail",
+  "speed": 200,
+  "head": 60,
+  "y0": 2021,
+  "stops": [
+   [
+    "东莞南",
+    228.13,
+    143.13
+   ],
+   [
+    "光明城",
+    183.36,
+    192.83
+   ]
+  ],
+  "path": "oo[o{Pn`A_^`n@{PtQqKfNyMzIkMdG_NjFeSrBsQnAku@",
+  "km": 18.5
+ }
+]
