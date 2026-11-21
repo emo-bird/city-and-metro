@@ -1051,9 +1051,9 @@ histTasks: [
       { id: "dg_京港高速线", kind: 'rail', name: "京港高速线", speed: 300, head: [[2021, 60], [2025, 30]], y0: 2021, hsr: true, stops: [["东莞南",229.6,142.39],["光明城",183.39,192.15]], path: "iu_@iwMfMkLnFgGfC}CjH{HzI_KnDcDbCsBhCmB|B}AtAy@vBmAjBaAfEmBj@UbDqAnAe@zCoAhLwEdDqAfCcAtB{@hLsExCmA~CoApGcCv@[nDsAjRaHrLiEzEaBzBs@zBm@|Bi@dIeBdJeCfF_BvEcBd@Sj@YbFoCXQ~DiCrB}AbB{ArDqDz@y@dBkBt@y@xAuBnDuFZe@|AwCl@sAx@kBFQjA{Ct@}Bj@oB`A{D\\eBToAb@eC^wCN_BRaCNyBH_CFqCFsDHwFDwBBkC@oCLeILmGDgDHyFJmF@{CAqAC{BGqCGsAUeDEe@_@mD}@iFe@{Bu@wCyA}EmGkQs@uBwAgEeAoCIMyEcNa@mA" },
       { id: "dg-ferry", kind: 'ferry', name: "虎门—南沙汽车渡轮", speed: 14, head: [[1991, 30], [2019, 30]], y0: [1991, 6], y1: [2019, 5], stops: [["虎门渡口",64.6,180.2],["南沙渡口",48.3,180.2]] },
       // 未来线（第 19 轮）：按计划开通年份，先以直线走向与通用班次占位，通车后按实际走向细化
-      { id: "dg_深惠城际", kind: 'rail', name: "深惠城际", speed: 160, head: [[2026, 20], [2036, 15]], y0: [2026, 12], stops: [["平湖",252.45,210.12],["凤岗",271.2,206.9]] },
-      { id: "dg_深江铁路", kind: 'rail', name: "深江铁路", speed: 200, head: [[2028, 30], [2040, 20]], y0: [2028, 5], stops: [["深圳机场北",119.19,228.33],["交椅湾",83.9,187.5]] },
-      { id: "dg_佛穗莞城际", kind: 'rail', name: "佛穗莞城际", speed: 160, head: [[2031, 30], [2042, 20]], y0: [2031, 6], stops: [["东泊",53,44.2],["东莞西",49.2,70.1]] },
+      { id: "dg_深惠城际", kind: 'rail', name: "深惠城际", speed: 160, head: [[2026, 20], [2036, 15]], y0: [2026, 12], stops: [["深圳北",216.28,247.62],["五和",228.16,238.84],["平湖",252.45,210.12],["凤岗",271.2,206.9],["大运北",285.21,207.95],["龙城",301.49,198.99],["坪地",326,194.5]], path: "e}Yw}]oq@bd@ueBxsB{|@v@}|@`kA{aAed@aqBxeA" },
+      { id: "dg_深江铁路", kind: 'rail', name: "深江铁路", speed: 200, head: [[2028, 30], [2040, 20]], y0: [2028, 5], stops: [["深圳机场东",126.31,243.27],["交椅湾",83.9,187.5],["滨海湾",70.5,190.5],["南沙",12.22,163.66]], path: "gxNal]r_@plCzgChpAlv@qIjtBjb@`qBveAxrEjb@" },
+      { id: "dg_佛穗莞城际", kind: 'rail', name: "佛穗莞城际", speed: 160, head: [[2031, 30], [2042, 20]], y0: [2031, 6], stops: [["新塘",48.89,22.12],["东泊",53,44.2],["蕉利",65.19,53.08],["万江",85.56,61.92],["莞城",101.86,70.77],["鸿福路",103.9,72.98],["黄旗南",118.16,75.19],["寮步",150.75,79.61],["松山湖",158.9,106.15]], path: "qbEowAiOmwA{o@kb@opAkb@e`Akb@eG{G_x@yGkaCuPs_@eiB" },
     ],
   };
 
