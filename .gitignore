@@ -52,3 +52,4 @@ tools/pbf-tags.mjs
 tools/fetch-coast-api.mjs
 tools/*.txt
 
+tools/_fix-*.mjs

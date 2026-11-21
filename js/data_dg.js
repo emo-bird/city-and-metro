@@ -109,8 +109,8 @@
         demand: { hw: 1, sc: 0.96, sh: 0.9, md: 0.9, lz: 0.86, decayHW: 0.62, decayHO: 0.76, hub: 0.95 },
         corridors: [{ a: 'humen', b: 'changan', f: 1.28 }, { a: 'houjie', b: 'humen', f: 1.22 }, { a: 'changan', b: 'dalingshan', f: 1.12 }, { a: 'changping', b: 'zhangmutou', f: 1.18 }, { a: 'shilong', b: 'shijie', f: 1.15 }, { a: 'guancheng', b: 'nancheng', f: 1.12 }],
         goals: [
-        { id: 'dg-g1', from: 2003, type: 'connect', months: 48, reward: 40000, title: '虎门港接进线网', desc: '虎门港 2003 年对外开放，麻涌、沙田、沙角与长安的码头需要大批工人轮班进出，陆路却只有几条镇道。用地铁连接沙田与虎门。', anchors: [{ name: '沙田镇', x: 46.1, y: 109.4, r: 4 }, { name: '虎门', x: 68.5, y: 135.7, r: 3 }] },
-        { id: 'dg-g2', from: 2004, type: 'connect', months: 48, reward: 45000, title: '虎门—长安工业走廊', desc: '广深公路沿线是最密集的电子与服装厂带，虎门的服装厂与长安的五金电子厂之间每天有几万人往返，班车与摩托车挤满国道。用地铁连接虎门与长安。', anchors: [{ name: '虎门', x: 68.5, y: 135.7, r: 3 }, { name: '长安镇', x: 121.2, y: 156.7, r: 4 }] },
+        { id: 'dg-g1', from: 2003, type: 'connect', months: 48, reward: 128000, title: '虎门港接进线网', desc: '虎门港 2003 年对外开放，麻涌、沙田、沙角与长安的码头需要大批工人轮班进出，陆路却只有几条镇道。用地铁连接沙田与虎门。', anchors: [{ name: '沙田镇', x: 46.1, y: 109.4, r: 4 }, { name: '虎门', x: 68.5, y: 135.7, r: 3 }] },
+        { id: 'dg-g2', from: 2004, type: 'connect', months: 48, reward: 124000, title: '虎门—长安工业走廊', desc: '广深公路沿线是最密集的电子与服装厂带，虎门的服装厂与长安的五金电子厂之间每天有几万人往返，班车与摩托车挤满国道。用地铁连接虎门与长安。', anchors: [{ name: '虎门', x: 68.5, y: 135.7, r: 3 }, { name: '长安镇', x: 121.2, y: 156.7, r: 4 }] },
         ],
       },
       // 双转移阵痛（2008–2013）：腾笼换鸟
@@ -124,8 +124,9 @@
         relocate: { jobs: { zhongtang: -0.0015, wangniudun: -0.0015, shilong: -0.0012, songshanhu: 0.0022, liaobu: 0.0012 } },
         corridors: [{ a: 'songshanhu', b: 'liaobu', f: 1.3 }, { a: 'songshanhu', b: 'dalang', f: 1.25 }, { a: 'songshanhu', b: 'dalingshan', f: 1.18 }, { a: 'humen', b: 'changan', f: 1.2 }, { a: 'nancheng', b: 'dongcheng', f: 1.14 }, { a: 'zhongtang', b: 'wangniudun', f: 1.1 }],
         goals: [
-        { id: 'dg-g3', from: 2009, type: 'connect', months: 48, reward: 45000, title: '松山湖接住转岗的人', desc: '金融危机后一批中小企业关门，劳动密集环节迁往内陆；松山湖与寮步开始承接研发与总部，原来的工人要在新的园区重新上班。用地铁连接松山湖与寮步。', anchors: [{ name: '松山湖', x: 155.4, y: 108.3, r: 5 }, { name: '寮步镇', x: 151.7, y: 76, r: 4 }] },
-        { id: 'dg-g4', from: 2010, type: 'connect', months: 48, reward: 40000, title: '水乡片的跨镇江通勤', desc: '中堂、望牛墩、洪梅的水乡居民到莞城上班要绕道或坐渡船；造纸与服装厂外迁后，留在原地的人更依赖跨镇公交。用地铁连接中堂与莞城。', anchors: [{ name: '中堂镇', x: 61.7, y: 32.8, r: 4 }, { name: '莞城街道', x: 99.4, y: 56.9, r: 3 }] },
+        { id: 'dg-g3', from: 2009, type: 'connect', months: 48, reward: 156000, title: '松山湖接住转岗的人', desc: '金融危机后一批中小企业关门，劳动密集环节迁往内陆；松山湖与寮步开始承接研发与总部，原来的工人要在新的园区重新上班。用地铁连接松山湖与寮步。', anchors: [{ name: '松山湖', x: 155.4, y: 108.3, r: 5 }, { name: '寮步镇', x: 151.7, y: 76, r: 4 }] },
+        { id: 'dg-g4', from: 2010, type: 'connect', months: 48, reward: 156000, title: '水乡片的跨镇江通勤', desc: '中堂、望牛墩、洪梅的水乡居民到莞城上班要绕道或坐渡船；造纸与服装厂外迁后，留在原地的人更依赖跨镇公交。用地铁连接中堂与莞城。', anchors: [{ name: '中堂镇', x: 61.7, y: 32.8, r: 4 }, { name: '莞城街道', x: 99.4, y: 56.9, r: 3 }] },
+        { id: 'dg-g9', from: 2012, type: 'zoneCong', region: 'changan', drop: 0.10, months: 36, reward: 141000, title: '压住长安迎宾路的车流', desc: '长安迎宾路与霄边大街是全市最早饱和的路段：2010 年代长安的跨市通勤里，小汽车与摩托车占了绝大多数，早晚高峰双向都排队。让长安片区工作日早高峰的拥堵指数下降 0.10。' },
         ],
       },
       // 松山湖与手机（2014–2018）：智能终端
@@ -139,8 +140,10 @@
         relocate: { jobs: { guancheng: -0.0012, shilong: -0.0008, songshanhu: 0.0024, dalingshan: 0.0008, nancheng: 0.0008 } },
         corridors: [{ a: 'songshanhu', b: 'dalang', f: 1.4 }, { a: 'songshanhu', b: 'dalingshan', f: 1.26 }, { a: 'songshanhu', b: 'liaobu', f: 1.24 }, { a: 'songshanhu', b: 'nancheng', f: 1.16 }, { a: 'humen', b: 'changan', f: 1.16 }, { a: 'tangxia', b: 'fenggang', f: 1.14 }],
         goals: [
-        { id: 'dg-g5', from: 2015, type: 'connect', months: 48, reward: 50000, title: '手机走廊', desc: '华为终端 2014 年在松山湖动工、2018 年迁入，大朗与寮步的配套厂跟着长起来，工程师与产线工人每天都在松山湖与周边镇之间往返。用地铁连接松山湖与大朗。', anchors: [{ name: '松山湖', x: 155.4, y: 108.3, r: 5 }, { name: '大朗镇', x: 176.8, y: 97.5, r: 4 }] },
-        { id: 'dg-g6', from: 2016, type: 'connect', months: 48, reward: 50000, title: '虎门高铁站的接驳', desc: '虎门站 2011 年通车后日均到发从三千人涨到两万多，厚街的会展与家具客户、虎门的服装客商都从这里进出。用地铁连接厚街与虎门站。', anchors: [{ name: '厚街镇', x: 67.1, y: 102.3, r: 4 }, { name: '虎门', x: 68.5, y: 135.7, r: 3 }] },
+        { id: 'dg-g5', from: 2015, type: 'connect', months: 48, reward: 190000, title: '手机走廊', desc: '华为终端 2014 年在松山湖动工、2018 年迁入，大朗与寮步的配套厂跟着长起来，工程师与产线工人每天都在松山湖与周边镇之间往返。用地铁连接松山湖与大朗。', anchors: [{ name: '松山湖', x: 155.4, y: 108.3, r: 5 }, { name: '大朗镇', x: 176.8, y: 97.5, r: 4 }] },
+        { id: 'dg-g6', from: 2016, type: 'connect', months: 48, reward: 204000, title: '虎门高铁站的接驳', desc: '虎门站 2011 年通车后日均到发从三千人涨到两万多，厚街的会展与家具客户、虎门的服装客商都从这里进出。用地铁连接厚街与虎门站。', anchors: [{ name: '厚街镇', x: 67.1, y: 102.3, r: 4 }, { name: '虎门', x: 68.5, y: 135.7, r: 3 }] },
+        { id: 'dg-g10', from: 2016, type: 'zoneCong', region: 'nancheng', metric: 'carShare', drop: 0.04, months: 30, reward: 172000, title: '东莞大道与鸿福路口', desc: '南城的东莞大道—鸿福路口是全市饱和度最高的节点之一，高峰小时饱和度超过 1.0，进口道排队一路顶到下一个路口。让南城片区早高峰拥堵指数下降 0.12。' },
+        { id: 'dg-g11', from: 2017, type: 'zoneCong', region: 'dongcheng', metric: 'carShare', drop: 0.04, months: 30, reward: 178000, title: '东纵路的早晚高峰', desc: '东城的东纵路串起老城与东城新区，沿街商业密集、路侧出入口多，早高峰东向西几乎停住，东莞的「5 公里内通勤」比例全市最低就在这一带。让东城片区早高峰拥堵指数下降 0.10。' },
         ],
       },
       // 湾区都市（2019– ）：湾区横轴
@@ -154,8 +157,12 @@
         relocate: { jobs: { guancheng: -0.0008, binhaiwan: 0.0026, changan: 0.0006, songshanhu: 0.0012, nancheng: 0.0006 } },
         corridors: [{ a: 'binhaiwan', b: 'changan', f: 1.34 }, { a: 'binhaiwan', b: 'humen', f: 1.28 }, { a: 'songshanhu', b: 'dalang', f: 1.34 }, { a: 'songshanhu', b: 'nancheng', f: 1.2 }, { a: 'tangxia', b: 'fenggang', f: 1.28 }, { a: 'changan', b: 'humen', f: 1.18 }],
         goals: [
-        { id: 'dg-g7', from: 2020, type: 'connect', months: 60, reward: 60000, title: '滨海湾新区接入线网', desc: '滨海湾新区 2017 年挂牌，填海地上一片空地等着招商；深江铁路 2028 年要在交椅湾设站。用地铁把新区与长安连起来，先把骨架搭好。', anchors: [{ name: '滨海湾新区', x: 97.5, y: 183.3, r: 5 }, { name: '长安镇', x: 121.2, y: 156.7, r: 4 }] },
-        { id: 'dg-g8', from: 2022, type: 'connect', months: 60, reward: 60000, title: '双核之间的研发通勤', desc: '2021 年东莞 GDP 破万亿，松山湖的研发与南城的金融、总部形成两个核心，两地之间的通勤与商务往来快速增长。用地铁连接松山湖与南城。', anchors: [{ name: '松山湖', x: 155.4, y: 108.3, r: 5 }, { name: '南城街道', x: 97.3, y: 65.8, r: 3 }] },
+        { id: 'dg-g7', from: 2020, type: 'connect', months: 60, reward: 285000, title: '滨海湾新区接入线网', desc: '滨海湾新区 2017 年挂牌，填海地上一片空地等着招商；深江铁路 2028 年要在交椅湾设站。用地铁把新区与长安连起来，先把骨架搭好。', anchors: [{ name: '滨海湾新区', x: 97.5, y: 183.3, r: 5 }, { name: '长安镇', x: 121.2, y: 156.7, r: 4 }] },
+        { id: 'dg-g8', from: 2022, type: 'connect', months: 60, reward: 283000, title: '双核之间的研发通勤', desc: '2021 年东莞 GDP 破万亿，松山湖的研发与南城的金融、总部形成两个核心，两地之间的通勤与商务往来快速增长。用地铁连接松山湖与南城。', anchors: [{ name: '松山湖', x: 155.4, y: 108.3, r: 5 }, { name: '南城街道', x: 97.3, y: 65.8, r: 3 }] },
+        { id: 'dg-g12', from: 2019, type: 'zoneCong', region: 'humen', drop: 0.12, months: 30, reward: 258000, title: '虎门的过江与镇内高峰', desc: '虎门大桥 2015 年一年堵了 112 天；莲峰北路 2019 年二季度拥堵 56 天、锦绣路晚高峰全市第一。2019 年 4 月南沙大桥通车后虎门大桥当天的车流少了 8.5%，但两桥合计流量仍在涨。让虎门片区早高峰拥堵指数下降 0.12。' },
+        { id: 'dg-g13', from: 2021, type: 'zoneCong', region: 'songshanhu', metric: 'carShare', drop: 0.03, months: 30, reward: 258000, title: '松山湖大道的交织段', desc: '松山湖大道中医院段只有 200 米交织区，进出园区的车流在早高峰互相别车，园区内部通勤也越来越依赖小汽车。让松山湖片区早高峰拥堵指数下降 0.10。' },
+        { id: 'dg-g14', from: 2023, type: 'zoneCong', region: 'guancheng', metric: 'carShare', drop: 0.04, months: 30, reward: 273000, title: '莞太路走廊', desc: '莞太路五个连续路口高峰实测约 8000 pcu/h、最大延误 103 秒，是莞城—南城之间最堵的一条走廊。让莞城片区早高峰拥堵指数下降 0.10。' },
+        { id: 'dg-g15', from: 2024, type: 'regionCov', regions: ['binhaiwan', 'changan'], areaName: '滨海湾与长安', target: 0.35, months: 48, reward: 248000, title: '滨海湾—长安的轨道覆盖', desc: '滨海湾新区 2017 年挂牌后填海地陆续出让，长安的 80 万人与新区的新岗位之间还没有轨道。让滨海湾与长安三成半的居民步行 15 分钟就能到地铁站。' },
         ],
       },
     ],

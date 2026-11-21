@@ -1045,7 +1045,42 @@
     }
     return null;
   };
+  // 拥堵/覆盖类任务在数据里按片区写地点（region: 'changan'），发布时解析成该片区里人口与岗位最多的交通小区。
+  // 引擎自动生成的任务本来就带数值 zone，这里只是让 D.dynTasks / eras[].goals 也能用上同一套任务类型。
+  Tasks.resolveZone = function (t, g) {
+    if (t.zone != null || !t.region || !g.city || !g.model || !g.model.zoneCells) return t;
+    const city = g.city, model = g.model;
+    let k = -1; city.regions.forEach(function (r, i) { if (r.id === t.region) k = i; });
+    if (k < 0) return t;
+    let bz = -1, bv = -1;
+    // 指数口径取片区里最堵的小区，占比口径取片区里最重的小区——这样任务名字落在这个片区真正的核心上
+    const byCong = t.type === 'zoneCong' && t.metric !== 'carShare';
+    for (let z = 0; z < model.Z; z++) {
+      const w = model.zPop[z] + model.zJobs[z]; if (!(w > 0)) continue;
+      const cells = model.zoneCells[z]; let hit = false;
+      for (let i = 0; i < cells.length; i++) if (city.region[cells[i]] === k) { hit = true; break; }
+      if (!hit) continue;
+      const sc = byCong ? g.zoneCong(z, 'wd') * 1e9 + w : w;
+      if (sc > bv) { bv = sc; bz = z; }
+    }
+    if (bz >= 0) t.zone = bz;
+    return t;
+  };
+  // 拥堵任务的起点与目标：数据里只写降幅（drop，汽车出行占比的绝对百分点），发布时按当时的实测值算起点
+  Tasks.seedCongestion = function (t, g) {
+    if (t.type !== 'zoneCong' || t.zone == null) return t;
+    const car = t.metric === 'carShare';
+    if (t.fare0 == null) t.fare0 = Tasks.fareLevel(g.econ.fare);
+    const v = car ? g.model.zoneTraffic(t.zone).carShare : g.zoneCong(t.zone, 'wd');
+    if (t.start == null) t.start = v;
+    // 目标不能低于下限：拥堵指数最低就是 1.00，非地铁占比也不可能压到 0——否则任务永远不可达
+    if (t.target == null) t.target = Math.max(car ? 0.40 : 1.01, v - (t.drop != null ? t.drop : (car ? 0.02 : 0.1)));
+    if (t.sustain == null) t.sustain = 3;
+    if (!t.samples) t.samples = [];
+    return t;
+  };
   Tasks.prepare = function (t, g) {
+    Tasks.resolveZone(t, g); if (t.type === 'zoneCong' && t.start == null) Tasks.seedCongestion(t, g);
     Tasks.alignFacDeadline(t);
     // 旧任务在新规则下补判一次，已经标为可选的任务保留原待遇。
     if ((t.kind === 'hist' || t.kind === 'dyn') && t.scenicChecked !== SCENIC_TASK_RULE && g.city && g.city.region) {
@@ -1738,6 +1773,7 @@
       if (!Tasks.anchorsOpenBy(g, tp.anchors, ym + (tp.months || 0))) continue;   // 地点在截止前开放不了：先不发布，等开放临近时再发
       const c = Object.assign({ coolKey: 'city:' + tp.id, cityId: tp.id }, JSON.parse(JSON.stringify(tp)), { reward: tp.reward * ci });
       delete c.from; delete c.to; delete c.id;
+      Tasks.resolveZone(c, g); Tasks.seedCongestion(c, g);
       const ck = G.check(c);
       if (!ck.ok || this.evaluate(c, g).ok) continue;
       c.w = 2 * ck.w; cands.push(c);   // 权重加倍，让本城任务更常出现
@@ -1824,6 +1860,10 @@
         c.regions = s.regions; c.areaName = s.areaName; c.target = s.target;
         if (!g.city.regions.some(function (r, k) { return s.regions.indexOf(r.id) >= 0 && g.city.regionOpen[k]; })) continue;
         if (Tasks.regionCoverage(g, s.regions) >= s.target * 0.9) continue;
+      } else if (s.type === 'zoneCong' || s.type === 'zoneCov') {
+        c.zone = s.zone; c.region = s.region; c.metric = s.metric; c.drop = s.drop;
+        Tasks.resolveZone(c, g); Tasks.seedCongestion(c, g);
+        if (c.zone == null || this.evaluate(c, g).ok) continue;
       } else if (s.type === 'xferHub') {
         c.target = s.target; if (this.evaluate(c, g).ok) continue;
       } else if (s.type === 'lineCrowd') {
