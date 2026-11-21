@@ -1415,6 +1415,31 @@
       Math.abs(v.decayHW - 1) > 0.03 ? chips('通勤距离', [v.decayHW > 1 ? '偏长（郊区化）' : '偏短（职住较近）'], 'corr') : null,
       v.bg ? chips('背景交通', [v.bg.name + ' · 约占非地铁出行 ' + U.fmtPct(v.bg.share, 0)], 'bgt') : null);
     if (trend.childNodes.length) el.append(h('div', { class: 'era-h' }, h('b', null, '本阶段的发展倾向')), trend);
+    // 本阶段的空间结构：时代走廊（通勤与购物的去向倍率）与腾笼换鸟（每月疏解比例），条形图与「变化最多的片区」同样式，点击在地图上看
+    const corrList = v.corrList || [], relocList = v.reloc || [];
+    if (corrList.length || relocList.length) {
+      el.appendChild(h('div', { class: 'era-h' }, h('b', null, '本阶段的空间结构')));
+      if (corrList.length) {
+        const mxC = Math.max.apply(null, corrList.map(function (c) { return c.f - 1; })) || 1;
+        const bars = h('div', { class: 'era-bars' });
+        for (const c of corrList) bars.appendChild(h('button', { class: 'era-barrow clickable', onclick: function () { self.locateCorridor(c.ai, c.bi); } },
+          h('span', { class: 'nm' }, (c.as || c.a) + '—' + (c.bs || c.b)), h('span', { class: 'br' }, h('i', { style: { width: Math.max(4, (c.f - 1) / mxC * 100) + '%' } })), h('span', { class: 'vl' }, '+' + Math.round((c.f - 1) * 100) + '%')));
+        el.appendChild(h('div', { class: 'row between tiny muted', style: { marginTop: '6px' } }, h('span', null, '时代走廊 · 通勤与购物的去向'), h('span', null, '点一条看两端')));
+        el.appendChild(bars);
+      }
+      if (relocList.length) {
+        const mxR = Math.max.apply(null, relocList.map(function (r) { return Math.abs(r.j) + Math.abs(r.p); })) || 1e-6;
+        const bars = h('div', { class: 'era-bars' });
+        for (const r of relocList) {
+          const val = r.j || r.p, pctM = (Math.abs(val) * 100).toFixed(2) + '% /月';
+          bars.appendChild(h('button', { class: 'era-barrow clickable', onclick: function () { self.locateRegion(r.ai); } },
+            h('span', { class: 'nm' }, r.name), h('span', { class: 'br' }, h('i', { class: val < 0 ? 'neg' : '', style: { width: Math.max(4, (Math.abs(r.j) + Math.abs(r.p)) / mxR * 100) + '%' } })),
+            h('span', { class: 'vl' }, (val < 0 ? '−' : '+') + pctM + (r.j && r.p ? '' : (r.j ? ' 岗位' : ' 人口')))));
+        }
+        el.appendChild(h('div', { class: 'row between tiny muted', style: { marginTop: '8px' } }, h('span', null, '腾笼换鸟（每月疏解 / 迁入比例）'), h('span', null, '点一个片区在地图上看')));
+        el.appendChild(bars);
+      }
+    }
     const mix = UI.modeMix(g); if (mix) el.append(h('div', { class: 'era-h' }, h('b', null, '地铁以外的出行结构')), mix);
     if (v.fx.length) {
       el.appendChild(h('div', { class: 'era-h' }, h('b', null, '生效中的事件影响')));

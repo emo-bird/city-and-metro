@@ -2377,6 +2377,16 @@
     this.R.setHighlight({ kind: 'region', region: k, lx: rg.cx, ly: rg.cy, label: rg.name.replace(/（.*）/, '') });
     this.fitBox(b[0], b[1], b[2], b[3], 22);
   };
+  // 时代走廊：同时高亮两端片区，视野取两片区的并集（发展与阶段页的「时代走廊」条形图）
+  UI.prototype.locateCorridor = function (ai, bi) {
+    const g = this.g(), A = g.city.regions[ai], B = g.city.regions[bi];
+    if (!A || !B || !A.bbox || !B.bbox) return;
+    const na = A.name.replace(/（.*）/, ''), nb = B.name.replace(/（.*）/, '');
+    this.R.setHighlight({ kind: 'multi', lx: (A.cx + B.cx) / 2, ly: (A.cy + B.cy) / 2, label: na + '—' + nb, items: [
+      { kind: 'region', region: ai, lx: A.cx, ly: A.cy, label: na },
+      { kind: 'region', region: bi, lx: B.cx, ly: B.cy, label: nb }] });
+    this.fitBox(Math.min(A.bbox[0], B.bbox[0]), Math.min(A.bbox[1], B.bbox[1]), Math.max(A.bbox[2], B.bbox[2]), Math.max(A.bbox[3], B.bbox[3]), 22);
+  };
   UI.prototype.locateRoad = function (name) {
     const city = this.g().city, ways = [];
     let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;

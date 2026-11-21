@@ -274,6 +274,17 @@
     const dm = Eras.demand(t);
     const corr = dm.corr.filter(function (c) { return c.f > 1.02 && byId.has(c.a) && byId.has(c.b); }).sort(function (a, b) { return b.f - a.f; })
       .slice(0, 4).map(function (c) { return nm(byId.get(c.a)) + '—' + nm(byId.get(c.b)); });
+    // 时代走廊的结构化版本（画条形图与在地图上看两端）：只要已开放片区，按强度排序；as/bs 为去掉「镇 / 街道 / 园区」的简称
+    const sn = function (s) { return String(s).replace(/(镇|街道|园区|新区)$/, ''); };
+    const corrList = dm.corr.filter(function (c) { return c.f > 1.02 && byId.has(c.a) && byId.has(c.b); }).sort(function (a, b) { return b.f - a.f; })
+      .slice(0, 6).map(function (c) { const A = byId.get(c.a), B = byId.get(c.b); return { a: nm(A), b: nm(B), as: sn(nm(A)), bs: sn(nm(B)), f: c.f, ai: city.regions.indexOf(A), bi: city.regions.indexOf(B) }; });
+    // 腾笼换鸟（逐月疏解）：直接取自混合后的片区系数，只列有疏解的片区
+    const reloc = [];
+    city.regions.forEach(function (r, i) {
+      const j = (F.relocJ && F.relocJ[i]) || 0, p = (F.relocP && F.relocP[i]) || 0;
+      if (Math.abs(j) + Math.abs(p) > 1e-6) reloc.push({ name: nm(r), j: j, p: p, ai: i });
+    });
+    reloc.sort(function (a, b) { return (Math.abs(b.j) + Math.abs(b.p)) - (Math.abs(a.j) + Math.abs(a.p)); });
     const fx = [];
     const act = new Map();
     for (const key of ['grow', 'demand', 'sat', 'finance']) for (const x of evFx(t, key)) { if (!act.has(x.e)) act.set(x.e, new Set()); act.get(x.e).add(key); }
@@ -284,7 +295,7 @@
       return { title: gl.title, state: st };
     });
     return { era: L[k], to: Eras.endOf(k), trans: trans, popUp: rank(F.pop, true), popDown: rank(F.pop, false), jobUp: rank(F.jobs, true), jobDown: rank(F.jobs, false),
-      decayHW: dm.decayHW, corr: corr, fx: fx, bg: Eras.bg(t), goals: goals, log: (g.eraLog || []).filter(function (r) { return r.text; }) };
+      decayHW: dm.decayHW, corr: corr, corrList: corrList, reloc: reloc.slice(0, 6), fx: fx, bg: Eras.bg(t), goals: goals, log: (g.eraLog || []).filter(function (r) { return r.text; }) };
   };
 
   // ---------- 阶段记录与总结 ----------
