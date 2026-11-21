@@ -1,7 +1,7 @@
-// 从 scripts/_dg-stats.md 的五普/六普/七普表算出四个时代的 grow.pop / grow.jobs 倍率
+// 从 docs/东莞调研·镇街人口与经济底表.md 的五普/六普/七普表算出四个时代的 grow.pop / grow.jobs 倍率
 import fs from 'node:fs';
 
-const md = fs.readFileSync('scripts/_dg-stats.md', 'utf8');
+const md = fs.readFileSync('docs/东莞调研·镇街人口与经济底表.md', 'utf8');
 const sec = md.slice(md.indexOf('## 1.'), md.indexOf('## 2.'));
 const rows = [];
 for (const line of sec.split('\n')) {

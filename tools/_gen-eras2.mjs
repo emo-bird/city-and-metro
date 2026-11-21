@@ -1,5 +1,5 @@
 // 生成四个时代的 eras 块：grow.pop/jobs 由五普/六普/七普人口表推得，
-// 产业结构与出行强度按 scripts/_dg-stats.md、scripts/_dg-history-2000-2025.md 与公开资料校正。
+// 产业结构与出行强度按 docs/东莞调研·镇街人口与经济底表.md、docs/东莞调研·历史事件与任务.md 与公开资料校正。
 import fs from 'node:fs';
 
 const grow = JSON.parse(fs.readFileSync('tools/_eras-grow.json', 'utf8'));

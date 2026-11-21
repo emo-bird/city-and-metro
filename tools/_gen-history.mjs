@@ -1,4 +1,4 @@
-// 写入东莞的年代 / 大事件 / 历史任务（据 scripts/_dg-history-2000-2025.md 的调研结果）。
+// 写入东莞的年代 / 大事件 / 历史任务（据 docs/东莞调研·历史事件与任务.md 的调研结果）。
 // 临时生成脚本，不进发布。
 import { readFile, writeFile } from 'node:fs/promises';
 
