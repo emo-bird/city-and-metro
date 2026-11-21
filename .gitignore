@@ -22,3 +22,9 @@ node_modules/
 *.log
 *.tmp
 
+# 地图数据管线产物：OSM 缓存（数百 MB，可重新下载）、调试截图、本地存档
+tools/osm-cache/
+tools/*.png
+tools/*.jpg
+saves/
+
