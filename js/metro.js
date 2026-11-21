@@ -974,7 +974,7 @@
     return best ? { id: best.id, name: Fac.shortName(best) } : null;
   };
   // 受保护的地标（v3.1 玩家建议）：校园与火车站、客运码头等交通枢纽不算受保护建筑，可以在场地里设站、修线（地面站仍不能压在铁路上）
-  const OPEN_LM = { campus: 1, rail: 1, ferry: 1 };
+  const OPEN_LM = { campus: 1, rail: 1, ferry: 1, mall: 1, shop: 1, cbd: 1, skyscraper: 1, hospital: 1, expo: 1, venue: 1, stadium: 1, museum: 1, gallery: 1, opera: 1, library: 1, cluster: 1, tower: 1, park: 1, garden: 1, themepark: 1, port: 1, air: 1, airport: 1, station2: 1, bridge: 1 };
   M.protectedLm = function (city, c) { const k = city.protectedId[c] - 1; if (k < 0) return null; const lm = D.landmarks[k]; return lm && !OPEN_LM[lm.kind] ? lm : null; };
   M.checkSite = function (city, x, y, type) {
     const c = city.cellAt(x, y);

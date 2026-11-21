@@ -4662,7 +4662,8 @@
       if (this.layer === 'fac' && facP !== 'all') {
         const qi = PK.indexOf(facP), both = f.T.hub && facP === 'hb' ? 2 : 1;
         v = qi >= 0 ? fd.purp[k * 6 + qi] * both : 0; m = qi >= 0 ? fd.purpM[k * 6 + qi] * both : 0;
-        if (!(v > 0)) { const pr = f.T.p[facP] || 0; v = CM.Fac.pax(f, yr0) * pr * both * 0.5; m = v; est = v > 0; if (!(v > 0)) return; }
+        // v3.2：通勤图层没有设施携带 hw 权重，按商业/办公与一般设施给显示用的折算
+        if (!(v > 0)) { const pr = f.T.p[facP] || 0; v = CM.Fac.pax(f, yr0) * pr * both * 0.5; m = v; est = v > 0; if (!(v > 0) && facP === 'hw') { /* v3.2 */ const pr2 = (f.t === 'cbd' || f.t === 'shop') ? 0.6 : 0.35; v = CM.Fac.pax(f, yr0) * pr2 * 0.5; m = v; est = v > 0; } if (!(v > 0)) return; }
       } else if (!(v > 0)) {
         // v2.9.6：还没有地铁时按潜在需求标出设施（医院、学校、商圈、公园），数值为按启用年份折算的潜在客流
         v = CM.Fac.pax(f, yr0) * 0.5; m = v; est = v > 0; if (!(v > 0)) return;

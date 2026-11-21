@@ -106,7 +106,8 @@
           pop: { changan: 1.40, humen: 1.35, houjie: 1.30, tangxia: 1.25, fenggang: 1.20, dalang: 1.15, changping: 1.15, songshanhu: 1.05, guancheng: 0.97, shilong: 0.95 },
           jobs: { changan: 1.35, songshanhu: 1.30, humen: 1.30, houjie: 1.28, tangxia: 1.25, changping: 1.20, machong: 1.15, shatian: 1.10, guancheng: 0.96 },
         },
-        demand: { sc: 0.24, decayHW: 3.4 } },
+        demand: { sc: 0.24, decayHW: 3.4 },
+        corridors: [{ a: 'guancheng', b: 'changan', f: 1.18 }, { a: 'guancheng', b: 'humen', f: 1.2 }, { a: 'humen', b: 'changan', f: 1.25 }, { a: 'houjie', b: 'humen', f: 1.18 }, { a: 'changping', b: 'zhangmutou', f: 1.15 }, { a: 'dalang', b: 'liaobu', f: 1.12 }], },
       // 二、双转移阵痛（2008–2013）：金融危机与腾笼换鸟，劳动密集厂外迁，松山湖开始承接
       { id: 'dg-e2', from: 2008, name: '双转移阵痛', tag: '腾笼换鸟',
         summary: '金融危机后一批中小企业倒闭，劳动密集环节转向内陆；松山湖、寮步一带开始承接研发与总部，老镇人口增速转负。',
@@ -114,7 +115,8 @@
           pop: { songshanhu: 1.45, nancheng: 1.12, dalang: 1.10, liaobu: 1.10, changan: 0.98, guancheng: 0.97, humen: 0.96, changping: 0.95, tangxia: 0.92, fenggang: 0.90 },
           jobs: { songshanhu: 1.55, liaobu: 1.15, nancheng: 1.15, dalang: 1.12, xiegang: 1.02, humen: 0.95, hongmei: 0.95, wangniudun: 0.95 },
         },
-        demand: { sc: 0.23, decayHW: 3.2 } },
+        demand: { sc: 0.23, decayHW: 3.2 },
+        corridors: [{ a: 'songshanhu', b: 'dalang', f: 1.3 }, { a: 'songshanhu', b: 'liaobu', f: 1.25 }, { a: 'songshanhu', b: 'dalingshan', f: 1.18 }, { a: 'nancheng', b: 'dongcheng', f: 1.15 }, { a: 'humen', b: 'changan', f: 1.2 }], },
       // 三、松山湖与手机（2014–2018）：华为终端落地，莞产手机占全球约五分之一，2 号线通车
       { id: 'dg-e3', from: 2014, name: '松山湖与手机', tag: '智能终端',
         summary: '华为终端与一批手机供应链迁入松山湖、大岭山、大朗，研发岗位取代流水线；2 号线把东莞站与虎门站连起来。',
@@ -122,7 +124,8 @@
           pop: { songshanhu: 1.60, dalingshan: 1.15, nancheng: 1.15, dalang: 1.12, humen: 1.10, changan: 1.08, guancheng: 0.95 },
           jobs: { songshanhu: 2.20, dalingshan: 1.20, dalang: 1.15, humen: 1.12, changan: 1.10, changping: 0.96 },
         },
-        demand: { sc: 0.26, decayHW: 3.0 } },
+        demand: { sc: 0.26, decayHW: 3.0 },
+        corridors: [{ a: 'songshanhu', b: 'dalang', f: 1.4 }, { a: 'songshanhu', b: 'liaobu', f: 1.3 }, { a: 'songshanhu', b: 'dalingshan', f: 1.25 }, { a: 'songshanhu', b: 'nancheng', f: 1.18 }, { a: 'humen', b: 'changan', f: 1.15 }], },
       // 四、湾区都市（2019– ）：大湾区纲要、穗深城际、南沙大桥，滨海湾新区填海开发，2021 年破万亿
       { id: 'dg-e4', from: 2019, name: '湾区都市', tag: '湾区横轴',
         summary: '穗深城际与南沙大桥把东莞拉进广深半小时圈；滨海湾新区向海要地，松山湖与中心城区形成双核。',
@@ -130,7 +133,14 @@
           pop: { songshanhu: 1.55, nancheng: 1.20, hongmei: 1.15, humen: 1.08, changan: 1.06, machong: 1.05, shilong: 0.96, guancheng: 0.93 },
           jobs: { songshanhu: 1.60, nancheng: 1.25, changan: 1.10, humen: 1.10, xiegang: 1.05 },
         },
-        demand: { sc: 0.28, decayHW: 2.8 } },
+        demand: { sc: 0.28, decayHW: 2.8 },
+        corridors: [{ a: 'binhaiwan', b: 'changan', f: 1.35 }, { a: 'binhaiwan', b: 'humen', f: 1.3 }, { a: 'songshanhu', b: 'dalang', f: 1.25 }, { a: 'nancheng', b: 'songshanhu', f: 1.2 }, { a: 'hongmei', b: 'wangniudun', f: 1.12 }], },
+      { id: 'dgfl1', name: '凤岗站', x: 271.2, y: 206.9, w: 180, d: 80, year: 2026, kind: 'rail' },
+      { id: 'dgfl2', name: '交椅湾站', x: 83.9, y: 187.5, w: 180, d: 80, year: 2028, kind: 'rail' },
+      { id: 'dgfl3', name: '东泊站', x: 53, y: 44.2, w: 180, d: 80, year: 2031, kind: 'rail' },
+{ id: 'dgf11', n: '凤岗站', t: 'rail', lm: 'dgfl1', pax: [[2026,0.3],[2034,1.6],[2044,2.6]] },
+{ id: 'dgf12', n: '交椅湾站', t: 'rail', lm: 'dgfl2', pax: [[2028,0.3],[2036,1.6],[2046,2.6]] },
+{ id: 'dgf13', n: '东泊站', t: 'rail', lm: 'dgfl3', pax: [[2031,0.3],[2039,1.6],[2049,2.6]] },
     ],
 
     dataNote: [
@@ -396,11 +406,14 @@
       { y: 2018, m: 7, tag: '产业', title: '华为迁入松山湖', desc: '华为研发部门分批迁入松山湖溪流背坡村，7 月 2 日首批 2700 人，松山湖从产业园变成科技城。' },
       { y: 2019, m: 2, tag: '政策', title: '大湾区纲要发布', desc: '《粤港澳大湾区发展规划纲要》发布，东莞被列为湾区先进制造中心。' },
       { y: 2019, m: 4, tag: '交通', title: '南沙大桥通车', desc: '南沙大桥通车，全长 12.89 公里、双向八车道，分流虎门大桥约三成车流。' },
-      { y: 2019, m: 12, tag: '交通', title: '穗深城际开通', desc: '穗深城际新塘南至深圳机场开通，全长 73.996 公里，东莞境内设 10 站，从此可以坐城际直达广深机场。' },
+            { y: 2019, m: 5, tag: '交通', title: '虎门渡轮停运', desc: '南沙大桥 4 月通车后，虎门汽车渡轮的过江车流骤减，5 月起停航——这条 1991 年通航、曾经日夜排队的水上通道退出了历史舞台。' },
+{ y: 2019, m: 12, tag: '交通', title: '穗深城际开通', desc: '穗深城际新塘南至深圳机场开通，全长 73.996 公里，东莞境内设 10 站，从此可以坐城际直达广深机场。' },
       { y: 2020, m: 1, tag: '危机', title: '新冠疫情', desc: '疫情冲击外贸订单与口岸，2020 年全市 GDP 9650.19 亿，仅增长 1.1%。' },
       { y: 2021, m: 12, tag: '经济', title: '晋级万亿俱乐部', desc: '2021 年东莞 GDP 达 10855.35 亿、增长 8.2%，成为全国第 15 个万亿级城市。' },
       { y: 2023, m: 12, tag: '政策', title: '深圳都市圈获批', desc: '深圳都市圈获批，范围含深圳、东莞、惠州全域，共 16273 平方公里。' },
       { y: 2025, m: 11, tag: '交通', title: '地铁 1 号线开通', desc: '11 月 28 日，轨道交通 1 号线开通，57.478 公里 25 站，从东莞西站到黄江，把中心城区与松山湖、黄江连成一线。' },
+      { y: 2026, m: 12, tag: '交通', title: '深惠城际凤岗站通车', desc: '深惠城际在凤岗雁田设站，是东莞境内唯一一站；凤岗由此直连深圳平湖、前海方向。' },
+      { y: 2028, m: 5, tag: '交通', title: '深江铁路通车', desc: '深江铁路经滨海湾新区跨珠江口，交椅湾一带成为东莞对接深圳机场与粤西的铁路门户。' },
     ],
 histTasks: [
       {
@@ -1037,6 +1050,10 @@ histTasks: [
       { id: "dg_广深港高速线", kind: 'rail', name: "广深港高速线", speed: 300, head: [[2011, 40], [2015, 25], [2020, 15]], y0: 2011, hsr: true, stops: [["虎门",68.55,135.64],["光明城",183.19,192.14]], path: "_vCc~OuDY}BScDQcBEaAAeD?{FBkCB{B@kC@qCA_CEkCK_FSkDMuAGkDEiA?}CBcCFyAHiBJoBLwHf@wCTcDTcF\\sCNeJr@}BPaAFoBJqBNiDTcF^yGd@wAJ}BN}BH}BBwC?_BA{CGwDOiAImBUmEm@eCa@_ASgCi@eBa@_x@oSs@Q{A_@aAWuEkAgCo@a@KcFoAkD}@sCo@{ZiHiBa@sBWoCSmBKyE[oG_@_@C{CSqBOcAKqAOiBWuC_@qAQ}Es@iASyBa@wD}@iAYoFmA}Cu@{A]yDeAiAYwBg@yX}GwA]sCo@yBk@wBi@mD{@qA]oBi@iDcAsAg@uAi@kBy@aBw@uBiAw@c@gBgAaAq@}@o@kCwBy@u@kAgAmAqAeAkA]_@g@m@gBaCyAyB_@o@kAsBg@_A_@y@u@}A]{@e@mAy@}Bc@uAQm@m@_Cg@wBY{AG]a@wC_@{CSeCIiAKgCGaCAiC@}BF_FB{BBkABgBFeDF_EJuG@iBNqKJoIBsDEoDGoBG{A[_EGk@[aCa@mCa@{Be@wB]sAUy@kAqDSk@aCyFq@wAwDcH{EgIeImM" },
       { id: "dg_京港高速线", kind: 'rail', name: "京港高速线", speed: 300, head: [[2021, 60], [2025, 30]], y0: 2021, hsr: true, stops: [["东莞南",229.6,142.39],["光明城",183.39,192.15]], path: "iu_@iwMfMkLnFgGfC}CjH{HzI_KnDcDbCsBhCmB|B}AtAy@vBmAjBaAfEmBj@UbDqAnAe@zCoAhLwEdDqAfCcAtB{@hLsExCmA~CoApGcCv@[nDsAjRaHrLiEzEaBzBs@zBm@|Bi@dIeBdJeCfF_BvEcBd@Sj@YbFoCXQ~DiCrB}AbB{ArDqDz@y@dBkBt@y@xAuBnDuFZe@|AwCl@sAx@kBFQjA{Ct@}Bj@oB`A{D\\eBToAb@eC^wCN_BRaCNyBH_CFqCFsDHwFDwBBkC@oCLeILmGDgDHyFJmF@{CAqAC{BGqCGsAUeDEe@_@mD}@iFe@{Bu@wCyA}EmGkQs@uBwAgEeAoCIMyEcNa@mA" },
       { id: "dg-ferry", kind: 'ferry', name: "虎门—南沙汽车渡轮", speed: 14, head: [[1991, 30], [2019, 30]], y0: [1991, 6], y1: [2019, 5], stops: [["虎门渡口",64.6,180.2],["南沙渡口",48.3,180.2]] },
+      // 未来线（第 19 轮）：按计划开通年份，先以直线走向与通用班次占位，通车后按实际走向细化
+      { id: "dg_深惠城际", kind: 'rail', name: "深惠城际", speed: 160, head: [[2026, 20], [2036, 15]], y0: [2026, 12], stops: [["平湖",252.45,210.12],["凤岗",271.2,206.9]] },
+      { id: "dg_深江铁路", kind: 'rail', name: "深江铁路", speed: 200, head: [[2028, 30], [2040, 20]], y0: [2028, 5], stops: [["深圳机场北",119.19,228.33],["交椅湾",83.9,187.5]] },
+      { id: "dg_佛穗莞城际", kind: 'rail', name: "佛穗莞城际", speed: 160, head: [[2031, 30], [2042, 20]], y0: [2031, 6], stops: [["东泊",53,44.2],["东莞西",49.2,70.1]] },
     ],
   };
 

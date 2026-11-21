@@ -187,7 +187,7 @@
     // 出现门槛的人口基准：默认取史料末年的全图人口；扩图的地图写 D.facPopRef（扩图前的值），原有片区设施出现的时机不随地图扩大而推迟（v2.9）
     const km = CFG.CELL_M / 1000, popRef = D.facPopRef || U.interp(CFG.growth.popCurve, CFG.growth.histEnd);
     regs.forEach(function (rg, k) {
-      if (rg.scenic || rg.hub || rg.noGen || rg.open == null || !rg.cells || rg.cx == null || rg === D.defaultRegion) return;   // 不含风景区、机场等枢纽、纯工业区（noGen，v2.8）、永久不开放的片区与「外围地区」
+      if (rg.scenic || rg.hub || rg.noGen || rg.park || rg.open == null || !rg.cells || rg.cx == null || rg === D.defaultRegion) return;   // 不含风景区、机场等枢纽、纯工业区（noGen，v2.8）、永久不开放的片区与「外围地区」
       let ctAt = null, best = -1;
       for (const ct of D.centers || []) {
         const c = city.cellAt(ct.x, ct.y);
