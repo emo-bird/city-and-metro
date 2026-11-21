@@ -28,3 +28,27 @@ tools/*.png
 tools/*.jpg
 saves/
 
+# 一次性排查脚本与中间产物（保留可复用的生成器与管线）
+tools/_dbg-*.mjs
+tools/_patch-*.mjs
+tools/_probe-*.mjs
+tools/_chk-*.mjs
+tools/probe-*.mjs
+tools/diag-*.mjs
+tools/_fixpatch.mjs
+tools/_tail2.js
+tools/_mk-chain4.mjs
+tools/_sea-block.js
+tools/_relrings.js
+tools/_apply-sea.mjs
+tools/_apply-relrings.mjs
+tools/_apply-bg.mjs
+tools/mk-bg.mjs
+tools/mk-bg-json.mjs
+tools/pbf-coast.mjs
+tools/pbf-dump.mjs
+tools/pbf-node-probe.mjs
+tools/pbf-tags.mjs
+tools/fetch-coast-api.mjs
+tools/*.txt
+
