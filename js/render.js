@@ -4734,7 +4734,7 @@
     // 新出现的标注淡入，不在相近的设施之间来回跳
     const placed = [];
     let shown = 0;
-    const valText = function (it) { return gap ? '无地铁接驳 · ' + U.fmtPeople(it.tv) + ' 人次' : (it.est ? '潜在 ' : '') + U.fmtPeople(it.tv) + ' 人次 · 地铁 ' + U.fmtPct(it.tshare, 0); };
+    const valText = function (it) { return gap ? '无地铁接驳 · ' + U.fmtPeople(it.tv) + ' 人次' : it.est ? '潜在 ' + U.fmtPeople(it.tv) + ' 人次 · 尚无地铁到访' : U.fmtPeople(it.tv) + ' 人次 · 地铁 ' + U.fmtPct(it.tshare, 0); };
     // 地图外设施：名称牌接在客流圆点外侧（同在地图边缘外）；其余设施按到访量从大到小标注
     for (const it of list) {
       if (!it.f.ext || !it.gate || it.hide) continue;
