@@ -1411,8 +1411,7 @@
     const chips = function (label, list, cls) { if (!list || !list.length) return null; return h('div', { class: 'era-chips' }, h('small', null, label), list.map(function (x) { return h('span', { class: 'chip ' + cls }, x); })); };
     const trend = h('div', { class: 'era-trend' },
       chips('人口增长较快', v.popUp, 'up'), chips('岗位增长较快', v.jobUp, 'up'), chips('增长放缓', v.popDown.concat(v.jobDown.filter(function (x) { return v.popDown.indexOf(x) < 0; })), 'down'),
-      chips('主要出行走廊', v.corr, 'corr'),
-      Math.abs(v.decayHW - 1) > 0.03 ? chips('通勤距离', [v.decayHW > 1 ? '偏长（郊区化）' : '偏短（职住较近）'], 'corr') : null,
+            Math.abs(v.decayHW - 1) > 0.03 ? chips('通勤距离', [v.decayHW > 1 ? '偏长（郊区化）' : '偏短（职住较近）'], 'corr') : null,
       v.bg ? chips('背景交通', [v.bg.name + ' · 约占非地铁出行 ' + U.fmtPct(v.bg.share, 0)], 'bgt') : null);
     if (trend.childNodes.length) el.append(h('div', { class: 'era-h' }, h('b', null, '本阶段的发展倾向')), trend);
     // 本阶段的空间结构：时代走廊（通勤与购物的去向倍率）与腾笼换鸟（每月疏解比例），条形图与「变化最多的片区」同样式，点击在地图上看
