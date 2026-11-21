@@ -4653,17 +4653,22 @@
     const acc = model.net ? model.net.acc : null, facP = this.layerOpt.facP, PK = CFG.trips.keys;
     const out = [];
     let vmax = 1;
+    const yr0 = g.year();
     fn.list.forEach(function (f, k) {
       let v = f.T.hub ? fd.inn[k] + fd.out[k] : fd.inn[k];
       let m = f.T.hub ? fd.innM[k] + fd.outM[k] : fd.innM[k];
+      let est = false;
       // 按目的筛选时分子分母都取该目的（玩家反馈：以前用全部地铁到访 ÷ 该目的到访，比例可超过 100%）
       if (this.layer === 'fac' && facP !== 'all') {
         const qi = PK.indexOf(facP), both = f.T.hub && facP === 'hb' ? 2 : 1;
-        v = qi >= 0 ? fd.purp[k * 6 + qi] * both : 0; if (!(v > 0)) return;
-        m = fd.purpM[k * 6 + qi] * both;
+        v = qi >= 0 ? fd.purp[k * 6 + qi] * both : 0; m = qi >= 0 ? fd.purpM[k * 6 + qi] * both : 0;
+        if (!(v > 0)) { const pr = f.T.p[facP] || 0; v = CM.Fac.pax(f, yr0) * pr * both * 0.5; m = v; est = v > 0; if (!(v > 0)) return; }
+      } else if (!(v > 0)) {
+        // v2.9.6：还没有地铁时按潜在需求标出设施（医院、学校、商圈、公园），数值为按启用年份折算的潜在客流
+        v = CM.Fac.pax(f, yr0) * 0.5; m = v; est = v > 0; if (!(v > 0)) return;
       }
       const cov = acc && acc.NZ === fn.NZ ? acc.zCov[model.Z + k] : 0;
-      out.push({ f: f, k: k, v: v, share: v > 0 ? m / Math.max(v, 1) : 0, cov: cov });
+      out.push({ f: f, k: k, v: v, share: v > 0 ? m / Math.max(v, 1) : 0, cov: cov, est: est });
       if (v > vmax) vmax = v;
     }, this);
     return { list: out, vmax: vmax, key: dt + ':' + (this.layer === 'fac' ? facP : '') };
@@ -4684,7 +4689,7 @@
         live.add(it.f.id);
         let o = S.m.get(it.f.id);
         if (!o) { o = { f: it.f, v: snap ? it.v : 0, share: it.share, alpha: snap ? 1 : 0, lab: false, la: 0 }; S.m.set(it.f.id, o); }
-        o.f = it.f; o.k = it.k; o.tv = it.v; o.tshare = it.share; o.cov = it.cov; o.on = true;
+        o.f = it.f; o.k = it.k; o.tv = it.v; o.tshare = it.share; o.cov = it.cov; o.on = true; o.est = it.est;
       }
       S.m.forEach(function (o, id) { if (!live.has(id)) { o.on = false; o.tv = o.v; } });
       S.tvmax = raw.vmax;
@@ -4729,7 +4734,7 @@
     // 新出现的标注淡入，不在相近的设施之间来回跳
     const placed = [];
     let shown = 0;
-    const valText = function (it) { return gap ? '无地铁接驳 · ' + U.fmtPeople(it.tv) + ' 人次' : U.fmtPeople(it.tv) + ' 人次 · 地铁 ' + U.fmtPct(it.tshare, 0); };
+    const valText = function (it) { return gap ? '无地铁接驳 · ' + U.fmtPeople(it.tv) + ' 人次' : (it.est ? '潜在 ' : '') + U.fmtPeople(it.tv) + ' 人次 · 地铁 ' + U.fmtPct(it.tshare, 0); };
     // 地图外设施：名称牌接在客流圆点外侧（同在地图边缘外）；其余设施按到访量从大到小标注
     for (const it of list) {
       if (!it.f.ext || !it.gate || it.hide) continue;

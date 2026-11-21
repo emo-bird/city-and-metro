@@ -69,6 +69,8 @@ const SZ = [
     { note: '东莞中心站初步选址南城蛤地，力争「十五五」启动。', why: '广深第二高铁规划东莞中心站位于蛤地，为两市第二通道。' }),
 ];
 
+// 与背景交通车站重合的接驳口不再单独作为口岸（客流并入该车站）
+const KEEP = (list) => list.filter((x) => !['dg_gate_gz','dg_gate_gz2','dg_gate_gz5','dg_gate_sz2','dg_gate_sz3','dg_gate_sz9','dg_gate_sz10'].includes(x.id));
 const block = (label, map, name, ach, region, whyText, gates) => `    { use: 'cityLink', icon: 'bridge', label: '${label}', map: '${map}', name: '${name}', ach: '${ach}', region: '${region}',
       why: '${whyText}',
       gates: [
@@ -79,9 +81,9 @@ ${gates.map((x) => `        { id: '${x.id}', n: '${x.n}', to: '${x.to}', at: [${
       ] },`;
 
 const GZT = block('穗莞连接', 'gz', '广州', '穗莞一线', 'gz_out',
-  '佛莞城际 2024 年 5 月 26 日开通，从广州南经番禺、麻涌接入东莞西，与莞惠城际贯通成 258 公里的大湾区一号线；穗深城际、佛穗莞城际（28 号线）与 1 号线二期继续加密两市接驳。', GZ);
+  '佛莞城际 2024 年 5 月 26 日开通，从广州南经番禺、麻涌接入东莞西，与莞惠城际贯通成 258 公里的大湾区一号线；穗深城际、佛穗莞城际（28 号线）与 1 号线二期继续加密两市接驳。', KEEP(GZ));
 const SZT = block('深莞连接', 'sz', '深圳', '深莞一线', 'sz_out',
-  '穗深城际 2019 年通车、赣深高铁 2021 年通车、深惠城际 2026 年底在凤岗设站；深圳 6 支北延、10 号线东延、11 号线北延、22 号线与深江铁路、中轴城际继续加密两市接驳。', SZ);
+  '穗深城际 2019 年通车、赣深高铁 2021 年通车、深惠城际 2026 年底在凤岗设站；深圳 6 支北延、10 号线东延、11 号线北延、22 号线与深江铁路、中轴城际继续加密两市接驳。', KEEP(SZ));
 
 let s = fs.readFileSync('js/data_dg.js', 'utf8');
 const A = s.indexOf('    { use: \'cityLink\', icon: \'bridge\', label: \'穗莞连接\'');
