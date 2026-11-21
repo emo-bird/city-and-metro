@@ -99,48 +99,45 @@
     stages: [[2000, '世界工厂'], [2008, '双转移阵痛'], [2014, '松山湖与手机'], [2019, '湾区都市']],
     stageLast: '湾区都市',
     eras: [
-      // 一、世界工厂（2000–2007）：三来一补顶峰，厂房沿 107 国道与广深铁路铺开，虎门/长安/厚街最密
+      // 世界工厂（2000–2007）：三来一补
       { id: 'dg-e1', from: 2000, name: '世界工厂', tag: '三来一补',
-        summary: '外资厂沿广深公路与铁路铺开，镇镇有工业区；人口以暂住的外来工为主，长安、虎门、厚街的厂房最密。',
+        summary: '外资厂沿广深公路与铁路铺开，镇镇有工业区；人口以暂住的外来工为主，多数住在厂区宿舍，"厂住一体"让通勤距离很短，上学、就医、购物都压在镇内。',
         grow: {
-          pop: { changan: 1.40, humen: 1.35, houjie: 1.30, tangxia: 1.25, fenggang: 1.20, dalang: 1.15, changping: 1.15, songshanhu: 1.05, guancheng: 0.97, shilong: 0.95 },
-          jobs: { changan: 1.35, songshanhu: 1.30, humen: 1.30, houjie: 1.28, tangxia: 1.25, changping: 1.20, machong: 1.15, shatian: 1.10, guancheng: 0.96 },
+          pop: { shatian: 1.279, liaobu: 1.213, gaobu: 1.2, dalingshan: 1.159, wanjiang: 1.146, hengli: 1.129, tangxia: 1.129, dongcheng: 1.107, nancheng: 1.106, hongmei: 1.103, huangjiang: 1.066, qiaotou: 1.059, shipai: 1.057, daojiao: 1.033, dongkeng: 1.03, guancheng: 0.78, chashan: 0.811, zhangmutou: 0.842, fenggang: 0.866, changping: 0.876, shilong: 0.895, humen: 0.899, qingxi: 0.903, changan: 0.905, qishi: 0.914, houjie: 0.946, zhongtang: 0.95, shijie: 0.952, xiegang: 0.956, machong: 0.964, dalang: 0.967 },
+          jobs: { shatian: 1.256, gaobu: 1.225, tangxia: 1.197, liaobu: 1.191, nancheng: 1.14, dalingshan: 1.138, hengli: 1.109, wanjiang: 1.091, dongcheng: 1.087, hongmei: 1.083, dongkeng: 1.052, huangjiang: 1.047, qiaotou: 1.04, shipai: 1.038, guancheng: 0.705, chashan: 0.796, zhangmutou: 0.827, shilong: 0.844, qishi: 0.897, fenggang: 0.901, changping: 0.903, zhongtang: 0.933, xiegang: 0.939, qingxi: 0.94, machong: 0.947 },
         },
-        demand: { sc: 0.24, decayHW: 3.4 },
-        corridors: [{ a: 'guancheng', b: 'changan', f: 1.18 }, { a: 'guancheng', b: 'humen', f: 1.2 }, { a: 'humen', b: 'changan', f: 1.25 }, { a: 'houjie', b: 'humen', f: 1.18 }, { a: 'changping', b: 'zhangmutou', f: 1.15 }, { a: 'dalang', b: 'liaobu', f: 1.12 }], },
-      // 二、双转移阵痛（2008–2013）：金融危机与腾笼换鸟，劳动密集厂外迁，松山湖开始承接
+        demand: { hw: 1, sc: 0.96, sh: 0.9, md: 0.9, lz: 0.86, decayHW: 0.62, decayHO: 0.76, hub: 0.95 },
+        corridors: [{ a: 'humen', b: 'changan', f: 1.28 }, { a: 'houjie', b: 'humen', f: 1.22 }, { a: 'changan', b: 'dalingshan', f: 1.12 }, { a: 'changping', b: 'zhangmutou', f: 1.18 }, { a: 'shilong', b: 'shijie', f: 1.15 }, { a: 'guancheng', b: 'nancheng', f: 1.12 }], },
+      // 双转移阵痛（2008–2013）：腾笼换鸟
       { id: 'dg-e2', from: 2008, name: '双转移阵痛', tag: '腾笼换鸟',
-        summary: '金融危机后一批中小企业倒闭，劳动密集环节转向内陆；松山湖、寮步一带开始承接研发与总部，老镇人口增速转负。',
+        summary: '金融危机后一批中小企业倒闭，劳动密集环节转向内陆；松山湖、寮步开始承接研发与总部，厂住分离增加，跨镇通勤变长，水乡片的造纸与服装厂外迁。',
         grow: {
-          pop: { songshanhu: 1.45, nancheng: 1.12, dalang: 1.10, liaobu: 1.10, changan: 0.98, guancheng: 0.97, humen: 0.96, changping: 0.95, tangxia: 0.92, fenggang: 0.90 },
-          jobs: { songshanhu: 1.55, liaobu: 1.15, nancheng: 1.15, dalang: 1.12, xiegang: 1.02, humen: 0.95, hongmei: 0.95, wangniudun: 0.95 },
+          pop: { dalang: 1.1, nancheng: 1.093, shatian: 1.092, wanjiang: 1.085, hengli: 1.082, liaobu: 1.082, dalingshan: 1.082, shipai: 1.076, tangxia: 1.069, machong: 1.051, dongkeng: 1.039, dongcheng: 1.037, qiaotou: 1.025, huangjiang: 1.023, guancheng: 0.86, shilong: 0.899, qingxi: 0.923, changping: 0.923, xiegang: 0.937, gaobu: 0.941, wangniudun: 0.943, zhangmutou: 0.944, chashan: 0.948, changan: 0.952, fenggang: 0.955, shijie: 0.955, humen: 0.971, houjie: 0.98 },
+          jobs: { nancheng: 1.255, liaobu: 1.243, dalang: 1.208, dalingshan: 1.145, shatian: 1.091, wanjiang: 1.084, hengli: 1.081, shipai: 1.075, tangxia: 1.068, dongkeng: 1.038, dongcheng: 1.036, guancheng: 0.807, shilong: 0.853, wangniudun: 0.866, qingxi: 0.922, changping: 0.922, hongmei: 0.93, zhongtang: 0.934, gaobu: 0.94, zhangmutou: 0.943, chashan: 0.947, changan: 0.951, fenggang: 0.954, shijie: 0.954, xiegang: 0.955, humen: 0.97 },
         },
-        demand: { sc: 0.23, decayHW: 3.2 },
-        corridors: [{ a: 'songshanhu', b: 'dalang', f: 1.3 }, { a: 'songshanhu', b: 'liaobu', f: 1.25 }, { a: 'songshanhu', b: 'dalingshan', f: 1.18 }, { a: 'nancheng', b: 'dongcheng', f: 1.15 }, { a: 'humen', b: 'changan', f: 1.2 }], },
-      // 三、松山湖与手机（2014–2018）：华为终端落地，莞产手机占全球约五分之一，2 号线通车
+        demand: { hw: 1.04, sc: 1.26, sh: 1.12, md: 0.95, lz: 0.95, decayHW: 0.82, decayHO: 0.86, hub: 1 },
+        relocate: { jobs: { zhongtang: -0.0015, wangniudun: -0.0015, shilong: -0.0012, songshanhu: 0.0022, liaobu: 0.0012 } },
+        corridors: [{ a: 'songshanhu', b: 'liaobu', f: 1.3 }, { a: 'songshanhu', b: 'dalang', f: 1.25 }, { a: 'songshanhu', b: 'dalingshan', f: 1.18 }, { a: 'humen', b: 'changan', f: 1.2 }, { a: 'nancheng', b: 'dongcheng', f: 1.14 }, { a: 'zhongtang', b: 'wangniudun', f: 1.1 }], },
+      // 松山湖与手机（2014–2018）：智能终端
       { id: 'dg-e3', from: 2014, name: '松山湖与手机', tag: '智能终端',
-        summary: '华为终端与一批手机供应链迁入松山湖、大岭山、大朗，研发岗位取代流水线；2 号线把东莞站与虎门站连起来。',
+        summary: '华为终端与一批手机供应链迁入松山湖、大岭山、大朗，研发岗位取代流水线；2 号线把东莞站与虎门站连起来，万达、万科广场进镇，购物与休闲出行明显变多。',
         grow: {
-          pop: { songshanhu: 1.60, dalingshan: 1.15, nancheng: 1.15, dalang: 1.12, humen: 1.10, changan: 1.08, guancheng: 0.95 },
-          jobs: { songshanhu: 2.20, dalingshan: 1.20, dalang: 1.15, humen: 1.12, changan: 1.10, changping: 0.96 },
+          pop: { dalang: 1.2, machong: 1.115, shipai: 1.087, nancheng: 1.078, zhongtang: 1.065, chashan: 1.062, qishi: 1.058, hengli: 1.046, dongkeng: 1.043, wanjiang: 1.04, dalingshan: 1.027, humen: 1.027, zhangmutou: 1.026, fenggang: 1.026, tangxia: 1.024, gaobu: 0.793, shilong: 0.906, wangniudun: 0.908, xiegang: 0.927, guancheng: 0.929, qingxi: 0.941, daojiao: 0.947, hongmei: 0.951, shijie: 0.959, changping: 0.962, shatian: 0.972 },
+          jobs: { dalang: 1.405, binhaiwan: 1.219, dalingshan: 1.202, nancheng: 1.157, machong: 1.088, liaobu: 1.066, humen: 1.062, shipai: 1.06, changan: 1.042, tangxia: 1.039, zhongtang: 1.039, chashan: 1.036, qishi: 1.032, gaobu: 0.743, shilong: 0.848, guancheng: 0.861, wangniudun: 0.886, xiegang: 0.904, qingxi: 0.918, daojiao: 0.924, hongmei: 0.928, shijie: 0.935, changping: 0.938, shatian: 0.948, dongcheng: 0.963, huangjiang: 0.969 },
         },
-        demand: { sc: 0.26, decayHW: 3.0 },
-        corridors: [{ a: 'songshanhu', b: 'dalang', f: 1.4 }, { a: 'songshanhu', b: 'liaobu', f: 1.3 }, { a: 'songshanhu', b: 'dalingshan', f: 1.25 }, { a: 'songshanhu', b: 'nancheng', f: 1.18 }, { a: 'humen', b: 'changan', f: 1.15 }], },
-      // 四、湾区都市（2019– ）：大湾区纲要、穗深城际、南沙大桥，滨海湾新区填海开发，2021 年破万亿
+        demand: { hw: 1.1, sc: 1.5, sh: 1.26, md: 1.02, lz: 1.15, decayHW: 0.94, decayHO: 0.95, hub: 1.05 },
+        relocate: { jobs: { guancheng: -0.0012, shilong: -0.0008, songshanhu: 0.0024, dalingshan: 0.0008, nancheng: 0.0008 } },
+        corridors: [{ a: 'songshanhu', b: 'dalang', f: 1.4 }, { a: 'songshanhu', b: 'dalingshan', f: 1.26 }, { a: 'songshanhu', b: 'liaobu', f: 1.24 }, { a: 'songshanhu', b: 'nancheng', f: 1.16 }, { a: 'humen', b: 'changan', f: 1.16 }, { a: 'tangxia', b: 'fenggang', f: 1.14 }], },
+      // 湾区都市（2019– ）：湾区横轴
       { id: 'dg-e4', from: 2019, name: '湾区都市', tag: '湾区横轴',
-        summary: '穗深城际与南沙大桥把东莞拉进广深半小时圈；滨海湾新区向海要地，松山湖与中心城区形成双核。',
+        summary: '穗深城际与南沙大桥把东莞拉进广深半小时圈；滨海湾新区向海要地，深莞跨市通勤超过 24 万人，松山湖与中心城区形成双核，休闲与跨市出行继续增长，但网购分流了一部分购物出行。',
         grow: {
-          pop: { songshanhu: 1.55, nancheng: 1.20, hongmei: 1.15, humen: 1.08, changan: 1.06, machong: 1.05, shilong: 0.96, guancheng: 0.93 },
-          jobs: { songshanhu: 1.60, nancheng: 1.25, changan: 1.10, humen: 1.10, xiegang: 1.05 },
+          pop: { dalang: 1.2, machong: 1.115, shipai: 1.087, nancheng: 1.078, zhongtang: 1.065, chashan: 1.062, qishi: 1.058, hengli: 1.046, dongkeng: 1.043, wanjiang: 1.04, dalingshan: 1.027, humen: 1.027, zhangmutou: 1.026, fenggang: 1.026, tangxia: 1.024, gaobu: 0.793, shilong: 0.906, wangniudun: 0.908, xiegang: 0.927, guancheng: 0.929, qingxi: 0.941, daojiao: 0.947, hongmei: 0.951, shijie: 0.959, changping: 0.962, shatian: 0.972 },
+          jobs: { binhaiwan: 1.828, dalang: 1.293, nancheng: 1.193, machong: 1.137, changan: 1.047, humen: 1.047, shipai: 1.046, gaobu: 0.763, shilong: 0.828, guancheng: 0.84, wangniudun: 0.874, qingxi: 0.905, daojiao: 0.911, shijie: 0.923, changping: 0.926, huangjiang: 0.955, liaobu: 0.955, hongmei: 0.961, qiaotou: 0.962, houjie: 0.967 },
         },
-        demand: { sc: 0.28, decayHW: 2.8 },
-        corridors: [{ a: 'binhaiwan', b: 'changan', f: 1.35 }, { a: 'binhaiwan', b: 'humen', f: 1.3 }, { a: 'songshanhu', b: 'dalang', f: 1.25 }, { a: 'nancheng', b: 'songshanhu', f: 1.2 }, { a: 'hongmei', b: 'wangniudun', f: 1.12 }], },
-      { id: 'dgfl1', name: '凤岗站', x: 271.2, y: 206.9, w: 180, d: 80, year: 2026, kind: 'rail' },
-      { id: 'dgfl2', name: '交椅湾站', x: 83.9, y: 187.5, w: 180, d: 80, year: 2028, kind: 'rail' },
-      { id: 'dgfl3', name: '东泊站', x: 53, y: 44.2, w: 180, d: 80, year: 2031, kind: 'rail' },
-{ id: 'dgf11', n: '凤岗站', t: 'rail', lm: 'dgfl1', pax: [[2026,0.3],[2034,1.6],[2044,2.6]] },
-{ id: 'dgf12', n: '交椅湾站', t: 'rail', lm: 'dgfl2', pax: [[2028,0.3],[2036,1.6],[2046,2.6]] },
-{ id: 'dgf13', n: '东泊站', t: 'rail', lm: 'dgfl3', pax: [[2031,0.3],[2039,1.6],[2049,2.6]] },
+        demand: { hw: 1.16, sc: 1.44, sh: 1.38, md: 1.08, lz: 1.35, decayHW: 1.08, decayHO: 1.06, hub: 1.12 },
+        relocate: { jobs: { guancheng: -0.0008, binhaiwan: 0.0026, changan: 0.0006, songshanhu: 0.0012, nancheng: 0.0006 } },
+        corridors: [{ a: 'binhaiwan', b: 'changan', f: 1.34 }, { a: 'binhaiwan', b: 'humen', f: 1.28 }, { a: 'songshanhu', b: 'dalang', f: 1.34 }, { a: 'songshanhu', b: 'nancheng', f: 1.2 }, { a: 'tangxia', b: 'fenggang', f: 1.28 }, { a: 'changan', b: 'humen', f: 1.18 }], },
     ],
 
     dataNote: [
@@ -797,6 +794,9 @@ histTasks: [
     { id: 'dgp151', name: '南沙客运港', x: 42.74, y: 177.32, w: 300, d: 200, year: 1992, kind: 'station2' },
     { id: 'dgp152', name: '沥林北站', x: 295.35, y: 83.24, w: 300, d: 150, year: 2016, kind: 'station2' },
     { id: 'dgp153', name: '博罗站', x: 286.67, y: 11.63, w: 400, d: 250, year: 2023, kind: 'station2' },
+    { id: 'dgfl1', name: '凤岗站', x: 271.2, y: 206.9, w: 180, d: 80, year: 2026, kind: 'rail' },
+    { id: 'dgfl2', name: '交椅湾站', x: 83.9, y: 187.5, w: 180, d: 80, year: 2028, kind: 'rail' },
+    { id: 'dgfl3', name: '东泊站', x: 53, y: 44.2, w: 180, d: 80, year: 2031, kind: 'rail' },
   ];
   DATA.facilities = [
 { id: 'dgf1', n: '平湖南', t: 'rail', lm: 'dgst1', pax: [[1911, 0.02], [1950, 0.05], [1990, 0.2], [2000, 0.4], [2025, 0.6]] },
