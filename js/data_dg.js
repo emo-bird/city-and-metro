@@ -107,7 +107,12 @@
           jobs: { shatian: 1.256, gaobu: 1.225, tangxia: 1.197, liaobu: 1.191, nancheng: 1.14, dalingshan: 1.138, hengli: 1.109, wanjiang: 1.091, dongcheng: 1.087, hongmei: 1.083, dongkeng: 1.052, huangjiang: 1.047, qiaotou: 1.04, shipai: 1.038, guancheng: 0.705, chashan: 0.796, zhangmutou: 0.827, shilong: 0.844, qishi: 0.897, fenggang: 0.901, changping: 0.903, zhongtang: 0.933, xiegang: 0.939, qingxi: 0.94, machong: 0.947 },
         },
         demand: { hw: 1, sc: 0.96, sh: 0.9, md: 0.9, lz: 0.86, decayHW: 0.62, decayHO: 0.76, hub: 0.95 },
-        corridors: [{ a: 'humen', b: 'changan', f: 1.28 }, { a: 'houjie', b: 'humen', f: 1.22 }, { a: 'changan', b: 'dalingshan', f: 1.12 }, { a: 'changping', b: 'zhangmutou', f: 1.18 }, { a: 'shilong', b: 'shijie', f: 1.15 }, { a: 'guancheng', b: 'nancheng', f: 1.12 }], },
+        corridors: [{ a: 'humen', b: 'changan', f: 1.28 }, { a: 'houjie', b: 'humen', f: 1.22 }, { a: 'changan', b: 'dalingshan', f: 1.12 }, { a: 'changping', b: 'zhangmutou', f: 1.18 }, { a: 'shilong', b: 'shijie', f: 1.15 }, { a: 'guancheng', b: 'nancheng', f: 1.12 }],
+        goals: [
+        { id: 'dg-g1', from: 2003, type: 'connect', months: 48, reward: 40000, title: '虎门港接进线网', desc: '虎门港 2003 年对外开放，麻涌、沙田、沙角与长安的码头需要大批工人轮班进出，陆路却只有几条镇道。用地铁连接沙田与虎门。', anchors: [{ name: '沙田镇', x: 46.1, y: 109.4, r: 4 }, { name: '虎门', x: 68.5, y: 135.7, r: 3 }] },
+        { id: 'dg-g2', from: 2004, type: 'connect', months: 48, reward: 45000, title: '虎门—长安工业走廊', desc: '广深公路沿线是最密集的电子与服装厂带，虎门的服装厂与长安的五金电子厂之间每天有几万人往返，班车与摩托车挤满国道。用地铁连接虎门与长安。', anchors: [{ name: '虎门', x: 68.5, y: 135.7, r: 3 }, { name: '长安镇', x: 121.2, y: 156.7, r: 4 }] },
+        ],
+      },
       // 双转移阵痛（2008–2013）：腾笼换鸟
       { id: 'dg-e2', from: 2008, name: '双转移阵痛', tag: '腾笼换鸟',
         summary: '金融危机后一批中小企业倒闭，劳动密集环节转向内陆；松山湖、寮步开始承接研发与总部，厂住分离增加，跨镇通勤变长，水乡片的造纸与服装厂外迁。',
@@ -117,7 +122,12 @@
         },
         demand: { hw: 1.04, sc: 1.26, sh: 1.12, md: 0.95, lz: 0.95, decayHW: 0.82, decayHO: 0.86, hub: 1 },
         relocate: { jobs: { zhongtang: -0.0015, wangniudun: -0.0015, shilong: -0.0012, songshanhu: 0.0022, liaobu: 0.0012 } },
-        corridors: [{ a: 'songshanhu', b: 'liaobu', f: 1.3 }, { a: 'songshanhu', b: 'dalang', f: 1.25 }, { a: 'songshanhu', b: 'dalingshan', f: 1.18 }, { a: 'humen', b: 'changan', f: 1.2 }, { a: 'nancheng', b: 'dongcheng', f: 1.14 }, { a: 'zhongtang', b: 'wangniudun', f: 1.1 }], },
+        corridors: [{ a: 'songshanhu', b: 'liaobu', f: 1.3 }, { a: 'songshanhu', b: 'dalang', f: 1.25 }, { a: 'songshanhu', b: 'dalingshan', f: 1.18 }, { a: 'humen', b: 'changan', f: 1.2 }, { a: 'nancheng', b: 'dongcheng', f: 1.14 }, { a: 'zhongtang', b: 'wangniudun', f: 1.1 }],
+        goals: [
+        { id: 'dg-g3', from: 2009, type: 'connect', months: 48, reward: 45000, title: '松山湖接住转岗的人', desc: '金融危机后一批中小企业关门，劳动密集环节迁往内陆；松山湖与寮步开始承接研发与总部，原来的工人要在新的园区重新上班。用地铁连接松山湖与寮步。', anchors: [{ name: '松山湖', x: 155.4, y: 108.3, r: 5 }, { name: '寮步镇', x: 151.7, y: 76, r: 4 }] },
+        { id: 'dg-g4', from: 2010, type: 'connect', months: 48, reward: 40000, title: '水乡片的跨镇江通勤', desc: '中堂、望牛墩、洪梅的水乡居民到莞城上班要绕道或坐渡船；造纸与服装厂外迁后，留在原地的人更依赖跨镇公交。用地铁连接中堂与莞城。', anchors: [{ name: '中堂镇', x: 61.7, y: 32.8, r: 4 }, { name: '莞城街道', x: 99.4, y: 56.9, r: 3 }] },
+        ],
+      },
       // 松山湖与手机（2014–2018）：智能终端
       { id: 'dg-e3', from: 2014, name: '松山湖与手机', tag: '智能终端',
         summary: '华为终端与一批手机供应链迁入松山湖、大岭山、大朗，研发岗位取代流水线；2 号线把东莞站与虎门站连起来，万达、万科广场进镇，购物与休闲出行明显变多。',
@@ -127,7 +137,12 @@
         },
         demand: { hw: 1.1, sc: 1.5, sh: 1.26, md: 1.02, lz: 1.15, decayHW: 0.94, decayHO: 0.95, hub: 1.05 },
         relocate: { jobs: { guancheng: -0.0012, shilong: -0.0008, songshanhu: 0.0024, dalingshan: 0.0008, nancheng: 0.0008 } },
-        corridors: [{ a: 'songshanhu', b: 'dalang', f: 1.4 }, { a: 'songshanhu', b: 'dalingshan', f: 1.26 }, { a: 'songshanhu', b: 'liaobu', f: 1.24 }, { a: 'songshanhu', b: 'nancheng', f: 1.16 }, { a: 'humen', b: 'changan', f: 1.16 }, { a: 'tangxia', b: 'fenggang', f: 1.14 }], },
+        corridors: [{ a: 'songshanhu', b: 'dalang', f: 1.4 }, { a: 'songshanhu', b: 'dalingshan', f: 1.26 }, { a: 'songshanhu', b: 'liaobu', f: 1.24 }, { a: 'songshanhu', b: 'nancheng', f: 1.16 }, { a: 'humen', b: 'changan', f: 1.16 }, { a: 'tangxia', b: 'fenggang', f: 1.14 }],
+        goals: [
+        { id: 'dg-g5', from: 2015, type: 'connect', months: 48, reward: 50000, title: '手机走廊', desc: '华为终端 2014 年在松山湖动工、2018 年迁入，大朗与寮步的配套厂跟着长起来，工程师与产线工人每天都在松山湖与周边镇之间往返。用地铁连接松山湖与大朗。', anchors: [{ name: '松山湖', x: 155.4, y: 108.3, r: 5 }, { name: '大朗镇', x: 176.8, y: 97.5, r: 4 }] },
+        { id: 'dg-g6', from: 2016, type: 'connect', months: 48, reward: 50000, title: '虎门高铁站的接驳', desc: '虎门站 2011 年通车后日均到发从三千人涨到两万多，厚街的会展与家具客户、虎门的服装客商都从这里进出。用地铁连接厚街与虎门站。', anchors: [{ name: '厚街镇', x: 67.1, y: 102.3, r: 4 }, { name: '虎门', x: 68.5, y: 135.7, r: 3 }] },
+        ],
+      },
       // 湾区都市（2019– ）：湾区横轴
       { id: 'dg-e4', from: 2019, name: '湾区都市', tag: '湾区横轴',
         summary: '穗深城际与南沙大桥把东莞拉进广深半小时圈；滨海湾新区向海要地，深莞跨市通勤超过 24 万人，松山湖与中心城区形成双核，休闲与跨市出行继续增长，但网购分流了一部分购物出行。',
@@ -135,9 +150,14 @@
           pop: { dalang: 1.2, machong: 1.115, shipai: 1.087, nancheng: 1.078, zhongtang: 1.065, chashan: 1.062, qishi: 1.058, hengli: 1.046, dongkeng: 1.043, wanjiang: 1.04, dalingshan: 1.027, humen: 1.027, zhangmutou: 1.026, fenggang: 1.026, tangxia: 1.024, gaobu: 0.793, shilong: 0.906, wangniudun: 0.908, xiegang: 0.927, guancheng: 0.929, qingxi: 0.941, daojiao: 0.947, hongmei: 0.951, shijie: 0.959, changping: 0.962, shatian: 0.972 },
           jobs: { binhaiwan: 1.828, dalang: 1.293, nancheng: 1.193, machong: 1.137, changan: 1.047, humen: 1.047, shipai: 1.046, gaobu: 0.763, shilong: 0.828, guancheng: 0.84, wangniudun: 0.874, qingxi: 0.905, daojiao: 0.911, shijie: 0.923, changping: 0.926, huangjiang: 0.955, liaobu: 0.955, hongmei: 0.961, qiaotou: 0.962, houjie: 0.967 },
         },
-        demand: { hw: 1.16, sc: 1.44, sh: 1.38, md: 1.08, lz: 1.35, decayHW: 1.08, decayHO: 1.06, hub: 1.12 },
+        demand: { hw: 1.16, sc: 1.44, sh: 1.38, md: 1.08, lz: 1.35, decayHW: 1.14, decayHO: 1.06, hub: 1.12 },
         relocate: { jobs: { guancheng: -0.0008, binhaiwan: 0.0026, changan: 0.0006, songshanhu: 0.0012, nancheng: 0.0006 } },
-        corridors: [{ a: 'binhaiwan', b: 'changan', f: 1.34 }, { a: 'binhaiwan', b: 'humen', f: 1.28 }, { a: 'songshanhu', b: 'dalang', f: 1.34 }, { a: 'songshanhu', b: 'nancheng', f: 1.2 }, { a: 'tangxia', b: 'fenggang', f: 1.28 }, { a: 'changan', b: 'humen', f: 1.18 }], },
+        corridors: [{ a: 'binhaiwan', b: 'changan', f: 1.34 }, { a: 'binhaiwan', b: 'humen', f: 1.28 }, { a: 'songshanhu', b: 'dalang', f: 1.34 }, { a: 'songshanhu', b: 'nancheng', f: 1.2 }, { a: 'tangxia', b: 'fenggang', f: 1.28 }, { a: 'changan', b: 'humen', f: 1.18 }],
+        goals: [
+        { id: 'dg-g7', from: 2020, type: 'connect', months: 60, reward: 60000, title: '滨海湾新区接入线网', desc: '滨海湾新区 2017 年挂牌，填海地上一片空地等着招商；深江铁路 2028 年要在交椅湾设站。用地铁把新区与长安连起来，先把骨架搭好。', anchors: [{ name: '滨海湾新区', x: 97.5, y: 183.3, r: 5 }, { name: '长安镇', x: 121.2, y: 156.7, r: 4 }] },
+        { id: 'dg-g8', from: 2022, type: 'connect', months: 60, reward: 60000, title: '双核之间的研发通勤', desc: '2021 年东莞 GDP 破万亿，松山湖的研发与南城的金融、总部形成两个核心，两地之间的通勤与商务往来快速增长。用地铁连接松山湖与南城。', anchors: [{ name: '松山湖', x: 155.4, y: 108.3, r: 5 }, { name: '南城街道', x: 97.3, y: 65.8, r: 3 }] },
+        ],
+      },
     ],
 
     dataNote: [
