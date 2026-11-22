@@ -4,7 +4,7 @@
 (function (CM) {
   const CFG = CM.CFG, U = CM.U;
   // 随地图切换的配置项：格网、起始日期、人口增长、货币与价格基年、建设与运营成本、票价、财政、城市经济、出行选择与道路参数
-  const CFG_KEYS = ['W', 'H', 'ZONE', 'START', 'growth', 'money', 'econBase', 'cost', 'ops', 'fareDefault', 'fareRange', 'economy', 'macro', 'choice', 'road', 'workWeek'];
+  const CFG_KEYS = ['W', 'H', 'ZONE', 'START', 'growth', 'money', 'econBase', 'cost', 'ops', 'fareDefault', 'fareDist', 'fareRange', 'economy', 'macro', 'choice', 'road', 'workWeek'];
   const GZ_CFG = {}; for (const k of CFG_KEYS) GZ_CFG[k] = k === 'START' ? Object.assign({}, CFG.START) : CFG[k];
   // 广州图内人口与岗位按独立版校准；其他地图与青湾使用各自的增长曲线。
   GZ_CFG.growth = Object.assign({}, GZ_CFG.growth, {
