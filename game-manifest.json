@@ -66,22 +66,6 @@
       }
     },
     {
-      "id": "dg",
-      "mapVersion": 1,
-      "displayRevision": 1,
-      "terrainRevision": 1,
-      "width": 320,
-      "height": 240,
-      "cellMeters": 250,
-      "fingerprint": "3b895f4f",
-      "projection": {
-        "lon0": 113.5,
-        "lat0": 23.17,
-        "kx": 407.44,
-        "ky": 442.3
-      }
-    },
-    {
       "id": "hk",
       "mapVersion": 5,
       "displayRevision": 1,
@@ -210,6 +194,22 @@
       }
     },
     {
+      "id": "dg",
+      "mapVersion": 1,
+      "displayRevision": 1,
+      "terrainRevision": 1,
+      "width": 320,
+      "height": 240,
+      "cellMeters": 250,
+      "fingerprint": "3b895f4f",
+      "projection": {
+        "lon0": 113.5,
+        "lat0": 23.17,
+        "kx": 407.44,
+        "ky": 442.3
+      }
+    },
+    {
       "id": "tk",
       "mapVersion": 4,
       "displayRevision": 1,
@@ -277,7 +277,7 @@
     "js/config.js": "7f1fa80936b72b76319bb48e654111f0fab261bbecb5528cde3180fde79e39d0",
     "js/corp.js": "b65cd8b33742499448826997faee8a7b8515333bda89cc8ee749e6da00f994ee",
     "js/data_bj.js": "7e6c1b24c4d6fb604eb6b5fc14929e56848be3f5163f8c5a7170370e614d56ea",
-    "js/data_dg.js": "9d626e7114917edbfc97d36f3c7f391de10346bd0d56c1cf4a5743ddc43d4b59",
+    "js/data_dg.js": "7ee7dd02dfd6035712545467651d057b395efdbbb885b0ff5a364989d19ffabf",
     "js/data_eras.js": "bf8d6797ed756496a6b297a065e8d8025233a265e455dccdbd7b0be9e9d541e6",
     "js/data_gz.js": "b22384d41d583c91a8b08673edbe6fa53c5a65999f360bca44707785e7e89937",
     "js/data_hk.js": "c102c468c213a8cb86743725123ecbb79791e348196f3f34499e33c28340fb0d",
@@ -322,7 +322,7 @@
     "js/impact.js": "39eb983a454e28c2e1bbe5e8a2b8035ee8ce3db3c5fffa1d857b014c5090057d",
     "js/keys.js": "37b0ce58abc3300ac1e1b881452914dc4401b613771e5a836f56f5e7acde4e6f",
     "js/legal.js": "e1487d53fa6d6fed2b7d30f8fe68accb47ff6890e4e5640001c9c65992e1cfc6",
-    "js/locales/en.js": "f06e0cf1edc43feed56d423ec28610a5ab5a026c3955c3e03cb549a425010fd1",
+    "js/locales/en.js": "2857c7a6236e2822c0618335191bf13d7c299ae8752db9f8c153238ccbfc89cd",
     "js/macro.js": "618b3a39356fe41e385ebf9c53e76714e6bb819f0a70d44832eb4ac57f1d3cb6",
     "js/main.js": "9b326a008b5dfb9cfee18be9715d14e1a0a8fd5fc4851d4d180947ad6a8d9edc",
     "js/maps.js": "920f09241f3b4631eed333c301ae9c8b51a1eb5e09af81a62572cde03dc56fb8",
@@ -344,7 +344,7 @@
     "js/scenery.js": "1e0ad67536ef165757e31bf3785a68f45ca663c38156524ecf1eaa3ed1bffa4e",
     "js/screens.js": "4934d7c408ee3f3375ecb337d9378019efa47bf1ffb9a528fe59767d53fa71ee",
     "js/settings.js": "110e5f1e9eb109fd110b293fd884cd8cc0c681187a75f5ee5e9d0e8d9bbc3faf",
-    "js/sim-stamp.js": "5dba6cf21282872fcbc9466cb144312a59960f042c763875a43e8b9bbc12cc40",
+    "js/sim-stamp.js": "687914eaf10c32970c079dd55aefed7645aa03eaf77bd34b54158544dd8f5106",
     "js/sim.js": "1794cbf463c06ebbf45f1e8dbfa5c2f885f1db60a117b20f7df0ac02c3474e94",
     "js/sites.js": "ae777e84b9b7a6ee6f441cc335511efa51c768e5f9529626e89a3c8d45aaba1e",
     "js/sketch.js": "1ba883772cc0e9876a438fffe356f7919af186dab3c40d6c08ccb0fddd6b6679",
