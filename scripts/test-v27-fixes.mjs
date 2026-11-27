@@ -5,7 +5,7 @@ const load=async f=>vm.runInContext(await fs.readFile(new URL(f,root),'utf8'),c,
 for(const[,f]of(await fs.readFile(new URL('index.html',root),'utf8')).matchAll(/<script src="([^"]+)"/g)){await load(f);if(f==='js/save.js')break;}
 const C=c.CM,M=C.Metro,copy=x=>JSON.parse(JSON.stringify(x)),sum=a=>a.reduce((s,n)=>s+n,0);C.UI=function(){};
 for(const f of ['settings','icons','pages','corp','fleet','opsapp','render','sites','scenery'])await load('js/'+f+'.js');
-assert.equal(C.CFG.GAME_VERSION,'2.9.5');assert.ok(C.CFG.RULES_REVISION>=15);assert.equal(C.MAP_ORDER.length,15);assert.equal(C.Fleet.MODELS.length,78);assert.ok(C.MAPS.sg&&C.MAPS.ny&&!C.Achievements&&!C.Desktop);
+assert.equal(C.CFG.GAME_VERSION,'3.0.1');assert.ok(C.CFG.RULES_REVISION>=15);assert.equal(C.MAP_ORDER.length,18);assert.equal(C.Fleet.MODELS.length,83);assert.ok(C.MAPS.sg&&C.MAPS.ny&&!C.Achievements&&!C.Desktop);
 C.useMap('tutorial');const g=C.Game.create({mode:'free',tutorial:true,seed:20000101}),F=C.Fleet;F.ensure(g);let fixture;
 for(let y=5;y<g.city.H-5&&!fixture;y++)for(let x=5;x<g.city.W-22&&!fixture;x++){
  if([0,4,8,12,16].some(d=>!M.checkSite(g.city,x+d,y,'underground').ok))continue;
@@ -80,7 +80,8 @@ console.log('PASS exact v2.7.1 backup, traffic rebuild and preserved network, fu
 
 const byId=C.Fac.byId,facIndex=g.model.facIndex,facStats=g.model.facStats,ready=g.model.trafficReady,verified=g.model.trafficVerified,clock={...g.clock},fare=g.econ.fare;
 try{
- C.Fac.byId=id=>({id,name:'Fixture',T:{hub:true},open:id==='later'?2001.5:1990,close:id==='closed'?1999:null});g.model.facIndex=()=>0;g.model.facStats=()=>({inn:100,out:0,innM:80,outM:0});g.model.trafficReady=()=>true;g.model.trafficVerified=()=>true;
+ const place=byId('qw_rail');
+ C.Fac.byId=id=>({...place,id,name:'Fixture',T:{hub:true},open:id==='later'?2001.5:1990,close:id==='closed'?1999:null});g.model.facIndex=()=>0;g.model.facStats=()=>({inn:100,out:0,innM:80,outM:0});g.model.trafficReady=()=>true;g.model.trafficVerified=()=>true;
  const t={type:'facShare',fac:'later',deadline:[2000,1]};C.Tasks.alignFacDeadline(t);assert.equal(JSON.stringify(t.deadline),'[2001,10]');assert.ok(t.facDelay.includes('2001 年 7 月'));assert.equal(new C.Tasks().evaluate({...t,target:.5},g).wait,true);
  const T=new C.Tasks();T.nextDyn=g.ym()+1000;T.offerMonthly=()=>[];g.tasks=T;g.econ.fare={mode:'flat',flat:1};const q={id:'fare',kind:'hist',type:'facShare',fac:'open',target:.5,fare0:10,reward:100,title:'Fare',issuedAt:[2000,1],deadline:[2000,1],status:'active'};T.active=[q];
  for(let m=1;m<=3;m++){g.clock.m=m;T.monthly(g);assert.equal(q.fareWait,m);assert.equal(T.failed.length,0);assert.ok(q.graced.includes('票价'));}
@@ -127,7 +128,14 @@ console.log('PASS merged line trends, reset split-line trends and invalidated co
 const D=C.DATA,reclaim=D.reclaim,lockEnclaves=D.lockEnclaves,landmarks=D.landmarks,list=C.Fac.list,active=C.Fac.active;
 try{
  D.reclaim=[{year:2010,poly:[[0,0],[4,0],[4,4],[0,4]],holes:[[[1,1],[2,1],[2,2],[1,2]]]}];assert.equal(g.city.reclaimFeats(false)[0].rings[1].outer,false);
- const small=Object.create(C.City.prototype);Object.assign(small,{W:30,H:30,N:900,regions:[{id:'start',open:2000},{id:'later',open:2010},{id:'empty',open:null,empty:true}],region:new Uint16Array(900),landFrac:new Float32Array(900)});small.landFrac[62]=small.landFrac[465]=1;small.region[465]=1;D.lockEnclaves=false;assert.equal(small.lockMaskFor([1,0,0])[465],0);D.lockEnclaves=true;assert.equal(small.lockMaskFor([1,0,0])[465],1);small.landFrac[63]=1;small.region[63]=2;assert.equal(small.lockMaskFor([1,0,0])[63],1);
+ const small=Object.create(C.City.prototype);
+ Object.assign(small,{W:30,H:30,N:900,terrainVer:0,regions:[{id:'start',open:2000},{id:'later',open:2010},{id:'empty',open:null,empty:true}],region:new Uint16Array(900),landFrac:new Float32Array(900)});
+ small.landFrac[62]=small.landFrac[465]=1;small.region[465]=1;
+ D.lockEnclaves=false;assert.equal(small.lockMaskFor([1,0,0])[465],0);
+ D.lockEnclaves=true;assert.equal(small.lockMaskFor([1,0,0])[465],0,'Remove isolated fragments below 24 cells');
+ for(let y=13;y<18;y++)for(let x=13;x<18;x++){const c=y*30+x;small.landFrac[c]=1;small.region[c]=1;}
+ small.terrainVer++;assert.equal(small.lockMaskFor([1,0,0])[465],1,'Keep the planned island locked until its own date');
+ small.landFrac[63]=1;small.region[63]=2;small.terrainVer++;assert.equal(small.lockMaskFor([1,0,0])[63],1);
  small.regions[2].open=2000;assert.equal(small.lockMaskFor([1,0,1])[63],0);
  D.landmarks=[];const fc=Object.create(g.city);fc.regions=[{scenic:true}];fc.region=new Uint16Array(fc.N);fc.landmarkOn=[];
  const R=Object.create(C.Renderer.prototype);R.game={mapId:'tutorial'};const museum={id:'museum',lmK:-1,t:'scenic',name:'自然博物馆',x:5,y:5,r:1};C.Fac.list=()=>[museum,{...museum,id:'park',t:'park'},{...museum,id:'hidden',noModel:true}];C.Fac.active=()=>true;

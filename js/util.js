@@ -211,6 +211,10 @@ window.CM = window.CM || {};
   };
 
   // ---------- 格式化 ----------
+  U.fileDate = function (y, m) {
+    if (CM.I18n && CM.I18n.get() === 'en') return String(y) + (m == null ? '' : '-' + U.pad2(m));
+    return y + '年' + (m == null ? '' : m + '月');
+  };
   U.pad2 = function (n) { return (n < 10 ? '0' : '') + n; };
   // 未开放区域的说明：按参考年份开放，或长期不开放（如军用机场，见区域的 lockNote）
   U.regionLock = function (rg) { return rg.open != null ? '参考 ' + rg.open + ' 年开放' : (rg.lockNote || '不开放'); };
@@ -356,6 +360,15 @@ window.CM = window.CM || {};
   Emitter.prototype.off = function (ev, fn) { const a = this._h[ev]; if (a) { const i = a.indexOf(fn); if (i >= 0) a.splice(i, 1); } };
   Emitter.prototype.emit = function (ev, data) { const a = this._h[ev]; if (a) for (const f of a.slice()) f(data); };
   U.Emitter = Emitter;
+
+  // 地名用作站名前的整理（v3.3）：去掉括号里的线路、规划等注记（「季华园（4号线）」→「季华园」）、末尾的「地铁站」，
+  // 以及街道、社区一级的行政后缀（「吉大街道」→「吉大」，至少留两个字）
+  U.stationLabel = function (n) {
+    let s = String(n).replace(/\s*[（(][^（）()]*(?:号线|號線|线|線|规划|規劃|在建|地铁|地鐵|轻轨|輕軌|有轨|有軌|站|期|line)[^（）()]*[）)]\s*/gi, '').trim();
+    s = s.replace(/(?:地铁站|地鐵站)$/, '');
+    for (let k = 0, m; k < 2 && (m = s.match(/^(.{2,}?)(?:街道办事处|街道辦事處|街道|社区|社區|居委会|居委會|村委会|村委會)$/)); k++) s = m[1];
+    return s || String(n);
+  };
 
   CM.U = U;
   // Browser download shared by network maps and city review posters.

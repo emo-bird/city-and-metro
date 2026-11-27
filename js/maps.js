@@ -8,7 +8,7 @@
   const GZ_CFG = {}; for (const k of CFG_KEYS) GZ_CFG[k] = k === 'START' ? Object.assign({}, CFG.START) : CFG[k];
   // 广州图内人口与岗位按独立版校准；其他地图与青湾使用各自的增长曲线。
   GZ_CFG.growth = Object.assign({}, GZ_CFG.growth, {
-    popCurve: [[1990, 4.1e6], [1995, 5.0e6], [2000, 6.9e6], [2005, 8.4e6], [2010, 10.3e6], [2015, 12.0e6], [2020, 14.0e6], [2030, 15.4e6], [2045, 16.3e6], [2070, 16.9e6], [2300, 17.3e6]],
+    popCurve: [[1990, 4.53e6], [1995, 5.43e6], [2000, 7.39e6], [2005, 9.14e6], [2010, 11.38e6], [2015, 13.49e6], [2020, 16.02e6], [2030, 17.81e6], [2045, 18.96e6], [2070, 19.65e6], [2300, 20.12e6]],
     jobsRatio: [[1990, 0.5], [2000, 0.55], [2010, 0.59], [2020, 0.62], [2030, 0.63]],
   });
   // 出行选择参数按「发展阶段对应年份」平移并按本城货币缩放：devOffset 为广州曲线年份减本城年份，money 为本城货币相对广州曲线的倍数
@@ -25,39 +25,36 @@
     gz: {
       id: 'gz', name: '广州', title: '广州 · 1990', sub: '真实地理 · 1990 年起 · 人民币',
       desc: '从 1990 年尚无地铁的广州开始：珠江水系、道路与桥梁、街道边界和地标都来自真实地理，区域按历史年份逐步开放，并有参考广州地铁发展的历史任务。',
-      facts: [['范围', '38 km × 57 km'], ['起始', '1990 年'], ['人口', '约 410 万'], ['货币', '人民币（元）'], ['模式', '经营挑战 / 自由建造']],
+      facts: [['范围', '61 km × 76 km'], ['起始', '1990 年'], ['人口', '约 453 万'], ['货币', '人民币（元）'], ['模式', '经营挑战 / 自由建造']],
       // 第 2 版（v2.1）：向北扩大 16 格到同和、京溪，向南扩大 32 格到市桥与广州南站；
       // 第 3 版（v2.9）：向北扩大 80 格到新白云机场与花都城区，向东扩大 32 格到知识城、永和与新塘西缘，向南扩大 4 格。旧存档载入时依次迁移（见 extentMigration）
-      modes: ['challenge', 'free'], kind: 'real', mapVersion: 3, scenario: 'gz-1990',
+      // 第 4 版：完整矩形图幅向西延伸 92 格、向南延伸 76 格，旧坐标向东平移 92 格。
+      modes: ['challenge', 'free'], kind: 'real', mapVersion: 4, scenario: 'gz-1990',
       extent: [{ from: 1, dx: 0, dy: 16, oldW: 120, oldH: 96, newW: 120, newH: 144, note: '地图向北扩大到同和、京溪，向南扩大到市桥与广州南站',
         oldRegionIds: ['bys', 'hls', 'airport', 'oldcity', 'cbd', 'tianhe_w', 'sanyuanli', 'fangcun', 'haizhu_n', 'huangpu', 'changzhou', 'kaifaqu', 'tianhe_e', 'haizhu_s', 'tianhe_n', 'baiyun_n', 'baiyun_w', 'tonghe', 'panyu_n', 'pazhou', 'guanzhou', 'longdong', 'tianhe_ne', 'unicity', 'luogang', 'foshan', 'panyu_e', 'outer'],
         oldLandmarkIds: ['zsjnt', 'zhl', 'cjc', 'gxs', 'lrs', 'hss', 'wxg', 'sssx', 'sm', 'nyw', 'njs', 'lsly', 'hhg', 'yxst', 'hpjx', 'sysu', 'scut', 'jnu', 'thty', 'gzzhan', 'gzdz', 'tcity', 'citic', 'xhyyt', 'gdmsg', 'pzhz', 'bycc', 'gzt', 'ifc', 'opera', 'gdmus', 'gzlib', 'ctf'] },
       { from: 2, dx: 0, dy: 80, oldW: 120, oldH: 144, newW: 152, newH: 228, eventInsert: { index: 12, count: 5 }, note: '地图向北扩大到新白云机场与花都城区，向东扩大到知识城、永和与新塘西缘',
         oldRegionIds: ['bys', 'hls', 'airport', 'oldcity', 'cbd', 'tianhe_w', 'sanyuanli', 'fangcun', 'haizhu_n', 'huangpu', 'changzhou', 'kaifaqu', 'tianhe_e', 'haizhu_s', 'tianhe_n', 'baiyun_n', 'baiyun_w', 'tonghe', 'panyu_n', 'pazhou', 'guanzhou', 'longdong', 'tianhe_ne', 'unicity', 'luogang', 'foshan', 'panyu_e', 'outer'],
+        oldLandmarkIds: ['zsjnt', 'zhl', 'cjc', 'gxs', 'lrs', 'hss', 'wxg', 'sssx', 'sm', 'nyw', 'njs', 'lsly', 'hhg', 'yxst', 'hpjx', 'sysu', 'scut', 'jnu', 'thty', 'gzzhan', 'gzdz', 'tcity', 'citic', 'xhyyt', 'gdmsg', 'pzhz', 'bycc', 'gzt', 'ifc', 'opera', 'gdmus', 'gzlib', 'ctf', 'gznz'] },
+      { from: 3, dx: 92, dy: 0, oldW: 152, oldH: 228, newW: 244, newH: 304, note: '地图向南扩大到南沙（黄阁、南沙街、东涌、大岗、榄核）与番禺南部，向西扩大到花都西部（炭步、赤坭、狮岭、秀全）',
+        oldRegionIds: ['bys', 'hls', 'airport', 'oldcity', 'cbd', 'tianhe_w', 'sanyuanli', 'fangcun', 'haizhu_n', 'huangpu', 'changzhou', 'kaifaqu', 'tianhe_e', 'haizhu_s', 'tianhe_n', 'baiyun_n', 'baiyun_w', 'tonghe', 'panyu_n', 'pazhou', 'guanzhou', 'longdong', 'tianhe_ne', 'unicity', 'luogang', 'foshan', 'panyu_e', 'newair', 'huadu', 'huadong', 'renhe', 'zskc', 'yonghe', 'zengcheng', 'dongguan', 'outer'],
         oldLandmarkIds: ['zsjnt', 'zhl', 'cjc', 'gxs', 'lrs', 'hss', 'wxg', 'sssx', 'sm', 'nyw', 'njs', 'lsly', 'hhg', 'yxst', 'hpjx', 'sysu', 'scut', 'jnu', 'thty', 'gzzhan', 'gzdz', 'tcity', 'citic', 'xhyyt', 'gdmsg', 'pzhz', 'bycc', 'gzt', 'ifc', 'opera', 'gdmus', 'gzlib', 'ctf', 'gznz'] }],
       // 地图选择页：地区、一句话特色、介绍、特色卡、大事年表、难度（1–4）
       region: '中国内地', tagline: '珠江两岸，从第一条线开始', difficulty: 2, tags: ['无地铁开局', '越江', '新区开放'],
       intro: '1990 年的广州还没有一公里地铁。老城的街巷挤满公交与自行车，天河才刚刚起步，珠江新城仍是一片农田。你要在老城与天河之间画下第一条线，再跟着城市一路向东、向南跨过珠江。',
-      features: [['bridge', '珠江越江', '珠江把城市分成两岸，越江段可以建隧道或桥梁'], ['map', '35 个片区逐年开放', '珠江新城、番禺、大学城、花都与知识城按真实年份开放，新白云机场在图内'], ['building', '33 处真实地标', '中山纪念堂、广州塔、东塔按落成年份出现'], ['flag', '7 项历史任务', '参考广州地铁的发展需求，不要求复刻真实线路']],
+      features: [['bridge', '珠江越江', '珠江把城市分成两岸，越江段可以建隧道或桥梁'], ['map', '38 个片区逐年开放', '珠江新城、番禺、大学城、花都、知识城与南沙按真实年份开放，新白云机场在图内'], ['building', '33 处真实地标', '中山纪念堂、广州塔、东塔按落成年份出现'], ['flag', '7 项历史任务', '参考广州地铁的发展需求，不要求复刻真实线路']],
       highlights: [[1993, '珠江新城开始规划'], [1996, '广州东站建成'], [2000, '番禺撤市设区'], [2004, '新白云机场与大学城启用'], [2010, '亚运会，广州塔落成']],
       geo: CM.GEO, data: Object.assign({}, CM.DATA),
       cfg: GZ_CFG,
-      cam: { cx: 30, cy: 137, zoom: 18 },   // v2.9 地图向北扩大 80 格，镜头仍对准老城
+      cam: { cx: 122, cy: 137, zoom: 18 },   // 扩图后镜头仍对准老城
     },
   };
   // 其他地图（教程与新增城市）由各自的数据文件登记为 CM.MAP_LIST；未写的配置项沿用广州样本
-  // 交通小区边长（v2.6）：交通计算量随小区数的平方增长。现有地图都是 4 格（约 1 km）；更大的地图没有指定时自动放大，
-  // 让全图小区数保持在同一量级（约 2000 个以内），跳月速度与内存不随地图面积成倍增长。边长须能整除地图宽高
-  const autoZone = function (W, H) {
-    for (const z of [4, 6, 8, 10, 12, 16, 20, 24]) if (W % z === 0 && H % z === 0 && W * H / (z * z) <= 2200) return z;
-    return 4;
-  };
-  CM.autoZone = autoZone;
+  // 每格 250 m，所有地图的交通小区统一为 4×4 格。
   for (const m of CM.MAP_LIST || []) {
     const cfg = Object.assign({}, GZ_CFG);
     if (m.econ) Object.assign(cfg, CM.deriveChoice(m.econ.devOffset || 0, m.econ.money || 1));
     Object.assign(cfg, m.cfg);
-    if (m.cfg.ZONE == null) cfg.ZONE = autoZone(cfg.W, cfg.H);
     // 超大型站（v2.7）：各图的造价与运营费表只写到大型，按大型的倍数补齐（造价约 1.6 倍、运营费约 1.7 倍）。
     // 早期巴黎、伦敦的单价很小，这里保留有效数字而不是小数位，否则会被舍成 0
     { const CS = cfg.cost && cfg.cost.station, OP = cfg.ops && cfg.ops.stationDaily;
@@ -68,6 +65,38 @@
     m.cfg = cfg;
     MAPS[m.id] = m;
   }
+  // 默认命名、地名搜索和坐标对齐使用同一份清理后的地点。
+  const normalizePlaceNames = function (m) {
+    const corrections = m.data.stationNameCorrections || {};
+    const cleanName = function (name, kind) {
+      const key = kind + ":" + name;
+      if (Object.hasOwn(corrections, key)) return corrections[key];
+      if (Object.hasOwn(corrections, name)) return corrections[name];
+      const clean = name.replace(/[\u200e\u200f\u202a-\u202e\u2066-\u2069\ufeff]/g, '').trim();
+      return /^\p{Nd}+$/u.test(clean) ? null : clean;
+    };
+    const normalize = function (places, repairs) {
+      return places.flatMap(function (p) {
+        const [name, x, y, kind] = p, clean = cleanName(name, kind);
+        if (clean === name) return [p];
+        if (repairs) {
+          if (!repairs.has(name)) repairs.set(name, []);
+          repairs.get(name).push([name, x, y, kind, clean]);
+        }
+        if (!clean) return [];
+        // 去掉编号或隐形字符后实为同一站时，使用已有的正式站点坐标。
+        if (places.some(function (q) { return kind <= 1 && q[0] === clean && q[3] === kind && U.dist(x, y, q[1], q[2]) < 0.6; })) return [];
+        return [[clean, x, y, kind]];
+      });
+    };
+    const places = m.data.places || [], labels = new Map(), corrected = normalize(places, labels);
+    if (labels.size) {
+      m.data.places = corrected;
+      m.data.stationNameRepair = { revision: 1, labels: labels };
+    }
+    if (m.geo.places) m.geo.places = m.geo.places === places ? m.data.places : normalize(m.geo.places);
+  };
+  for (const id in MAPS) if (MAPS[id].kind === 'real') normalizePlaceNames(MAPS[id]);
   // 地图数据指纹：格网、要素数量与名称表；范围修订提高 mapVersion，原范围内的地形校正由 terrainRevision 识别。
   for (const id in MAPS) {
     const m = MAPS[id], G = m.geo;
@@ -171,27 +200,81 @@
       for (const find of p.finds || []) { find.x += dx; find.yy += dy; }
       // 片区编号
       const oZW = oW / ZN, nZW = W / ZN, zmap = function (z) { return ((z / oZW) | 0) * nZW + (z % oZW) + dx / ZN + (dy / ZN) * nZW; };
-      const fixTask = function (t) { if (!t) return; if (t.anchors) t.anchors.forEach(sh); if (typeof t.zone === 'number') t.zone = zmap(t.zone); if (typeof t.coolKey === 'string') t.coolKey = t.coolKey.replace(/^(cong|cov):(\d+)$/, function (s0, a, z) { return a + ':' + zmap(+z); }); for (const part of t.parts || []) fixTask(part); };
-      const T = p.tasks;
-      for (const list of [T.active, T.done, T.failed, T.offers]) (list || []).forEach(fixTask);
-      if (T.cool) { const nc = {}; for (const k in T.cool) nc[k.replace(/^(cong|cov):(\d+)$/, function (s0, a, z) { return a + ':' + zmap(+z); })] = T.cool[k]; T.cool = nc; }
-      // 地铁公司的招标与合同（v2.5）：片区位置、锚点与片区编号；冷却记录 z:片区（v2.9 补）
-      const cp = p.corp;
-      if (cp) {
-        for (const t of [].concat(cp.tenders || [], cp.contracts || [], cp.closed || [])) { if (!t) continue; sh(t.area); if (t.anchors) t.anchors.forEach(sh); if (typeof t.zone === 'number') t.zone = zmap(t.zone); }
-        if (cp.cool) { const nc = {}; for (const k in cp.cool) nc[k.replace(/^z:(\d+)$/, function (s0, z) { return 'z:' + zmap(+z); })] = cp.cool[k]; cp.cool = nc; }
-      }
-      // 地铁圈关注的市民（v2.3）：存下的动态按片区编号定位（v2.9 补）
-      const vf = p.voices && p.voices.follow;
-      if (vf) for (const h in vf) for (const q of (vf[h] && vf[h].posts) || []) if (q && q.at && typeof q.at.zone === 'number') q.at.zone = zmap(q.at.zone);
+      const shiftCool = function (key) {
+        return key.replace(/^at:(-?[\d.]+),(-?[\d.]+)$/, (s, x, y) => 'at:' + (+x + dx).toFixed(1) + ',' + (+y + dy).toFixed(1));
+      };
+      migrateZoneRefs(p, zmap, sh, shiftCool);
       // 城市经济：载入后按新增范围调整统计口径（连续迁移时原范围随后续步骤平移）
       if (p.macro) { const ar = p.macro.areaRebase; if (ar && ar.oldBox && from > from0) { ar.oldBox[0] += dx; ar.oldBox[1] += dy; } else p.macro.areaRebase = { from: from, oldBox: [dx, dy, oW, oH] }; }
       const prevNote = p.mapUpgrade && from > from0 ? p.mapUpgrade.note : '';
       p.mapUpgrade = { from: from0, to: m.mapVersion, at: [p.clock.y, p.clock.m, p.clock.d], note: (prevNote ? prevNote + '；' : '') + (spec.note || '') };
     }
   }
+  // 地图平移与小区细分共用存档里的小区引用。细分不移动格坐标或按坐标记录的冷却。
+  function migrateZoneRefs(p, zmap, move = () => {}, shiftCool = key => key) {
+    const taskKey = key => key.replace(/^(cong|cov):(\d+)$/, (_, kind, z) => kind + ':' + zmap(+z));
+    const fixTask = function (t) {
+      if (!t) return;
+      if (typeof t.zone === 'number') t.zone = zmap(t.zone);
+      if (typeof t.coolKey === 'string') t.coolKey = taskKey(t.coolKey);
+      (t.anchors || []).forEach(move);
+      move(t.spot);
+      (t.parts || []).forEach(fixTask);
+    };
+    for (const it of p.plan?.items || []) {
+      move(it);
+      if (it.fac?.at) { const point = { x: it.fac.at[0], y: it.fac.at[1] }; move(point); it.fac.at = [point.x, point.y]; }
+      fixTask(it.taskSpec);
+    }
+    const tasks = p.tasks || {};
+    for (const list of [tasks.active, tasks.done, tasks.failed, tasks.offers, tasks.adjusted]) (list || []).forEach(fixTask);
+    if (tasks.cool) tasks.cool = Object.fromEntries(Object.entries(tasks.cool).map(([key, until]) => [shiftCool(taskKey(key)), until]));
+    const corp = p.corp;
+    if (corp) {
+      for (const t of [].concat(corp.tenders || [], corp.contracts || [], corp.closed || [])) {
+        if (!t) continue;
+        move(t.area);
+        fixTask(t);
+      }
+      if (corp.cool) corp.cool = Object.fromEntries(Object.entries(corp.cool).map(([key, until]) => [
+        key.replace(/^z:(\d+)$/, (_, z) => 'z:' + zmap(+z)), until,
+      ]));
+    }
+    for (const reader of Object.values(p.voices?.follow || {})) for (const post of reader?.posts || []) {
+      if (Number.isInteger(post?.at?.zone)) post.at.zone = zmap(post.at.zone);
+    }
+    const people = p.folks?.list;
+    for (const person of Array.isArray(people) ? people : []) {
+      if (!person) continue;
+      for (const place of [person.home, person.dest, person.kid?.school]) {
+        if (!place) continue;
+        move(place);
+        if (Number.isInteger(place.z)) place.z = zmap(place.z);
+      }
+    }
+  }
+
+  function zoneMigration(m, specs) {
+    return function (p, from) {
+      const spec = specs.find(entry => entry.from === from);
+      if (!spec) throw new Error('不支持从第 ' + from + ' 版迁移');
+      const { W, H, ZONE } = m.cfg, oldZone = spec.oldZone, oldWidth = W / oldZone;
+      const oldCount = oldWidth * (H / oldZone), width = W / ZONE;
+      const zmap = function (z) {
+        if (!Number.isInteger(z) || z < 0 || z >= oldCount) return z;
+        const x = (z % oldWidth + 0.5) * oldZone, y = (Math.floor(z / oldWidth) + 0.5) * oldZone;
+        return Math.floor(y / ZONE) * width + Math.floor(x / ZONE);
+      };
+      migrateZoneRefs(p, zmap);
+      delete p.congRef;
+      p.mapUpgrade = { from, to: m.mapVersion, at: [p.clock.y, p.clock.m, p.clock.d], note: spec.note, zoneOnly: true };
+      return p;
+    };
+  }
+
   // 声明了范围扩展（extent）的地图：旧版本存档按扩展规格迁移
   for (const id in MAPS) if (MAPS[id].extent && !MAPS[id].migrate) MAPS[id].migrate = CM.extentMigration(MAPS[id].extent);
+  for (const m of Object.values(MAPS)) if (m.zoneChange && !m.migrate) m.migrate = zoneMigration(m, m.zoneChange);
   // 杭州、武汉：第 2→3 版只调整了展示（格网、区域编号与玩家线网不变），第 2 版存档按第 3 版继续迁移；
   // v2.2 起第 3→4 版向外扩大（萧山机场、天河机场，见各自的 extent）
   for (const id of ['hz','wh']) {

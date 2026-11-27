@@ -42,7 +42,7 @@ C.useMap('gz');{
   const cell=pick();assert.ok(cell!==undefined,'Need a locked expansion district');
   const station={x:cell%city.W+.5,y:Math.floor(cell/city.W)+.5},net={stations:{s1:station}};
   city.keepLegacyOpen(net,{active:[]},1990,1);assert.equal(city.cellLocked(cell),false,'Existing station must keep its connected land buildable');
-  const saved=JSON.parse(JSON.stringify(city.serialize()));assert.equal(saved.lockRule,2);
+  const saved=JSON.parse(JSON.stringify(city.serialize()));assert.equal(saved.lockRule,3);
   const control=new C.City();control.generate(19900101,1990);control.restore(saved,1990);control.keepLegacyOpen(net,{active:[]},1990,1);
   const untouched=Array.from(control.lockState().mask.keys()).find(k=>control.cellLocked(k)&&control.regions[control.lockRegion(k)].open!=null&&!control.regions[control.lockRegion(k)].scenic);
   assert.ok(untouched!=null,'Need an untouched locked district for the reload regression');
