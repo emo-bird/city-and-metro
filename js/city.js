@@ -2084,7 +2084,8 @@
           g = id;
         }
       }
-      if (g < 0) { if (rp === 'newtown' || rp === 'cbd') g = rk; }
+      // v3.6.1：地图也可以用自己的用地名标新区（rg.newArea），不必为了让片区吃到新区加速而改用地构成
+      if (g < 0) { if (rp === 'newtown' || rp === 'cbd' || rg.newArea) g = rk; }
       if (g < 0) continue;
       gid[c] = g;
       const P = L === LU.RURAL ? this.plan[c] : L, lf = this.landFrac[c] * (1 - this.taken[c]);

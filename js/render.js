@@ -4389,6 +4389,9 @@
     // 片区圆点与名称先占位
     ctx.font = TYPE.place;
     const nodes = new Set(); show.forEach(function (s) { nodes.add(s.e.a); if (s.e.both) nodes.add(s.e.b); });
+    // v3.6.1 同名一屏只标一次：会画名字的圆点片区已经占了一个名字，箭头尖端不再重复它
+    const nodeName = new Set(); nodes.forEach(function (d) { nodeName.add(fa.names[d]); });
+    const tipNames = new Set();
     nodes.forEach(function (d) { const p = q(d), r = rad(d), tw = ctx.measureText(fa.names[d]).width; caps.push({ x1: p.x, y1: p.y, x2: p.x, y2: p.y, r: r + 2, own: d }); rects.push({ x0: p.x - tw / 2 - 3, y0: p.y + r + 3, x1: p.x + tw / 2 + 3, y1: p.y + r + 19, own: d }); });
     const out = new Map();
     // 双向箭头位置固定（连接两个圆点），先占位
@@ -4403,19 +4406,22 @@
     ctx.font = TYPE.place;
     const items = Array.from(show.values()).filter(function (s) { return !s.e.both; }).sort(function (x, y) { return y.tw - x.tw; });
     for (const s of items) {
-      const e = s.e, pa = q(e.a), pb = q(e.b), w = 2.5 + 9 * Math.sqrt(s.tw), tw = ctx.measureText(fa.names[e.b]).width;
+      const e = s.e, pa = q(e.a), pb = q(e.b), w = 2.5 + 9 * Math.sqrt(s.tw), nm = fa.names[e.b], tw = ctx.measureText(nm).width;
+      // 目的地本身就是圆点片区（稍后会画它的名字）时，箭头尖端不再重复标一次；纯目的地（没有流出的片区）
+      // 仍标一次，且同一名字只标最靠前的一条箭头，避免同一街道在屏幕上出现 2~4 次
+      const tip = !nodeName.has(nm) && !tipNames.has(nm);
       let best = null;
       for (const cd of CAND) {
         const G = flowGeo(pa, pb, rad(e.a), rad(e.b), w, cd[0], cd[1]); if (!G) continue;
-        const sp = flowSpan(G), ha = hitCap(sp[0], sp[1], sp[2], sp[3], w / 2 + 2, e.a), lb = flowLabelBox(G, tw), hl = hitRect(lb);
+        const sp = flowSpan(G), ha = hitCap(sp[0], sp[1], sp[2], sp[3], w / 2 + 2, e.a), lb = flowLabelBox(G, tw), hl = tip ? hitRect(lb) : 0;
         const sc = ha * 10 + (hl ? 1 : 0);
-        if (!best || sc < best.sc) best = { sc: sc, ang: cd[0], lf: cd[1], G: G, sp: sp, lb: lb, label: hl === 0 };
+        if (!best || sc < best.sc) best = { sc: sc, ang: cd[0], lf: cd[1], G: G, sp: sp, lb: lb, label: tip && hl === 0 };
         if (sc === 0) break;
       }
       if (!best) continue;
       const sp = best.sp;
       caps.push({ x1: sp[0], y1: sp[1], x2: sp[2], y2: sp[3], r: w / 2 + 2, own: -1 });
-      if (best.label) rects.push({ x0: best.lb.x0, y0: best.lb.y0, x1: best.lb.x1, y1: best.lb.y1, own: -1 });
+      if (best.label) { tipNames.add(nm); rects.push({ x0: best.lb.x0, y0: best.lb.y0, x1: best.lb.x1, y1: best.lb.y1, own: -1 }); }
       out.set(e.key, { ang: best.ang, lf: best.lf, label: best.label });
     }
     this._flLay = out; this._flLayKey = key;
@@ -4475,14 +4481,17 @@
       ctx.globalAlpha = L.a; ctx.lineWidth = 3; ctx.strokeStyle = TH.halo; ctx.strokeText(L.t, b.cx, b.cy);
       ctx.fillStyle = TH.night ? '#b9c4cf' : '#465264'; ctx.fillText(L.t, b.cx, b.cy);
     }
-    // 片区圆点与名称
+    // 片区圆点与名称（同名片区只画一次名字，避免两个圆点各标一遍同一个名字）
     ctx.font = TYPE.place;
+    const nodeNames = new Set();
     nodeA.forEach((a, d) => {
-      const p = pos(d), r = rad(d);
+      const p = pos(d), r = rad(d), nm = fa.names[d];
       ctx.globalAlpha = a;
       ctx.fillStyle = TH.stFill; ctx.strokeStyle = TH.stInter; ctx.lineWidth = 2;
       ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
-      ctx.lineWidth = 3.5; ctx.strokeStyle = TH.halo; ctx.strokeText(fa.names[d], p.x, p.y + r + 11); ctx.fillStyle = TH.ink; ctx.fillText(fa.names[d], p.x, p.y + r + 11);
+      if (nodeNames.has(nm)) return;
+      nodeNames.add(nm);
+      ctx.lineWidth = 3.5; ctx.strokeStyle = TH.halo; ctx.strokeText(nm, p.x, p.y + r + 11); ctx.fillStyle = TH.ink; ctx.fillText(nm, p.x, p.y + r + 11);
     });
     ctx.globalAlpha = 1;
   };
@@ -5802,14 +5811,23 @@
         }
       }
     }
-    // 区名
+    // 区名（v3.6.1）：和设施名、地标名、站名共用避让网格——设施图层里设施名/统计行先占位，区名让位而不是压上去；
+    // 同一名字（像素距离阈值内）一屏只画一次；质心放不下时先试上下左右，仍放不下就跳过，不硬画
     if (z < 16 && mapOn && this.layer !== 'flow') {
-      const a = U.clamp((16 - z) / 5, 0, 1) * 0.75, font = TYPE.district(z);
+      const a = U.clamp((16 - z) / 5, 0, 1) * 0.75, font = TYPE.district(z), seen = [];
       for (const dl of (city.districtLabels || [])) {
-        const p = this.P(dl[1], dl[2], 0, tmp), px = p.x, py = p.y;
-        put(dl[0], px, py, font, TH.district, true, 1, a, -1, dl[1], dl[2], 0);
-        // 占位：之后的未开放区域标签避开区名
-        const tw = this.textW(font, dl[0]); fits(px - tw / 2 - 2, py - 11, px + tw / 2 + 2, py + 11);
+        const p = this.P(dl[1], dl[2], 0, tmp), px = p.x, py = p.y, w = this.textW(font, dl[0]);
+        if (px < -w || py < -30 || px > this.w + w || py > this.h + 30) continue;
+        if (seen.some(function (q) { return q[0] === dl[0] && Math.abs(q[1] - px) < 260 && Math.abs(q[2] - py) < 180; })) continue;
+        let done = false;
+        // 质心 → 上下 → 左右 → 斜向 → 再远一点：设施图层里设施名很密，多试几处仍比压字/消失好
+        for (const d of [[0, 0], [0, -16], [0, 16], [-w / 2 - 12, 0], [w / 2 + 12, 0], [0, -32], [0, 32], [-w / 2 - 12, -16], [w / 2 + 12, -16], [-w / 2 - 12, 16], [w / 2 + 12, 16], [-w / 2 - 40, 0], [w / 2 + 40, 0], [0, -48], [0, 48]]) {
+          const x = U.clamp(px + d[0], w / 2 + 6, this.w - w / 2 - 6), y = U.clamp(py + d[1], 11, this.h - 11);
+          if (!fits(x - w / 2 - 2, y - 11, x + w / 2 + 2, y + 11)) continue;
+          put(dl[0], x, y, font, TH.district, true, 1, a, -1, dl[1], dl[2], 0);
+          done = true; break;
+        }
+        if (done) seen.push([dl[0], px, py]);
       }
     }
     // 未开放区域标签
