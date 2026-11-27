@@ -54,29 +54,29 @@
     { id: 'changan', name: '长安镇', geo: { admin: '长安镇' }, open: 1990, plan: 'townind' },
     { id: 'changping', name: '常平镇', geo: { admin: '常平镇' }, open: 1990, plan: 'towncore' },
     { id: 'houjie', name: '厚街镇', geo: { admin: '厚街镇' }, open: 1992, plan: 'townind' },
-    { id: 'shijie', name: '石碣镇', geo: { admin: '石碣镇' }, open: 1995, plan: 'townind' },
-    { id: 'zhangmutou', name: '樟木头镇', geo: { admin: '樟木头镇' }, open: 2005, plan: 'towncore' },
-    { id: 'tangxia', name: '塘厦镇', geo: { admin: '塘厦镇' }, open: 2005, plan: 'townind' },
+    { id: 'shijie', name: '石碣镇', geo: { admin: '石碣镇' }, open: 2000, plan: 'townind' },
+    { id: 'zhangmutou', name: '樟木头镇', geo: { admin: '樟木头镇' }, open: 2010, plan: 'towncore' },
+    { id: 'tangxia', name: '塘厦镇', geo: { admin: '塘厦镇' }, open: 2010, plan: 'townind' },
     { id: 'fenggang', name: '凤岗镇', geo: { admin: '凤岗镇' }, open: 2005, plan: 'townind' },
-    { id: 'qingxi', name: '清溪镇', geo: { admin: '清溪镇' }, open: 2005, plan: 'townind' },
+    { id: 'qingxi', name: '清溪镇', geo: { admin: '清溪镇' }, open: 2010, plan: 'townind' },
     { id: 'dalang', name: '大朗镇', geo: { admin: '大朗镇' }, open: 2005, plan: 'townind' },
     { id: 'zhongtang', name: '中堂镇', geo: { admin: '中堂镇' }, open: 1995, plan: 'townind' },
     { id: 'liaobu', name: '寮步镇', geo: { admin: '寮步镇' }, open: 2005, plan: 'townind' },
-    { id: 'dalingshan', name: '大岭山镇', geo: { admin: '大岭山镇' }, open: 2005, plan: 'townind' },
+    { id: 'dalingshan', name: '大岭山镇', geo: { admin: '大岭山镇' }, open: 2010, plan: 'townind' },
     { id: 'huangjiang', name: '黄江镇', geo: { admin: '黄江镇' }, open: 2005, plan: 'townind' },
     { id: 'chashan', name: '茶山镇', geo: { admin: '茶山镇' }, open: 2001, plan: 'townind' },
-    { id: 'gaobu', name: '高埗镇', geo: { admin: '高埗镇' }, open: 2001, plan: 'townind' },
-    { id: 'dongkeng', name: '东坑镇', geo: { admin: '东坑镇' }, open: 2001, plan: 'townind' },
-    { id: 'qiaotou', name: '桥头镇', geo: { admin: '桥头镇' }, open: 2001, plan: 'townind' },
-    { id: 'hengli', name: '横沥镇', geo: { admin: '横沥镇' }, open: 2001, plan: 'townind' },
+    { id: 'gaobu', name: '高埗镇', geo: { admin: '高埗镇' }, open: 2006, plan: 'townind' },
+    { id: 'dongkeng', name: '东坑镇', geo: { admin: '东坑镇' }, open: 2006, plan: 'townind' },
+    { id: 'qiaotou', name: '桥头镇', geo: { admin: '桥头镇' }, open: 2006, plan: 'townind' },
+    { id: 'hengli', name: '横沥镇', geo: { admin: '横沥镇' }, open: 2006, plan: 'townind' },
     { id: 'machong', name: '麻涌镇', geo: { admin: '麻涌镇' }, open: 2001, plan: 'port' },
     { id: 'shatian', name: '沙田镇', geo: { admin: '沙田镇' }, open: 2003, plan: 'port' },
-    { id: 'daojiao', name: '道滘镇', geo: { admin: '道滘镇' }, open: 2005, plan: 'townind' },
-    { id: 'shipai', name: '石排镇', geo: { admin: '石排镇' }, open: 2005, plan: 'townind' },
-    { id: 'qishi', name: '企石镇', geo: { admin: '企石镇' }, open: 2005, plan: 'townind' },
+    { id: 'daojiao', name: '道滘镇', geo: { admin: '道滘镇' }, open: 2010, plan: 'townind' },
+    { id: 'shipai', name: '石排镇', geo: { admin: '石排镇' }, open: 2010, plan: 'townind' },
+    { id: 'qishi', name: '企石镇', geo: { admin: '企石镇' }, open: 2010, plan: 'townind' },
     { id: 'wangniudun', name: '望牛墩镇', geo: { admin: '望牛墩镇' }, open: 2013, plan: 'rural' },
     { id: 'hongmei', name: '洪梅镇', geo: { admin: '洪梅镇' }, open: 2013, plan: 'rural' },
-    { id: 'xiegang', name: '谢岗镇', geo: { admin: '谢岗镇' }, open: 2013, plan: 'rural' },
+    { id: 'xiegang', name: '谢岗镇', geo: { admin: '谢岗镇' }, open: 2018, plan: 'rural' },
     // 城市公园已移到列表最前（区域按顺序认领格子）
     // 自然林地区域（OSM 林地聚类，scenic → LU.HILL，不产生人口与岗位）
     // 市外（v3.2 引擎机制 passOnly）：只区分哪个市，线路可以穿过，不能设站
@@ -109,8 +109,8 @@
         demand: { hw: 1, sc: 0.96, sh: 0.9, md: 0.9, lz: 0.86, decayHW: 0.62, decayHO: 0.76, hub: 0.95 },
         corridors: [{ a: 'humen', b: 'changan', f: 1.28 }, { a: 'houjie', b: 'humen', f: 1.22 }, { a: 'changan', b: 'dalingshan', f: 1.12 }, { a: 'changping', b: 'zhangmutou', f: 1.18 }, { a: 'shilong', b: 'shijie', f: 1.15 }, { a: 'guancheng', b: 'nancheng', f: 1.12 }, { a: 'guancheng', b: 'dongcheng', f: 1.16 }, { a: 'dongcheng', b: 'liaobu', f: 1.16 }],
         goals: [
-        { id: 'dg-g1', from: 2003, type: 'connect', months: 48, reward: 128000, title: '虎门港接进线网', desc: '虎门港 2003 年对外开放，麻涌、沙田、沙角与长安的码头需要大批工人轮班进出，陆路却只有几条镇道。用地铁连接沙田与虎门。', anchors: [{ name: '沙田镇', x: 46.1, y: 109.4, r: 4 }, { name: '虎门', x: 68.5, y: 135.7, r: 3 }] },
-        { id: 'dg-g2', from: 2004, type: 'connect', months: 48, reward: 124000, title: '虎门—长安工业走廊', desc: '广深公路沿线是最密集的电子与服装厂带，虎门的服装厂与长安的五金电子厂之间每天有几万人往返，班车与摩托车挤满国道。用地铁连接虎门与长安。', anchors: [{ name: '虎门', x: 68.5, y: 135.7, r: 3 }, { name: '长安镇', x: 121.2, y: 156.7, r: 4 }] },
+        { id: 'dg-g1', from: 2003, type: 'connect', months: 48, reward: 128000, title: '虎门港接进线网', desc: '虎门港 2003 年对外开放，麻涌、沙田、沙角与长安的码头需要大批工人轮班进出，陆路却只有几条镇道。用地铁连接沙田与虎门。', anchors: [{ name: '沙田镇', x: 39.9, y: 123.3, r: 4 }, { name: '虎门', x: 77.4, y: 158.6, r: 3 }] },
+        { id: 'dg-g2', from: 2004, type: 'connect', months: 48, reward: 124000, title: '虎门—长安工业走廊', desc: '广深公路沿线是最密集的电子与服装厂带，虎门的服装厂与长安的五金电子厂之间每天有几万人往返，班车与摩托车挤满国道。用地铁连接虎门与长安。', anchors: [{ name: '虎门', x: 77.4, y: 158.6, r: 3 }, { name: '长安镇', x: 106.6, y: 167.4, r: 4 }] },
         ],
       },
       // 双转移阵痛（2008–2013）：腾笼换鸟
@@ -124,8 +124,8 @@
         relocate: { jobs: { zhongtang: -0.0015, wangniudun: -0.0015, shilong: -0.0012, songshanhu: 0.0022, liaobu: 0.0012 } },
         corridors: [{ a: 'songshanhu', b: 'liaobu', f: 1.30 }, { a: 'songshanhu', b: 'dalang', f: 1.25 }, { a: 'songshanhu', b: 'dalingshan', f: 1.18 }, { a: 'shengtaiyuan', b: 'dalang', f: 1.22 }, { a: 'humen', b: 'changan', f: 1.20 }, { a: 'nancheng', b: 'dongcheng', f: 1.14 }, { a: 'zhongtang', b: 'wangniudun', f: 1.10 }, { a: 'shilong', b: 'guancheng', f: 1.12 }, { a: 'dongcheng', b: 'liaobu', f: 1.19 }, { a: 'guancheng', b: 'dongcheng', f: 1.17 }],
         goals: [
-        { id: 'dg-g3', from: 2009, type: 'connect', months: 48, reward: 156000, title: '松山湖接住转岗的人', desc: '金融危机后一批中小企业关门，劳动密集环节迁往内陆；松山湖与寮步开始承接研发与总部，原来的工人要在新的园区重新上班。用地铁连接松山湖与寮步。', anchors: [{ name: '松山湖', x: 155.4, y: 108.3, r: 5 }, { name: '寮步镇', x: 151.7, y: 76, r: 4 }] },
-        { id: 'dg-g4', from: 2010, type: 'connect', months: 48, reward: 156000, title: '水乡片的跨镇江通勤', desc: '中堂、望牛墩、洪梅的水乡居民到莞城上班要绕道或坐渡船；造纸与服装厂外迁后，留在原地的人更依赖跨镇公交。用地铁连接中堂与莞城。', anchors: [{ name: '中堂镇', x: 61.7, y: 32.8, r: 4 }, { name: '莞城街道', x: 99.4, y: 56.9, r: 3 }] },
+        { id: 'dg-g3', from: 2009, type: 'connect', months: 48, reward: 156000, title: '松山湖接住转岗的人', desc: '金融危机后一批中小企业关门，劳动密集环节迁往内陆；松山湖与寮步开始承接研发与总部，原来的工人要在新的园区重新上班。用地铁连接松山湖与寮步。', anchors: [{ name: '松山湖园区', x: 159.7, y: 113.2, r: 5 }, { name: '寮步中心', x: 141.4, y: 71.3, r: 4 }] },
+        { id: 'dg-g4', from: 2010, type: 'connect', months: 48, reward: 156000, title: '水乡片的跨镇江通勤', desc: '中堂、望牛墩、洪梅的水乡居民到莞城上班要绕道或坐渡船；造纸与服装厂外迁后，留在原地的人更依赖跨镇公交。用地铁连接中堂与莞城。', anchors: [{ name: '中堂中心', x: 68.5, y: 30.9, r: 4 }, { name: '莞城中心', x: 102.9, y: 55.9, r: 3 }] },
         { id: 'dg-g9', from: 2012, type: 'zoneCong', region: 'changan', drop: 0.10, months: 36, reward: 141000, title: '压住长安迎宾路的车流', desc: '长安迎宾路与霄边大街是全市最早饱和的路段：2010 年代长安的跨市通勤里，小汽车与摩托车占了绝大多数，早晚高峰双向都排队。让长安片区工作日早高峰的拥堵指数下降 0.10。' },
         ],
       },
@@ -140,8 +140,8 @@
         relocate: { jobs: { guancheng: -0.0012, shilong: -0.0008, songshanhu: 0.0024, dalingshan: 0.0008, nancheng: 0.0008 } },
         corridors: [{ a: 'songshanhu', b: 'dalang', f: 1.40 }, { a: 'songshanhu', b: 'dalingshan', f: 1.26 }, { a: 'songshanhu', b: 'liaobu', f: 1.24 }, { a: 'shengtaiyuan', b: 'dalang', f: 1.30 }, { a: 'songshanhu', b: 'nancheng', f: 1.16 }, { a: 'humen', b: 'changan', f: 1.16 }, { a: 'tangxia', b: 'fenggang', f: 1.14 }, { a: 'liaobu', b: 'nancheng', f: 1.12 }, { a: 'shilong', b: 'chashan', f: 1.10 }, { a: 'dongcheng', b: 'liaobu', f: 1.20 }],
         goals: [
-        { id: 'dg-g5', from: 2015, type: 'connect', months: 48, reward: 190000, title: '手机走廊', desc: '华为终端 2014 年在松山湖动工、2018 年迁入，大朗与寮步的配套厂跟着长起来，工程师与产线工人每天都在松山湖与周边镇之间往返。用地铁连接松山湖与大朗。', anchors: [{ name: '松山湖', x: 155.4, y: 108.3, r: 5 }, { name: '大朗镇', x: 176.8, y: 97.5, r: 4 }] },
-        { id: 'dg-g6', from: 2016, type: 'connect', months: 48, reward: 204000, title: '虎门高铁站的接驳', desc: '虎门站 2011 年通车后日均到发从三千人涨到两万多，厚街的会展与家具客户、虎门的服装客商都从这里进出。用地铁连接厚街与虎门站。', anchors: [{ name: '厚街镇', x: 67.1, y: 102.3, r: 4 }, { name: '虎门', x: 68.5, y: 135.7, r: 3 }] },
+        { id: 'dg-g5', from: 2015, type: 'connect', months: 48, reward: 190000, title: '手机走廊', desc: '华为终端 2014 年在松山湖动工、2018 年迁入，大朗与寮步的配套厂跟着长起来，工程师与产线工人每天都在松山湖与周边镇之间往返。用地铁连接松山湖与大朗。', anchors: [{ name: '松山湖园区', x: 159.7, y: 113.2, r: 5 }, { name: '大朗镇', x: 176.6, y: 110.4, r: 4 }] },
+        { id: 'dg-g6', from: 2016, type: 'connect', months: 48, reward: 204000, title: '虎门高铁站的接驳', desc: '虎门站 2011 年通车后日均到发从三千人涨到两万多，厚街的会展与家具客户、虎门的服装客商都从这里进出。用地铁连接厚街与虎门站。', anchors: [{ name: '厚街中心', x: 71.8, y: 108.4, r: 4 }, { name: '虎门', x: 68.5, y: 135.7, r: 3 }] },
         { id: 'dg-g10', from: 2016, type: 'zoneCong', region: 'nancheng', metric: 'carShare', drop: 0.04, months: 30, reward: 172000, title: '东莞大道与鸿福路口', desc: '南城的东莞大道—鸿福路口是全市饱和度最高的节点之一，高峰小时饱和度超过 1.0，进口道排队一路顶到下一个路口。让南城片区早高峰拥堵指数下降 0.12。' },
         { id: 'dg-g11', from: 2017, type: 'zoneCong', region: 'dongcheng', metric: 'carShare', drop: 0.04, months: 30, reward: 178000, title: '东纵路的早晚高峰', desc: '东城的东纵路串起老城与东城新区，沿街商业密集、路侧出入口多，早高峰东向西几乎停住，东莞的「5 公里内通勤」比例全市最低就在这一带。让东城片区早高峰拥堵指数下降 0.10。' },
         ],
@@ -157,8 +157,8 @@
         relocate: { jobs: { guancheng: -0.0008, binhaiwan: 0.0026, changan: 0.0006, songshanhu: 0.0012, nancheng: 0.0006 } },
         corridors: [{ a: 'binhaiwan', b: 'changan', f: 1.34 }, { a: 'binhaiwan', b: 'humen', f: 1.28 }, { a: 'songshanhu', b: 'dalang', f: 1.34 }, { a: 'shengtaiyuan', b: 'dalang', f: 1.32 }, { a: 'songshanhu', b: 'dalingshan', f: 1.20 }, { a: 'songshanhu', b: 'nancheng', f: 1.20 }, { a: 'songshanhu', b: 'liaobu', f: 1.18 }, { a: 'tangxia', b: 'fenggang', f: 1.28 }, { a: 'changan', b: 'humen', f: 1.18 }, { a: 'dongcheng', b: 'liaobu', f: 1.22 }],
         goals: [
-        { id: 'dg-g7', from: 2020, type: 'connect', months: 60, reward: 285000, title: '滨海湾新区接入线网', desc: '滨海湾新区 2017 年挂牌，填海地上一片空地等着招商；深江铁路 2028 年要在交椅湾设站。用地铁把新区与长安连起来，先把骨架搭好。', anchors: [{ name: '滨海湾新区', x: 97.5, y: 183.3, r: 5 }, { name: '长安镇', x: 121.2, y: 156.7, r: 4 }] },
-        { id: 'dg-g8', from: 2022, type: 'connect', months: 60, reward: 283000, title: '双核之间的研发通勤', desc: '2021 年东莞 GDP 破万亿，松山湖的研发与南城的金融、总部形成两个核心，两地之间的通勤与商务往来快速增长。用地铁连接松山湖与南城。', anchors: [{ name: '松山湖', x: 155.4, y: 108.3, r: 5 }, { name: '南城街道', x: 97.3, y: 65.8, r: 3 }] },
+        { id: 'dg-g7', from: 2020, type: 'connect', months: 60, reward: 285000, title: '滨海湾新区接入线网', desc: '滨海湾新区 2017 年挂牌，填海地上一片空地等着招商；深江铁路 2028 年要在交椅湾设站。用地铁把新区与长安连起来，先把骨架搭好。', anchors: [{ name: '滨海湾沙角', x: 105.8, y: 179.1, r: 5 }, { name: '长安镇', x: 106.6, y: 167.4, r: 4 }] },
+        { id: 'dg-g8', from: 2022, type: 'connect', months: 60, reward: 283000, title: '双核之间的研发通勤', desc: '2021 年东莞 GDP 破万亿，松山湖的研发与南城的金融、总部形成两个核心，两地之间的通勤与商务往来快速增长。用地铁连接松山湖与南城。', anchors: [{ name: '松山湖园区', x: 159.7, y: 113.2, r: 5 }, { name: '南城街道', x: 93.1, y: 81.0, r: 3 }] },
         { id: 'dg-g12', from: 2019, type: 'zoneCong', region: 'humen', drop: 0.12, months: 30, reward: 258000, title: '虎门的过江与镇内高峰', desc: '虎门大桥 2015 年一年堵了 112 天；莲峰北路 2019 年二季度拥堵 56 天、锦绣路晚高峰全市第一。2019 年 4 月南沙大桥通车后虎门大桥当天的车流少了 8.5%，但两桥合计流量仍在涨。让虎门片区早高峰拥堵指数下降 0.12。' },
         { id: 'dg-g13', from: 2021, type: 'zoneCong', region: 'songshanhu', metric: 'carShare', drop: 0.03, months: 30, reward: 258000, title: '松山湖大道的交织段', desc: '松山湖大道中医院段只有 200 米交织区，进出园区的车流在早高峰互相别车，园区内部通勤也越来越依赖小汽车。让松山湖片区早高峰拥堵指数下降 0.10。' },
         { id: 'dg-g14', from: 2023, type: 'zoneCong', region: 'guancheng', metric: 'carShare', drop: 0.04, months: 30, reward: 273000, title: '莞太路走廊', desc: '莞太路五个连续路口高峰实测约 8000 pcu/h、最大延误 103 秒，是莞城—南城之间最堵的一条走廊。让莞城片区早高峰拥堵指数下降 0.10。' },
@@ -174,36 +174,58 @@
       },
       demand: { hw: 1.20, sc: 1.30, sh: 1.45, md: 1.15, lz: 1.50, decayHW: 1.16, decayHO: 1.10, hub: 1.30 },
       corridors: [
-        { a: 'binhaiwan', b: 'changan', f: 1.40 }, { a: 'binhaiwan', b: 'humen', f: 1.32 },
-        { a: 'songshanhu', b: 'dalang', f: 1.30 }, { a: 'songshanhu', b: 'huangjiang', f: 1.20 },
-        { a: 'songshanhu', b: 'nancheng', f: 1.22 }, { a: 'tangxia', b: 'fenggang', f: 1.30 },
-        { a: 'changan', b: 'humen', f: 1.20 }, { a: 'guancheng', b: 'wanjiang', f: 1.14 }, { a: 'dongcheng', b: 'liaobu', f: 1.23 }, { a: 'dongcheng', b: 'nancheng', f: 1.20 },
+        // 2026 后“湾区智造”：从镇内成团转向走廊串联，跨镇通勤/购物比重上升；只作用于通勤与购物，不改其他时代
+        { a: 'binhaiwan', b: 'changan', f: 1.55 }, { a: 'binhaiwan', b: 'humen', f: 1.45 },
+        { a: 'binhaiwan', b: 'shatian', f: 1.35 },
+        { a: 'songshanhu', b: 'dalang', f: 1.45 }, { a: 'songshanhu', b: 'huangjiang', f: 1.32 },
+        { a: 'songshanhu', b: 'nancheng', f: 1.40 }, { a: 'songshanhu', b: 'liaobu', f: 1.35 },
+        { a: 'songshanhu', b: 'dalingshan', f: 1.28 },
+        { a: 'tangxia', b: 'fenggang', f: 1.45 }, { a: 'tangxia', b: 'qingxi', f: 1.32 },
+        { a: 'qingxi', b: 'fenggang', f: 1.30 },
+        { a: 'changan', b: 'humen', f: 1.40 }, { a: 'changan', b: 'dalingshan', f: 1.30 },
+        { a: 'humen', b: 'houjie', f: 1.38 }, { a: 'houjie', b: 'nancheng', f: 1.30 },
+        { a: 'shatian', b: 'humen', f: 1.32 }, { a: 'shatian', b: 'houjie', f: 1.28 },
+        { a: 'guancheng', b: 'wanjiang', f: 1.30 }, { a: 'guancheng', b: 'nancheng', f: 1.35 },
+        { a: 'guancheng', b: 'dongcheng', f: 1.32 }, { a: 'dongcheng', b: 'nancheng', f: 1.35 },
+        { a: 'dongcheng', b: 'liaobu', f: 1.38 }, { a: 'dongcheng', b: 'chashan', f: 1.28 },
+        { a: 'wanjiang', b: 'gaobu', f: 1.28 }, { a: 'wanjiang', b: 'zhongtang', f: 1.30 },
+        { a: 'shijie', b: 'shilong', f: 1.35 }, { a: 'shijie', b: 'gaobu', f: 1.26 },
+        { a: 'machong', b: 'wangniudun', f: 1.30 }, { a: 'wangniudun', b: 'hongmei', f: 1.28 },
+        { a: 'hongmei', b: 'daojiao', f: 1.28 },
+        { a: 'changping', b: 'hengli', f: 1.32 }, { a: 'changping', b: 'dongkeng', f: 1.35 },
+        { a: 'dongkeng', b: 'liaobu', f: 1.30 },
+        { a: 'dalang', b: 'huangjiang', f: 1.32 }, { a: 'dalang', b: 'liaobu', f: 1.32 },
+        { a: 'dalang', b: 'dalingshan', f: 1.28 },
+        { a: 'huangjiang', b: 'zhangmutou', f: 1.26 }, { a: 'qingxi', b: 'zhangmutou', f: 1.26 },
+        { a: 'tangxia', b: 'huangjiang', f: 1.28 },
+        { a: 'qishi', b: 'qiaotou', f: 1.28 }, { a: 'qiaotou', b: 'xiegang', f: 1.26 },
+        { a: 'shipai', b: 'chashan', f: 1.26 }, { a: 'shipai', b: 'qishi', f: 1.26 },
       ],
       goals: [
         { id: 'dg-g16', from: 2029, type: 'connect', reward: 320000, title: '接上深惠城际凤岗站',
           desc: '深惠城际在雁田设凤岗站，原计划 2026 年通车，因前保—五和段工期延期至 2029 年 12 月。把地铁或公交接进凤岗站，让凤岗、雁田一带直连深圳平湖、前海方向。',
-          anchors: [{ name: '凤岗镇', x: 265.2, y: 194.6, r: 5 }, { name: '雁田', x: 262.0, y: 208.3, r: 3 }] },
+          anchors: [{ name: '凤岗中心', x: 265.3, y: 194.8, r: 5 }, { name: '雁田', x: 262.0, y: 208.3, r: 3 }] },
         { id: 'dg-g17', from: 2027, type: 'connect', reward: 350000, title: '滨海湾站枢纽接驳倒计时',
           desc: '滨海湾站站房 2027 年 5 月竣工、深江铁路 2028 年 4 月通车、地铁 2 号线三期 2028 年 9 月建成——中间有半年“高铁到了、地铁没到”。先把地面接驳做到交椅湾与沙角半岛。',
-          anchors: [{ name: '交椅湾', x: 83.9, y: 187.5, r: 4 }, { name: '滨海湾新区', x: 97.5, y: 183.3, r: 5 }] },
+          anchors: [{ name: '交椅湾', x: 83.9, y: 187.5, r: 4 }, { name: '滨海湾沙角', x: 105.8, y: 179.1, r: 5 }] },
         { id: 'dg-g18', from: 2028, type: 'connect', reward: 380000, title: '2 号线三期直通滨海湾',
           desc: '2 号线三期（虎门火车站—交椅湾，17.13 km、9 站全地下）2028 年 9 月建成，与深江铁路枢纽共构。把这条线接进既有线网，让虎门中心区与滨海湾连成一条轴。',
           anchors: [{ name: '虎门火车站', x: 68.6, y: 135.6, r: 4 }, { name: '交椅湾', x: 83.9, y: 187.5, r: 4 }] },
         { id: 'dg-g19', from: 2029, type: 'connect', reward: 360000, title: '松山湖科学城通勤',
           desc: '散裂中子源二期 2029 年投用、阿秒激光设施同年验收，松山湖科学城的科研人口要跨镇通勤。把松山湖与周边镇连成一张通勤网。',
-          anchors: [{ name: '松山湖园区', x: 155.4, y: 108.3, r: 5 }, { name: '大朗镇', x: 176.8, y: 97.5, r: 4 }] },
+          anchors: [{ name: '松山湖园区', x: 159.7, y: 113.2, r: 5 }, { name: '大朗镇', x: 176.6, y: 110.4, r: 4 }] },
         { id: 'dg-g20', from: 2030, type: 'zoneCong', region: 'nancheng', metric: 'carShare', drop: 0.05, reward: 400000, title: '中心城区逼近 240 万上限',
           desc: '“十五五”收官时中心城区人口逼近 240 万规划上限，鸿福路与东莞大道一带是最硬的堵点。靠轨道把高峰小汽车出行占比压下去。',
           anchors: [{ name: '南城街道', x: 97.3, y: 65.8, r: 4 }] },
         { id: 'dg-g21', from: 2032, type: 'connect', reward: 420000, title: '莞城直连广州新塘',
           desc: '佛穗莞城际东莞段 8 站 36.7 公里全地下，2032 年全线建成。莞城、万江、鸿福路第一次直连广州新塘与琶洲——广州先跑、东莞跟跑的被动接驳终于落地。',
-          anchors: [{ name: '莞城街道', x: 99.4, y: 56.9, r: 3 }, { name: '万江街道', x: 85.6, y: 61.9, r: 4 }] },
+          anchors: [{ name: '莞城中心', x: 102.9, y: 55.9, r: 3 }, { name: '万江街道', x: 82.6, y: 54.5, r: 4 }] },
         { id: 'dg-g22', from: 2035, type: 'zoneCov', region: 'binhaiwan', target: 0.45, reward: 450000, title: '副中心 180 万人的覆盖',
           desc: '2035 年松山湖与滨海湾两个副中心各承载 150–180 万人。滨海湾新区的轨道覆盖要做到接近半个新区，才算把“向海要地”坐实。',
-          anchors: [{ name: '滨海湾新区', x: 97.5, y: 183.3, r: 6 }] },
+          anchors: [{ name: '滨海湾沙角', x: 105.8, y: 179.1, r: 6 }] },
       { id: 'dg-g23', from: 2033, type: 'connect', months: 60, reward: 380000, title: '推演：3 号线一期（交椅湾—长安）', desc: '3 号线一期 2022 年获国家批复却一直没有开工，滨海湾与长安之间仍靠镇道与穗深城际。若将来真的要修，最先动的一定是这一段。把交椅湾与长安汽车总站连起来。', anchors: [{ name: '交椅湾', x: 83.9, y: 187.5, r: 4 }, { name: '长安汽车总站', x: 117, y: 157, r: 4 }] },
       { id: 'dg-g24', from: 2035, type: 'connect', months: 72, reward: 430000, title: '推演：3 号线一期（松山湖—东莞东）', desc: '3 号线一期东段串起松山湖、东坑与常平：松山湖北站接莞惠城际，常平火车站接广深铁路，东莞东站接京九铁路。把松山湖与东莞东站连起来。', anchors: [{ name: '松山湖站', x: 155, y: 110, r: 4 }, { name: '东莞东站', x: 217.6, y: 88.5, r: 4 }] },
-      { id: 'dg-g25', from: 2033, type: 'connect', months: 60, reward: 360000, title: '推演：1 号线二期接黄埔新港', desc: '1 号线二期从东莞西站向西北跨过东江，在麻涌设东环路、康乐街路口、大盛村三站后接广州黄埔新港（换乘 5 号线、17 号线）。这条线至今未获批复，长度按 2018 年发改口径 11.26 km 推算。把东莞西站与麻涌的站点连起来。', anchors: [{ name: '东莞西站', x: 49.2, y: 70.1, r: 4 }, { name: '康乐街路口', x: 28.5, y: 53.5, r: 3 }] }
+      { id: 'dg-g25', from: 2033, type: 'connect', months: 60, reward: 360000, title: '推演：1 号线二期接黄埔新港', desc: '1 号线二期从东莞西站向西北跨过东江，在麻涌设东环路、康乐街路口、大盛村三站后接广州黄埔新港（换乘 5 号线、17 号线）。这条线至今未获批复，长度按 2018 年发改口径 11.26 km 推算。把东莞西站与麻涌的站点连起来。', anchors: [{ name: '东莞西站', x: 49.2, y: 70.1, r: 4 }, { name: '康乐街路口', x: 28.5, y: 57.5, r: 3 }] }
     ],
       relocate: { jobs: { guancheng: -0.0006, shilong: -0.0005, binhaiwan: 0.0018, songshanhu: 0.0012 } },
     },
@@ -500,7 +522,7 @@ histTasks: [
         id: 'dgt2', appear: [2011, 12], deadline: [2016, 12], type: 'connect', reward: 200000, kind: 'hist',
         title: '接上虎门高铁站',
         desc: '2011 年 12 月广深港高铁广深段通车，虎门站是东莞唯一的高铁站，下车的人却只能坐汽车进城。把轨道接到虎门站，并往北连到厚街与南城一带。',
-        anchors: [{ name: '虎门站', x: 68.5, y: 135.7, r: 4 }, { name: '厚街', x: 59.7, y: 119.3, r: 4 }, { name: '南城', x: 95.2, y: 66.9, r: 5 }],
+        anchors: [{ name: '虎门站', x: 68.5, y: 135.7, r: 4 }, { name: '厚街', x: 64.7, y: 107.0, r: 4 }, { name: '南城', x: 95.2, y: 66.9, r: 5 }],
       },
       {
         id: 'dgt3', appear: [2014, 1], deadline: [2019, 12], type: 'connect', reward: 200000, kind: 'hist',
@@ -552,11 +574,21 @@ histTasks: [
     ],
 
     lineColorsNice: ['#e4002b', '#0072ce', '#f6a800', '#00a651', '#8e44ad', '#00a8a8', '#d35400', '#c2185b', '#5c6bc0', '#7cb342', '#8d6e63', '#26a69a'],
-    // ===== 规划线路站点地名（第 27 轮：3 号线一期 / 1 号线二期，供建站自动命名）=====
+    // ===== 规划线路站点地名（第 27 轮：2 号线三期 / 3 号线一期 / 1 号线二期，供建站自动命名）=====
+    // 2 号线三期（虎门火车站—交椅湾，17.13 km / 9 站，2022 年可研批复、2022-08 开工，计划 2028-09 通车）：
+    // 站名为建设期暂用名；虎门北沿用既有虎门北站位置，滨海湾与深江铁路滨海湾站共构。
     // 3 号线一期（交椅湾—东莞东，51.5 km / 20 站，发改基础〔2022〕427 号已批、未开工）
     // 站名按滨海湾新区管委会 2022-04-13 通稿的 18 站，加维基站表补的 广东医大、东坑东；坐标为沿走向的估算。
     // 1 号线二期（东莞西—黄埔新港，约 11.26 km，未获建设规划批复），站名为东环路、康乐街路口、大盛村。
     places: (G.places || []).map(function (p) { return [p[0], p[1], p[2], p[3]]; }).concat([
+        ["虎门北", 67.9, 136.3, 0],
+        ["虎门大道", 72.3, 152.5, 0],
+        ["虎门金捷路", 72.4, 158.7, 0],
+        ["虎门光明路", 76.5, 166.5, 0],
+        ["滨海湾", 79.5, 174.5, 0],
+        ["青创城", 80.5, 179, 0],
+        ["港澳码头", 80.8, 183.5, 0],
+        ["交椅湾西", 82.3, 186.8, 0],
         ["交椅湾", 83.9, 187.5, 0],
         ["交椅湾北", 85.5, 181, 0],
         ["长安建安路", 96, 175, 0],
@@ -577,9 +609,9 @@ histTasks: [
         ["常平北", 201, 85, 0],
         ["常平火车站", 203.9, 80.9, 0],
         ["东莞东站", 217.6, 88.5, 0],
-        ["麻涌东环路", 38, 60, 0],
-        ["康乐街路口", 28.5, 53.5, 0],
-        ["大盛村", 16, 51.5, 0]
+        ["东环路", 32.6, 58.6, 0],
+        ["康乐街路口", 28.5, 57.5, 0],
+        ["大盛村", 16.6, 51.5, 0]
     ]),
 
     // 城市特色：真实城市必须声明融资制度（js/traits.js 校验）
@@ -751,7 +783,7 @@ histTasks: [
     { id: 'dgp3', name: '东莞市妇幼保健院', x: 102.15, y: 76.61, w: 350, d: 300, year: 1990, kind: 'hospital' },
     { id: 'dgp4', name: '东莞市第八人民医院（东莞市儿童医院）', x: 142.73, y: 32.91, w: 400, d: 300, year: 1990, kind: 'hospital' },
     { id: 'dgp5', name: '东莞市第九人民医院', x: 99.5, y: 49.89, w: 300, d: 250, year: 1990, kind: 'hospital' },
-    { id: 'dgp6', name: '东莞松山湖中心医院', x: 154.34, y: 22.82, w: 500, d: 400, year: 1903, kind: 'hospital' },
+    { id: 'dgp6', name: '东莞市第三人民医院', x: 154.34, y: 22.82, w: 500, d: 400, year: 1903, kind: 'hospital' },
     { id: 'dgp7', name: '东莞市滨海湾中心医院（虎门医院）', x: 71.79, y: 153.26, w: 400, d: 350, year: 1990, kind: 'hospital' },
     { id: 'dgp8', name: '东莞市厚街医院', x: 66.9, y: 104.16, w: 400, d: 300, year: 1990, kind: 'hospital' },
     { id: 'dgp9', name: '东莞东华医院', x: 114.65, y: 60.86, w: 500, d: 400, year: 1995, kind: 'hospital' },
@@ -951,7 +983,7 @@ histTasks: [
 { id: 'dgpf3', n: '东莞市妇幼保健院', t: 'hosp', lm: 'dgp3', pax: [[2000, 0.261], [2005, 0.408], [2010, 0.576], [2015, 0.79], [2020, 0.764], [2035, 0.764]] },
 { id: 'dgpf4', n: '东莞市第八人民医院（东莞市儿童医院）', t: 'hosp', lm: 'dgp4', pax: [[2000, 0.279], [2005, 0.436], [2010, 0.616], [2015, 0.844], [2020, 0.816], [2035, 0.816]] },
 { id: 'dgpf5', n: '东莞市第九人民医院', t: 'hosp', lm: 'dgp5', pax: [[2000, 0.22], [2005, 0.345], [2010, 0.487], [2015, 0.667], [2020, 0.645], [2035, 0.645]] },
-{ id: 'dgpf6', n: '东莞松山湖中心医院', t: 'hosp', lm: 'dgp6', pax: [[2000, 0.416], [2005, 0.651], [2010, 0.919], [2015, 1.26], [2020, 1.218], [2035, 1.218]] },
+{ id: 'dgpf6', n: '东莞市第三人民医院', t: 'hosp', lm: 'dgp6', pax: [[2000, 0.416], [2005, 0.651], [2010, 0.919], [2015, 1.26], [2020, 1.218], [2035, 1.218]] },
 { id: 'dgpf7', n: '东莞市滨海湾中心医院（虎门医院）', t: 'hosp', lm: 'dgp7', pax: [[2000, 0.301], [2005, 0.471], [2010, 0.666], [2015, 0.912], [2020, 0.882], [2035, 0.882]] },
 { id: 'dgpf8', n: '东莞市厚街医院', t: 'hosp', lm: 'dgp8', pax: [[2000, 0.279], [2005, 0.436], [2010, 0.616], [2015, 0.844], [2020, 0.816], [2035, 0.816]] },
 { id: 'dgpf9', n: '东莞东华医院', t: 'hosp', lm: 'dgp9', pax: [[2000, 0.348], [2005, 0.543], [2010, 0.768], [2015, 1.052], [2020, 1.017], [2035, 1.017]] },
@@ -1134,6 +1166,16 @@ histTasks: [
     { id: 'dgpn48', n: '潼湖湿地', t: 'park', lm: 'dgl250', pax: [[2015, 0.284], [2021, 0.828], [2027, 1.325]] },
     { id: 'dgpn49', n: '光明科学城', t: 'uni', lm: 'dgl251', pax: [[2018, 0.379], [2024, 1.065], [2030, 1.704]] },
   ];
+  // 非枢纽设施缺少 w：按 pax（万人次/日）折算吸引比例，避免真实设施不产生需求。
+  // 枢纽（铁路/机场/港口）仍由 Fac.pax 提供接驳客流，不需要 w。
+  (function () {
+    const k = 0.005, cap = 0.08;
+    for (const f of DATA.facilities) {
+      if (f.w || !f.pax) continue;
+      if (f.t === 'rail' || f.t === 'air' || f.t === 'port') continue;
+      f.w = f.pax.map(function (p) { return [p[0], Math.min(cap, p[1] * k)]; });
+    }
+  })();
   DATA.bg = {
     name: '城际铁路与渡轮',
     // 有 lines 的地图不走「全市比重」模式，但 eras.js 仍会读 share/speed/wait，必须给曲线（同 data_sy.js）
@@ -1157,17 +1199,42 @@ histTasks: [
       { id: "dg-ferry", kind: 'ferry', name: "虎门—南沙汽车渡轮", speed: 14, head: [[1991, 30], [2019, 30]], y0: [1991, 6], y1: [2019, 5], stops: [["虎门渡口",64.6,180.2],["南沙渡口",48.3,180.2]] },
       // 未来线（第 19 轮）：按计划开通年份，先以直线走向与通用班次占位，通车后按实际走向细化
       { id: "dg_深惠城际", kind: 'rail', name: "深惠城际", speed: 160, head: [[2029, 20], [2036, 15]], y0: [2029, 12], stops: [["深圳北",216.28,247.62],["五和",228.16,238.84],["平湖",252.45,210.12],["凤岗",271.2,206.9],["大运北",285.21,207.95],["龙城",301.49,198.99],["坪地",326,194.5]], path: "e}Yw}]oq@bd@ueBxsB{|@v@}|@`kA{aAed@aqBxeA" },
-      { id: "dg_深江铁路", kind: 'rail', name: "深江铁路", speed: 200, head: [[2028, 30], [2040, 20]], y0: [2028, 5], stops: [["深圳机场东",126.31,243.27],["交椅湾",83.9,187.5],["滨海湾",70.5,190.5],["南沙",12.22,163.66]], path: "gxNal]r_@plCzgChpAlv@qIjtBjb@`qBveAxrEjb@" },
+      { id: "dg_深江铁路", kind: 'rail', name: "深江铁路", speed: 200, head: [[2028, 30], [2040, 20]], y0: [2028, 5], stops: [["深圳机场东",126.31,243.27],["交椅湾",83.9,187.5],["滨海湾",79.5,174.5],["南沙",12.22,163.66]], path: "gxNal]r_@plCzgChpAvPds@`zCkZ`qBveAxrEjb@" },
       { id: "dg_佛穗莞城际", kind: 'rail', name: "佛穗莞城际", speed: 160, head: [[2031, 30], [2042, 20]], y0: [2031, 6], stops: [["新塘",48.89,22.12],["东泊",53,44.2],["蕉利",65.19,53.08],["万江",85.56,61.92],["莞城",101.86,70.77],["鸿福路",103.9,72.98],["黄旗南",118.16,75.19],["寮步",150.75,79.61],["松山湖",158.9,106.15]], path: "qbEowAiOmwA{o@kb@opAkb@e`Akb@eG{G_x@yGkaCuPs_@eiB" },
     ],
   };
+
+  // 设施与建筑的名字并入自动命名表（第 28 轮）：建站时 M.suggestName 在 3.2 格内取最近未用名，
+  // 名字不够时才会退化成「片区名 + 序号」。只收非铁路/码头类，避免和既有站名抢注。
+  (function () {
+    const seen = new Set(DATA.places.map(function (p) { return p[0]; }));
+    const byId = {};
+    for (const l of DATA.landmarks) byId[l.id] = l;
+    const add = function (name, x, y) {
+      if (!name || x == null || y == null) return;
+      let n = String(name).replace(/[（(][^）)]*[）)]/g, '').replace(/\s+/g, '');
+      if (n.indexOf('东莞市') === 0 && n.length > 5) n = n.slice(3);
+      if (n.length < 2 || seen.has(n)) return;
+      seen.add(n);
+      DATA.places.push([n, x, y, 0]);
+    };
+    for (const l of DATA.landmarks) {
+      if (l.kind === 'rail' || l.kind === 'port') continue;
+      add(l.name, l.x, l.y);
+    }
+    for (const f of DATA.facilities) {
+      if (f.t === 'rail' || f.t === 'port') continue;
+      const l = byId[f.lm];
+      if (l) add(f.n, l.x, l.y);
+    }
+  })();
 
   (CM.MAP_LIST = CM.MAP_LIST || []).push({
     id: 'dg', name: '东莞', title: '东莞 · 2000', sub: '真实地理 · 2000 年起 · 世界工厂与镇域网络',
     region: '中国内地', tagline: '珠江口东岸', difficulty: 3, tags: ['镇域网络', '世界工厂', '湾区东岸'],
     intro: '2000 年的东莞是一座「镇镇点火」的世界工厂：644 万常住人口里七成六是外来工，厂房沿广深公路铺满 32 个镇街，没有一个真正意义上的市中心。此后二十年，双转移与金融危机洗掉低端产线，松山湖接住华为，虎门通了高铁，滨海湾在滩涂上填海，2021 年 GDP 破万亿。',
     features: [
-      ['map', '真实地理', '东江、珠江口、道路与铁路来自 OpenStreetMap；山体与保护区不可开发'],
+      ['map', '镇街格局', '34 个镇街各自成团：日常通勤、购物多在本镇解决，镇与镇之间只靠几条老公路和铁路相连，跨镇出行少、绕行远。'],
       ['factory', '世界工厂', '32 镇街按 2000 年五普人口开放，工业带沿广深公路铺开'],
       ['train', '镇际铁路', '广深、穗深、莞惠、广深港、京港在图上按真实走向铺设，图外不设站'],
       ['building', '时代四段', '世界工厂 → 双转移阵痛 → 松山湖与手机 → 湾区都市'],
@@ -1228,7 +1295,7 @@ histTasks: [
       // 财政：2 号线 40% 财政资本金 + 60% 银团贷款；专项债 2023 年 3.5%、2024 年 2.2%，城投债 2025 年加权 2.37%。
       // 真实运营缺口几乎全部由财政补贴覆盖（5.11 亿 / 5.19 亿），这里按 0.9 计。
       economy: Object.assign({}, CM.CFG.economy, {
-        opsSubsidy: 0.9, startFunds: 260000, debtLimit: -220000,
+        opsSubsidy: 0.9, startFunds: 400000, debtLimit: -220000,
         grantBase: [[2000, 30000], [2010, 55000], [2020, 90000], [2030, 120000], [2050, 160000]],
         bonds: {
           local: { rate: [[2000, 0.035], [2010, 0.04], [2016, 0.032], [2020, 0.033], [2023, 0.035], [2024, 0.022], [2030, 0.028], [2050, 0.035]], quotaMonths: 6, capMonths: 30 },
@@ -1241,6 +1308,15 @@ histTasks: [
       growth: Object.assign({}, CM.CFG.growth, {
         popCurve: [[2000, 6.44e6], [2005, 7.2e6], [2010, 8.22e6], [2015, 8.9e6], [2020, 10.47e6], [2030, 11.2e6], [2035, 11.6e6], [2045, 12.2e6], [2070, 12.2e6], [2300, 12.4e6]],
         jobsRatio: [[1990,0.5],[2000,0.63],[2010,0.66],[2020,0.683],[2030,0.69],[2060,0.7]],
+      }),
+      // 道路供给：东莞是「镇镇点火」的组团城市，路网里程 2008 年已约 4,969 km、2018 年 5,266 km，增长主要靠新路而非既有道路成倍拓宽。
+      // 引擎默认的 capGrowth（2010 年 2.4 倍）把它当成全市道路反复拓宽，模型里 2011 年全日拥堵只有 1.02；按《东莞调研·交通与拥堵》
+      // 的 2008–2013 阶段（高峰延时 1.10→1.40）与 2015 年 1.545、2016–2018 峰值 1.62–1.65 标定，只用小幅拓宽 + 路口改造。
+      road: Object.assign({}, CM.CFG.road, {
+        capGrowth: [[2000, 1.0], [2006, 1.1], [2012, 1.2], [2016, 1.25], [2020, 1.3], [2040, 1.4]],
+        // BPR 的 0.15 是连续流（高速/快速路）标定；东莞主次干道以信号交叉口为主，交叉口延误没有单独建模，
+        // 用 0.62 的 A 值补上这部分。载入 2011 存档（含玩家 104 站地铁）实测全日约 1.24、早高峰约 1.51；无地铁局更高。
+        bprA: 0.62,
       }),
     },
     econ: { devOffset: -4, money: 1 },   // 发展阶段落后广州约 4 年（人均 GDP：东莞 2000 年 ≈ 广州 1996 年）
